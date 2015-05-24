@@ -6,11 +6,10 @@
 package TPV_Moviles.Modulos.Login.DAO;
 
 import TPV_Moviles.Librerias.Encrypt;
-import TPV_Moviles.Librerias.Funciones;
 import TPV_Moviles.Librerias.Validate;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
-import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Empleados;
+import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import TPV_Moviles.Modulos.Login.Vista.Login;
 import java.awt.Color;
@@ -75,7 +74,7 @@ public class LoginDAO {
         } else {
             Singletons.conectado = "si";
             Singletons.log.dispose();
-            new Controlador_Inicio(new Ventana_Empleados(), 0).iniciar(0);
+            new Controlador_Inicio(new Ventana_Inicio(), 0).iniciar(0);
             
         }
 
@@ -88,7 +87,7 @@ public class LoginDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM gestionbbdd.empleadosfijos WHERE DNI=? AND Password=?");
+            stmt = con.prepareStatement("SELECT * FROM movilesbbdd.clientes WHERE DNI=? AND Password=?");
 
             stmt.setString(1, dni);
             stmt.setString(2, Password);
@@ -130,7 +129,7 @@ public class LoginDAO {
         int correcto = 0;
 
         try {
-            stmt = con.prepareStatement("UPDATE gestionbbdd.empleadosfijos SET Password=? WHERE DNI=?");
+            stmt = con.prepareStatement("UPDATE movilesbbdd.clientes SET Password=? WHERE DNI=?");
             
             stmt.setString(1, password);
             stmt.setString(2, dni);
@@ -158,7 +157,7 @@ public class LoginDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("SELECT tipo FROM gestionbbdd.empleadosfijos WHERE DNI=?");
+            stmt = con.prepareStatement("SELECT tipo FROM movilesbbdd.clientes WHERE DNI=?");
 
             stmt.setString(1, dni);
 

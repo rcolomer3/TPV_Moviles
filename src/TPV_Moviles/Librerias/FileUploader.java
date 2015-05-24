@@ -7,9 +7,9 @@ package TPV_Moviles.Librerias;
 
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Clientes;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
-import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons.ModificarEF;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaEF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -54,13 +54,13 @@ public class FileUploader {
                 Image img = icon.getImage();
                 Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon newIcon = new ImageIcon(newimg);
-                Singletons.PagerEF.labelAvatar.setIcon(newIcon); //pintamos la imagen en jlabel1
+                Singletons.PagerCli.labelAvatar.setIcon(newIcon); //pintamos la imagen en jlabel1
 
                 ImageIcon icon1 = new ImageIcon(Singletons.ruta);
                 Image img1 = icon1.getImage();
                 Image newimg1 = img1.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon newIcon1 = new ImageIcon(newimg1);
-                Singletons.ModificarEF.labelAvatar.setIcon(newIcon1); //pintamos la imagen en jlabel1
+                Singletons.ModificarCli.labelAvatar.setIcon(newIcon1); //pintamos la imagen en jlabel1
                 
             }
             try {
@@ -70,7 +70,7 @@ public class FileUploader {
                         fileChooser.getSelectedFile().toURL().toString().length() - 3);
                 String cad = Funciones.getCadenaAleatoria(10);
 
-                Singletons.PATH_auto = new java.io.File("") + "src/TPV/Img/" + cad + "." + extension;
+                Singletons.PATH_auto = new java.io.File("") + "src/TPV_Moviles/Img/" + cad + "." + extension;
                 File f = new File(Singletons.PATH_auto);
 
                 ImageIO.write(image, extension, f);
@@ -106,7 +106,7 @@ public class FileUploader {
                 Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
                 //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
                 ImageIcon newIcon = new ImageIcon(newimg);
-                ModificarEF.labelFotoUsuario.setIcon(newIcon);
+                ModificarCli.labelFotoUsuario.setIcon(newIcon);
             }
 
             if (i == 2) {
@@ -118,7 +118,7 @@ public class FileUploader {
                 Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
                 //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
                 ImageIcon newIcon = new ImageIcon(newimg);
-                AltaEF.labelFotoUsu.setIcon(newIcon);
+                AltaCli.labelFotoUsu.setIcon(newIcon);
             }
 
             if (i == 3) {
@@ -130,7 +130,7 @@ public class FileUploader {
                 Image newimg = img.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
                 //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
                 ImageIcon newIcon = new ImageIcon(newimg);
-                ModificarEF.labelAvatar.setIcon(newIcon);
+                ModificarCli.labelAvatar.setIcon(newIcon);
             }
 
             if (i == 4) {
@@ -142,7 +142,7 @@ public class FileUploader {
                 Image newimg = img.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
                 //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
                 ImageIcon newIcon = new ImageIcon(newimg);
-                ModificarEF.labelAvatar.setIcon(newIcon);
+                ModificarCli.labelAvatar.setIcon(newIcon);
             }
             
         } catch (Exception ex) {

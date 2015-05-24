@@ -9,12 +9,12 @@ package TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista;
  *
  * @author Raul
  */
-public class AltaEF extends javax.swing.JFrame {
+public class AltaCli extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistroClie
      */
-    public AltaEF() {
+    public AltaCli() {
         initComponents();
     }
 
@@ -122,13 +122,15 @@ public class AltaEF extends javax.swing.JFrame {
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 29, 161, -1));
         jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 71, 161, -1));
         jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 113, 161, -1));
+
+        dcfnac.setDateFormatString("dd-MM-yyyy");
         jPanel1.add(dcfnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 198, 161, -1));
 
         txtAntiguedad.setEditable(false);
         jPanel1.add(txtAntiguedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 31, -1));
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 161, -1));
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliente", "Administrador", " " }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliente", "Administrador" }));
         jPanel1.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 123, -1));
 
         btnAnyadir.setText("Dar de alta");
@@ -145,6 +147,8 @@ public class AltaEF extends javax.swing.JFrame {
         btnVolver.setText("Ir Pager");
         btnVolver.setOpaque(false);
         jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 448, -1, -1));
+
+        dcFAlta.setDateFormatString("dd-MM-yyyy");
         jPanel1.add(dcFAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 244, 161, -1));
 
         etiAntiguedad.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -177,10 +181,10 @@ public class AltaEF extends javax.swing.JFrame {
         labelFotoUsu.setOpaque(true);
 
         labelNomUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        labelNomUsu.setForeground(java.awt.Color.orange);
+        labelNomUsu.setForeground(java.awt.Color.blue);
         labelNomUsu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
-        etiTitulo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        etiTitulo.setFont(new java.awt.Font("Verdana", 1, 21)); // NOI18N
         etiTitulo.setForeground(java.awt.Color.green);
         etiTitulo.setText("Alta Empleado Fijo");
 
@@ -215,9 +219,9 @@ public class AltaEF extends javax.swing.JFrame {
                             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(labelNomUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(62, 62, 62)
-                        .addComponent(etiTitulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59))))
         );
@@ -237,20 +241,18 @@ public class AltaEF extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

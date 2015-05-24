@@ -5,9 +5,9 @@
  */
 package TPV_Moviles.Modulos.Login.Controlador_Login;
 
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Controlador.Controlador_EF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Controlador.Controlador_Cli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaEF1;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import TPV_Moviles.Modulos.Login.Vista.CambiarPassword;
 import TPV_Moviles.Modulos.Login.Vista.Login;
@@ -39,7 +39,6 @@ public class Controlador_Login implements ActionListener, MouseListener {
         _REGISTER,
         //Ventana CambiarPassword
         _TXT_USUARIO_M,
-        _TXT_PASSWORD_M,
         _TXT_EMAIL_M,
         _BTN_ACTUALIZAR,
     }
@@ -62,9 +61,9 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.log.setVisible(true);
             Singletons.log.setResizable(false);
             Singletons.log.setSize(380, 517); //ancho x alto
-            Singletons.log.setTitle("Login Empleado Fijo");
+            Singletons.log.setTitle("Login Clientes");
             Singletons.log.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV/Img/trabajador.jpg");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
             Singletons.log.setIconImage(icono);
 
             Singletons.log.addWindowListener(new WindowAdapter() {
@@ -98,7 +97,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.cbpass.setSize(526, 389); //ancho x alto
             Singletons.cbpass.setTitle("Recuperar Password");
             Singletons.cbpass.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV/Img/trabajador.jpg");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
             Singletons.cbpass.setIconImage(icono);
 
             Singletons.cbpass.addWindowListener(new WindowAdapter() {
@@ -111,9 +110,6 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.cbpass.txtUsuarioReg.setActionCommand("_TXT_USUARIO_M");
             Singletons.cbpass.txtUsuarioReg.addActionListener(this);
 
-            Singletons.cbpass.txtNuevaCont.setActionCommand("_TXT_PASSWORD_M");
-            Singletons.cbpass.txtNuevaCont.addActionListener(this);
-            
             Singletons.cbpass.txtEmailRecu.setName("_TXT_EMAIL_M");
             Singletons.cbpass.txtEmailRecu.setActionCommand("_TXT_EMAIL_M");
             Singletons.cbpass.txtEmailRecu.addActionListener(this);
@@ -160,7 +156,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
 
             case _REGISTER:
                 Singletons.log.dispose();
-                new Controlador_EF(new AltaEF1(), 0).iniciar(0);
+                new Controlador_Cli(new AltaCli(), 0).iniciar(0);
                 break;
         }
     }

@@ -6,10 +6,10 @@
 package TPV_Moviles.Modulos.Inicio.ControladorInicio;
 
 import TPV_Moviles.Clases.Config;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Controlador.Controlador_EF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Controlador.Controlador_Cli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
-import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Empleados;
+import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import projectefinal_moviles.Modulos.Gestion_Productos.Vista.Ventana_Prod;
 
 /**
  *
@@ -31,8 +32,11 @@ public class Controlador_Inicio implements ActionListener {
 
         //Acciones de la ventana Inicio
         
+        _MENU_PROD,
+        _MENU_COMPRAS,
         _MENU_PAGER,
         _MENU_CONFIG,
+        _SIGN_IN,
         
         //Acciones de la pestaña Configuracion
         _euro,
@@ -54,17 +58,30 @@ public class Controlador_Inicio implements ActionListener {
 
     public Controlador_Inicio(JFrame menuPpal, int i) {
 
-        if (i == 0) { //Pestaña Pager en Ventana_Empleados
-            Singletons.menuPpal = (Ventana_Empleados) menuPpal;
+        if (i == 0) { //Pestaña Pager en Ventana_Inicio
+            Singletons.menuPpal = (Ventana_Inicio) menuPpal;
         }
         
-        if (i == 1) { //Pager
-            Singletons.PagerEF = (interfaz_Clientes) menuPpal;
-            new Controlador_EF(new interfaz_Clientes(), 2).iniciar(2);
+        if (i == 1) { //Pestaña Gestion Clientes
+            Singletons.PagerCli = (interfaz_Clientes) menuPpal;
+            new Controlador_Cli(new interfaz_Clientes(), 2).iniciar(2);
         }
 
-        if (i == 2) { //Pestaña Configuracion en Ventana_Empleados
-            Singletons.config = (Ventana_Empleados) menuPpal;
+        if (i == 2) { //Pestaña Configuracion en Ventana_Inicio
+            Singletons.config = (Ventana_Inicio) menuPpal;
+        }
+        
+        if (i== 3) { //Pestaña Gestion Productos
+            Singletons.PagerPro = (Ventana_Prod) menuPpal;
+            //new Controlador_Prod(new Ventana_Prod(), 2).iniciar(2);
+        }
+        
+        if (i== 4) { //Pestaña Gestion Compras
+            
+        }
+        
+        if (i == 5) { //Pestaña Sign In
+            
         }
         
     }
@@ -75,10 +92,10 @@ public class Controlador_Inicio implements ActionListener {
 
             Singletons.menuPpal.setVisible(true);
             Singletons.menuPpal.setResizable(false);
-            Singletons.menuPpal.setTitle("Empleados");
+            Singletons.menuPpal.setTitle("Tu Tienda Movil");
             Singletons.menuPpal.setLocationRelativeTo(null);
-            Singletons.menuPpal.setSize(610, 370); //ancho x alto
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV/Img/trabajador.jpg");
+            Singletons.menuPpal.setSize(900, 651); //ancho x alto
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/trabajador.jpg");
             Singletons.menuPpal.setIconImage(icono);
 
             Singletons.menuPpal.addWindowListener(new WindowAdapter() {
@@ -87,6 +104,8 @@ public class Controlador_Inicio implements ActionListener {
                     System.exit(0);
                 }
             });
+            
+            //if(Singletons.conectado.equals("si")) {
 
             Singletons.menuPpal.MenuPager.setActionCommand("_MENU_PAGER");
             Singletons.menuPpal.MenuPager.addActionListener(this);
@@ -136,6 +155,12 @@ public class Controlador_Inicio implements ActionListener {
 
             Singletons.config.decimal3.setActionCommand("_decimal3");
             Singletons.config.decimal3.addActionListener(this);
+            
+            /*} else if (Singletons.conectado.equals("no")) {
+                
+                Singletons.menuPpal.MenuCli.setVisible(false);
+                Singletons.menuPpal.MenuConf.setVisible(false);
+            }*/
         }
     }
 
@@ -147,12 +172,12 @@ public class Controlador_Inicio implements ActionListener {
             //Configuracion del Menu
             case _MENU_PAGER:
                 new Controlador_Inicio(new interfaz_Clientes(), 1).iniciar(0);
-                Singletons.PagerEF.setVisible(true);
+                Singletons.PagerCli.setVisible(true);
                 Singletons.menuPpal.dispose();
                 break;
 
             case _MENU_CONFIG:
-                new Controlador_Inicio(new Ventana_Empleados(), 2).iniciar(0);
+                new Controlador_Inicio(new Ventana_Inicio(), 2).iniciar(0);
                 break;
 
             //Pestaña Configuracion

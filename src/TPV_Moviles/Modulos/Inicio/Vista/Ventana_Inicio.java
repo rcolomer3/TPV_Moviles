@@ -9,12 +9,12 @@ package TPV_Moviles.Modulos.Inicio.Vista;
  *
  * @author Raul
  */
-public class Ventana_Empleados extends javax.swing.JFrame {
+public class Ventana_Inicio extends javax.swing.JFrame {
 
     /**
      * Creates new form Panel
      */
-    public Ventana_Empleados() {
+    public Ventana_Inicio() {
         initComponents();
     }
 
@@ -32,8 +32,12 @@ public class Ventana_Empleados extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        MenuConsEmp = new javax.swing.JMenu();
-        jMenuEF = new javax.swing.JMenu();
+        MenuProd = new javax.swing.JMenu();
+        menuProd = new javax.swing.JMenuItem();
+        MenuComp = new javax.swing.JMenu();
+        menuComp = new javax.swing.JMenuItem();
+        MenuCli = new javax.swing.JMenu();
+        jMenuCli = new javax.swing.JMenu();
         MenuPager = new javax.swing.JMenuItem();
         MenuConf = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -55,6 +59,7 @@ public class Ventana_Empleados extends javax.swing.JFrame {
         decimal1 = new javax.swing.JMenuItem();
         decimal2 = new javax.swing.JMenuItem();
         decimal3 = new javax.swing.JMenuItem();
+        MenuSign = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,24 +76,42 @@ public class Ventana_Empleados extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/fondo1.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 630));
 
-        MenuConsEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/editpaste.png"))); // NOI18N
-        MenuConsEmp.setText("Administracion");
+        MenuProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/smartphone.png"))); // NOI18N
+        MenuProd.setText("Productos");
 
-        jMenuEF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/user-inv.png"))); // NOI18N
-        jMenuEF.setText("Clientes");
+        menuProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/ButtonTables.png"))); // NOI18N
+        menuProd.setText("Ver Productos");
+        MenuProd.add(menuProd);
 
-        MenuPager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/ButtonTables.png"))); // NOI18N
-        MenuPager.setText("Gestion_Pager");
-        jMenuEF.add(MenuPager);
+        jMenuBar1.add(MenuProd);
 
-        MenuConsEmp.add(jMenuEF);
+        MenuComp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/carrito.png"))); // NOI18N
+        MenuComp.setText("Compras");
 
-        jMenuBar1.add(MenuConsEmp);
+        menuComp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/ButtonTables.png"))); // NOI18N
+        menuComp.setText("Ver Compras");
+        MenuComp.add(menuComp);
 
-        MenuConf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/configure.png"))); // NOI18N
+        jMenuBar1.add(MenuComp);
+
+        MenuCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/editpaste.png"))); // NOI18N
+        MenuCli.setText("Administracion");
+
+        jMenuCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/user-inv.png"))); // NOI18N
+        jMenuCli.setText("Clientes");
+
+        MenuPager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/ButtonTables.png"))); // NOI18N
+        MenuPager.setText("Gestion");
+        jMenuCli.add(MenuPager);
+
+        MenuCli.add(jMenuCli);
+
+        jMenuBar1.add(MenuCli);
+
+        MenuConf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/configure.png"))); // NOI18N
         MenuConf.setText("Configuración");
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/colorize.png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/colorize.png"))); // NOI18N
         jMenu1.setText("Apariencia");
 
         aparienciaMetal.setText("Metal");
@@ -102,7 +125,7 @@ public class Ventana_Empleados extends javax.swing.JFrame {
 
         MenuConf.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/moneda.png"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/moneda.png"))); // NOI18N
         jMenu2.setText("Moneda");
 
         Euro.setText("Euro €");
@@ -116,7 +139,7 @@ public class Ventana_Empleados extends javax.swing.JFrame {
 
         MenuConf.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/fecha.png"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/fecha.png"))); // NOI18N
         jMenu3.setText("Fecha");
 
         fecha4.setText("dd-mm-yyyy");
@@ -139,7 +162,7 @@ public class Ventana_Empleados extends javax.swing.JFrame {
 
         MenuConf.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/decimales.png"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/decimales.png"))); // NOI18N
         jMenu4.setText("Decimales");
 
         decimal1.setText("1 Decimal");
@@ -154,6 +177,10 @@ public class Ventana_Empleados extends javax.swing.JFrame {
         MenuConf.add(jMenu4);
 
         jMenuBar1.add(MenuConf);
+
+        MenuSign.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/login.png"))); // NOI18N
+        MenuSign.setText("Sign In");
+        jMenuBar1.add(MenuSign);
 
         setJMenuBar(jMenuBar1);
 
@@ -175,9 +202,12 @@ public class Ventana_Empleados extends javax.swing.JFrame {
     public static javax.swing.JMenuItem Dolar;
     public static javax.swing.JMenuItem Euro;
     public static javax.swing.JMenuItem Libra;
+    public static javax.swing.JMenu MenuCli;
+    public static javax.swing.JMenu MenuComp;
     public static javax.swing.JMenu MenuConf;
-    private javax.swing.JMenu MenuConsEmp;
     public static javax.swing.JMenuItem MenuPager;
+    public static javax.swing.JMenu MenuProd;
+    public static javax.swing.JMenu MenuSign;
     public static javax.swing.JMenuItem aparienciaGTK;
     public static javax.swing.JMenuItem aparienciaMetal;
     public static javax.swing.JMenuItem aparienciaNimbus;
@@ -198,7 +228,9 @@ public class Ventana_Empleados extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    public static javax.swing.JMenu jMenuEF;
+    public static javax.swing.JMenu jMenuCli;
     private javax.swing.JPanel jPanel1;
+    public static javax.swing.JMenuItem menuComp;
+    public static javax.swing.JMenuItem menuProd;
     // End of variables declaration//GEN-END:variables
 }

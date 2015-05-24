@@ -5,6 +5,7 @@
  */
 package TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO;
 
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Clientes;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.DAOCliente;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import com.mysql.jdbc.CallableStatement;
@@ -21,13 +22,14 @@ import javax.swing.JOptionPane;
 public class DAOBD {
 
     //Dar de alta a un empleado
-    public static int nuevoEmpleadoDAO(Connection con) {
+    public static int nuevoClienteDAO(Connection con) {
 
         PreparedStatement stmt = null;
         int correcto = 0;
+         JOptionPane.showMessageDialog(null, "EEE!");
         try {
 
-            stmt = con.prepareStatement("INSERT INTO gestionbbdd.empleadosfijos"
+            stmt = con.prepareStatement("INSERT INTO movilesbbdd.clientes"
                     + "(Nombre, Apellidos, DNI, Edad, Telefono, fechaNacimiento, fechaAlta, "
                     + "Usuario, Password, Email, Estado, Tipo, Avatar, Antiguedad, Saldo) "
                     + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -46,7 +48,7 @@ public class DAOBD {
             stmt.setString(13, Singletons.e.getAvatar());
             stmt.setInt(14, Singletons.e.getAntiguedad());
             stmt.setFloat(15, Singletons.e.getSaldo());
-
+JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
             correcto = stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
 
@@ -65,38 +67,37 @@ public class DAOBD {
     }
 
     //Listamos todos los empleados y los metemos en su array
-    public void listarEmpleadoDAO(Connection con) {
+    public void listarClienteDAO(Connection con) {
 
         ResultSet rs = null;
         PreparedStatement stmt = null;
 
         Singletons.efi.clear();
         try {
-            stmt = con.prepareStatement("SELECT * FROM gestionbbdd.empleadosfijos");
+            stmt = con.prepareStatement("SELECT * FROM movilesbbdd.clientes");
             rs = stmt.executeQuery();
 
-            EmpleadoFijo _efijo = null;
+            Clientes _cli = null;
 
             while (rs.next()) {
 
-                _efijo = new EmpleadoFijo();
-                _efijo.setNombre(rs.getString("Nombre"));
-                _efijo.setApellidos(rs.getString("Apellidos"));
-                _efijo.setDni(rs.getString("DNI"));
-                _efijo.setEdad(rs.getInt("Edad"));
-                _efijo.setTelefono(rs.getString("Telefono"));
-                _efijo.setFechaNacimiento(DAOCliente.sacaFecha(rs.getString("fechaNacimiento")));
-                _efijo.setFechaContrac(DAOCliente.sacaFecha(rs.getString("fechaContrac")));
-                _efijo.setUsuario(rs.getString("Usuario"));
-                _efijo.setPassword(rs.getString("Password"));
-                _efijo.setEmail(rs.getString("Email"));
-                _efijo.setEstado(rs.getInt("Estado"));
-                _efijo.setTipo(rs.getString("Tipo"));
-                _efijo.setAvatar(rs.getString("Avatar"));
-                _efijo.setAntiguedad(rs.getInt("Antiguedad"));
-                _efijo.setSueldofijo(rs.getFloat("SueldoFijo"));
-                _efijo.setSueldohoras(rs.getFloat("SueldoHoras"));
-                Singletons.efi.add(_efijo);
+                _cli = new Clientes();
+                _cli.setNombre(rs.getString("Nombre"));
+                _cli.setApellidos(rs.getString("Apellidos"));
+                _cli.setDni(rs.getString("DNI"));
+                _cli.setEdad(rs.getInt("Edad"));
+                _cli.setTelefono(rs.getString("Telefono"));
+                _cli.setFechaNacimiento(DAOCliente.sacaFecha(rs.getString("fechaNacimiento")));
+                _cli.setFechaAlta(DAOCliente.sacaFecha(rs.getString("fechaAlta")));
+                _cli.setUsuario(rs.getString("Usuario"));
+                _cli.setPassword(rs.getString("Password"));
+                _cli.setEmail(rs.getString("Email"));
+                _cli.setEstado(rs.getInt("Estado"));
+                _cli.setTipo(rs.getString("Tipo"));
+                _cli.setAvatar(rs.getString("Avatar"));
+                _cli.setAntiguedad(rs.getInt("Antiguedad"));
+                _cli.setSaldo(rs.getFloat("Saldo"));
+                Singletons.efi.add(_cli);
 
             }
         } catch (SQLException ex) {
@@ -113,15 +114,15 @@ public class DAOBD {
     }
 
     //Modificamos un empleado
-    public static int modificarEmpleadoDAO(Connection con) {
+    public static int modificarClienteDAO(Connection con) {
         PreparedStatement stmt = null;
         int correcto = 0;
 
         try {
-            stmt = con.prepareStatement("UPDATE gestionbbdd.empleadosfijos SET Nombre=?, "
-                    + "Apellidos=?, DNI=?, Edad=?, Telefono=?, fechaNacimiento=?, fechaContrac=?, Usuario=?, Password=?,"
+            stmt = con.prepareStatement("UPDATE movilesbbdd.clientes SET Nombre=?, "
+                    + "Apellidos=?, DNI=?, Edad=?, Telefono=?, fechaNacimiento=?, fechaAlta=?, Usuario=?, Password=?,"
                     + "Email=?, Estado=?, Tipo=?, Avatar=?, "
-                    + "Antiguedad=?, SueldoFijo=?, SueldoHoras=? WHERE DNI=?");
+                    + "Antiguedad=?, Saldo=? WHERE DNI=?");
 
             stmt.setString(1, Singletons.e.getNombre());
             stmt.setString(2, Singletons.e.getApellidos());
@@ -129,7 +130,7 @@ public class DAOBD {
             stmt.setInt(4, Singletons.e.getEdad());
             stmt.setString(5, Singletons.e.getTelefono());
             stmt.setString(6, Singletons.e.getFechaNacimiento().toStringFecha());
-            stmt.setString(7, Singletons.e.getFechaContrac().toStringFecha());
+            stmt.setString(7, Singletons.e.getFechaAlta().toStringFecha());
             stmt.setString(8, Singletons.e.getUsuario());
             stmt.setString(9, Singletons.e.getPassword());
             stmt.setString(10, Singletons.e.getEmail());
@@ -137,10 +138,9 @@ public class DAOBD {
             stmt.setString(12, Singletons.e.getTipo());
             stmt.setString(13, Singletons.e.getAvatar());
             stmt.setInt(14, Singletons.e.getAntiguedad());
-            stmt.setFloat(15, Singletons.e.getSueldofijo());
-            stmt.setFloat(16, Singletons.e.getSueldohoras());
-
-            stmt.setString(17, Singletons.e.getDni());
+            stmt.setFloat(15, Singletons.e.getSaldo());
+            
+            stmt.setString(16, Singletons.e.getDni());
             correcto = stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "El usuario ha sido modificado correctamente!");
@@ -159,13 +159,13 @@ public class DAOBD {
     }
 
     //Borramos un empleado
-    public boolean borrarEmpleadoDAO(Connection con) {
+    public boolean borrarClienteDAO(Connection con) {
 
         PreparedStatement stmt = null;
         boolean correcto = false;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM gestionbbdd.empleadosfijos WHERE DNI=?");
+            stmt = con.prepareStatement("DELETE FROM movilesbbdd.clientes WHERE DNI=?");
             stmt.setString(1, Singletons.e.getDni());
             stmt.executeUpdate();
             correcto = true;
@@ -191,12 +191,12 @@ public class DAOBD {
         boolean correcto = false;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM gestionbbdd.empleadosfijos WHERE DNI=?");
+            stmt = con.prepareStatement("SELECT * FROM movilesbbdd.clientes WHERE DNI=?");
             stmt.setString(1, Singletons.e.getDni());
             rs = stmt.executeQuery();
             while (rs.next()) {
 
-                obtenEmpleadoFila(rs);
+                obtenClienteFila(rs);
             }
             correcto = true;
         } catch (SQLException ex) {
@@ -220,7 +220,7 @@ public class DAOBD {
         return correcto;
     }
 
-    public boolean obtenEmpleadoFila(ResultSet rs) {
+    public boolean obtenClienteFila(ResultSet rs) {
 
         boolean correcto = false;
 
@@ -232,7 +232,7 @@ public class DAOBD {
             Singletons.e.setEdad(rs.getInt("Edad"));
             Singletons.e.setTelefono(rs.getString("Telefono"));
             Singletons.e.setFechaNacimiento(DAOCliente.sacaFecha(rs.getString("fechaNacimiento")));
-            Singletons.e.setFechaContrac(DAOCliente.sacaFecha(rs.getString("fechaContrac")));
+            Singletons.e.setFechaAlta(DAOCliente.sacaFecha(rs.getString("fechaAlta")));
             Singletons.e.setUsuario(rs.getString("Usuario"));
             Singletons.e.setPassword(rs.getString("Password"));
             Singletons.e.setEmail(rs.getString("Email"));
@@ -240,9 +240,8 @@ public class DAOBD {
             Singletons.e.setTipo(rs.getString("Tipo"));
             Singletons.e.setAvatar(rs.getString("Avatar"));
             Singletons.e.setAntiguedad(rs.getInt("Antiguedad"));
-            Singletons.e.setSueldofijo(rs.getFloat("SueldoFijo"));
-            Singletons.e.setSueldohoras(rs.getFloat("SueldoHoras"));
-
+            Singletons.e.setSaldo(rs.getFloat("Saldo"));
+            
             correcto = true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en el Logger");
@@ -251,7 +250,7 @@ public class DAOBD {
         return correcto;
     }
 
-    public void empleadoMenorMayorDAO(Connection con) {
+    public void clienteMenorMayorDAO(Connection con) {
 
         com.mysql.jdbc.CallableStatement cstmt = null;
         String cadena = "";

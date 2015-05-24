@@ -8,11 +8,8 @@ package TPV_Moviles.Modulos.Login.BLL;
 import TPV_Moviles.Clases.ConexionBD;
 import TPV_Moviles.Clases.JavaMail;
 import TPV_Moviles.Librerias.Encrypt;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.BLL.BLLGrafico;
-import TPV.Modulos.GestionClientes.GestionCli.Modelo.Clases.EmpleadoFijo;
+import TPV_Moviles.Librerias.Funciones;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico;
-import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico.pidednivaciopers;
 import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
 import TPV_Moviles.Modulos.Login.DAO.LoginDAO;
 import TPV_Moviles.Modulos.Login.Vista.CambiarPassword;
@@ -50,7 +47,7 @@ public class LoginBLL {
         String dni, password, passwordEn, subject, mensaje, email;
 
         dni = Singletons.cbpass.txtUsuarioReg.getText();
-        password = Singletons.cbpass.txtNuevaCont.getText();
+        password = Funciones.getCadenaAleatoria(7);
         passwordEn = Encrypt.encriptarTokenMD5(password);
         subject = "La nueva contraseña es:  ";
         mensaje = "Nueva password de registro";
@@ -60,21 +57,23 @@ public class LoginBLL {
 
         _con = _conexion_DB.AbrirConexion();
 
-        LoginDAO _empleadoDAO = new LoginDAO();
+        LoginDAO _clienteDAO = new LoginDAO();
 
-        correcto = _empleadoDAO.actualizarPasswordDAO(_con, dni, passwordEn);
+        correcto = _clienteDAO.actualizarPasswordDAO(_con, dni, passwordEn);
 
         _conexion_DB.CerrarConexion(_con);
 
         if (correcto == 1) {
 
             CambiarPassword.txtUsuarioReg.setBackground(Color.green);
-            CambiarPassword.txtNuevaCont.setBackground(Color.green);
-            JOptionPane.showMessageDialog(null, "La contraseña ha sido actualizada correctamente");
+            JOptionPane.showMessageDialog(null, "Usuario correcto, procesando envio!");
 
             //creamos el objeto Mail
             JavaMail mail = new JavaMail(email, password, subject, mensaje);
             //enviamos el mensaje
+            
+            //JOptionPane.showMessageDialog(null, mail.toString(), "Envio Email OK", JOptionPane.INFORMATION_MESSAGE);
+            
             String error = mail.send();
             if (error.equals("")) {
                 JOptionPane.showMessageDialog(null, "Envio Correcto", "Correcto", JOptionPane.INFORMATION_MESSAGE);
@@ -84,7 +83,6 @@ public class LoginBLL {
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no coincide");
             CambiarPassword.txtUsuarioReg.setBackground(Color.red);
-            CambiarPassword.txtNuevaCont.setBackground(Color.red);
         }
 
         Singletons.cbpass.dispose();

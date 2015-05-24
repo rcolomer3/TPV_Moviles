@@ -5,16 +5,19 @@
  */
 package TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases;
 
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaEF;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarEF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.autocomplete.AutocompleteJComboBox;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
-import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Empleados;
+import TPV_Moviles.Modulos.GestionProductos.Vista.ModificarPro;
+import TPV_Moviles.Modulos.GestionProductos.Vista.RegistroPro;
+import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.Vista.CambiarPassword;
 import TPV_Moviles.Modulos.Login.Vista.Login;
 import java.util.ArrayList;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import projectefinal_moviles.Modulos.Gestion_Productos.Vista.Ventana_Prod;
 
 /**
  *
@@ -24,11 +27,14 @@ public class Singletons {
 
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_Cli());
     public static AutocompleteJComboBox combo = null;
-    public static Ventana_Empleados menuPpal;
-    public static Ventana_Empleados config;
-    public static AltaEF CrearEF;
-    public static ModificarEF ModificarEF;
-    public static interfaz_Clientes PagerEF;
+    public static Ventana_Inicio menuPpal;
+    public static Ventana_Inicio config;
+    public static AltaCli CrearCli;
+    public static ModificarCli ModificarCli;
+    public static interfaz_Clientes PagerCli;
+    public static RegistroPro CrearPro;
+    public static ModificarPro ModificarPro;
+    public static Ventana_Prod PagerPro;
     public static ArrayList<Clientes> efi;
     public static Clientes e;
     public static int pos;
@@ -40,5 +46,5 @@ public class Singletons {
     public static String tipoUsuario = "nulo";
     public static Clientes usu;
     public static String conectado = "no";
-    public static String ruta = "src/TPV/Img/empleado.png";
+    public static String ruta = "src/TPV_Moviles/Img/empleado.png";
 }

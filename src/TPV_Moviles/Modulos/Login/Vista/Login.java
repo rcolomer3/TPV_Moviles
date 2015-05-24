@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         etiTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         etiTitulo.setForeground(java.awt.Color.green);
         etiTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiTitulo.setText("Login de empleados");
+        etiTitulo.setText("Login de clientes");
         jLayeredPane1.add(etiTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 27, 289, 28));
 
         txtUsuario.setBorder(null);
@@ -80,10 +80,10 @@ public class Login extends javax.swing.JFrame {
         Recordar.setText("¿Olvidaste tu contraseña?");
         jLayeredPane1.add(Recordar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 173, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/default-avatar.png"))); // NOI18N
-        jLayeredPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 73, -1, 61));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/default-avatar.png"))); // NOI18N
+        jLayeredPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 73, 70, 61));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/fondo5.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/fondo5.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

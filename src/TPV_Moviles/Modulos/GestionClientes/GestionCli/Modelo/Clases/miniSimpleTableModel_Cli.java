@@ -156,8 +156,8 @@ public class miniSimpleTableModel_Cli extends AbstractTableModel {
         datos.clear();
         datosaux.clear();
 
-        BLLBD _empleados = new BLLBD();
-        _empleados.listarEmpleadoBLL();
+        BLLBD _clientes = new BLLBD();
+        _clientes.listarClienteBLL();
         
         for (int i = 0; i <= Singletons.efi.size() - 1; i++) {
             addRow(Singletons.efi.get(i));

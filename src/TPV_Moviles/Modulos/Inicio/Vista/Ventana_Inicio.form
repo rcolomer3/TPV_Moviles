@@ -4,18 +4,69 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="MenuConsEmp">
+        <Menu class="javax.swing.JMenu" name="MenuProd">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/TPV/Img/editpaste.png"/>
+              <Image iconType="3" name="/TPV_Moviles/Img/smartphone.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Productos"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuProd">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/TPV_Moviles/Img/ButtonTables.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ver Productos"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="MenuComp">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/TPV_Moviles/Img/carrito.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Compras"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuComp">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/TPV_Moviles/Img/ButtonTables.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ver Compras"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="MenuCli">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/TPV_Moviles/Img/editpaste.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Administracion"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenuEF">
+            <Menu class="javax.swing.JMenu" name="jMenuCli">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/TPV/Img/user-inv.png"/>
+                  <Image iconType="3" name="/TPV_Moviles/Img/user-inv.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
@@ -26,9 +77,9 @@
                 <MenuItem class="javax.swing.JMenuItem" name="MenuPager">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/TPV/Img/ButtonTables.png"/>
+                      <Image iconType="3" name="/TPV_Moviles/Img/ButtonTables.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Gestion_Pager"/>
+                    <Property name="text" type="java.lang.String" value="Gestion"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -41,7 +92,7 @@
         <Menu class="javax.swing.JMenu" name="MenuConf">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/TPV/Img/configure.png"/>
+              <Image iconType="3" name="/TPV_Moviles/Img/configure.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
           </Properties>
@@ -52,7 +103,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/TPV/Img/colorize.png"/>
+                  <Image iconType="3" name="/TPV_Moviles/Img/colorize.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Apariencia"/>
               </Properties>
@@ -86,7 +137,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/TPV/Img/moneda.png"/>
+                  <Image iconType="3" name="/TPV_Moviles/Img/moneda.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Moneda"/>
               </Properties>
@@ -120,7 +171,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/TPV/Img/fecha.png"/>
+                  <Image iconType="3" name="/TPV_Moviles/Img/fecha.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fecha"/>
               </Properties>
@@ -178,7 +229,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/TPV/Img/decimales.png"/>
+                  <Image iconType="3" name="/TPV_Moviles/Img/decimales.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Decimales"/>
               </Properties>
@@ -210,6 +261,17 @@
               </SubComponents>
             </Menu>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="MenuSign">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/TPV_Moviles/Img/login.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Sign In"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Menu>
       </SubComponents>
     </Menu>

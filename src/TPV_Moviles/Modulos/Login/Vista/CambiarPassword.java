@@ -30,8 +30,6 @@ public class CambiarPassword extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         etiUsuario = new javax.swing.JLabel();
         txtUsuarioReg = new javax.swing.JTextField();
-        etiContraseña = new javax.swing.JLabel();
-        txtNuevaCont = new javax.swing.JPasswordField();
         btnActualizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -47,16 +45,11 @@ public class CambiarPassword extends javax.swing.JFrame {
         etiUsuario.setForeground(java.awt.Color.orange);
         etiUsuario.setText("DNI registrado:");
 
-        etiContraseña.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        etiContraseña.setForeground(java.awt.Color.orange);
-        etiContraseña.setText("Nueva contraseña:");
-
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/reload.png"))); // NOI18N
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/reload.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
         btnActualizar.setOpaque(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/recuperar.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/recuperar.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(java.awt.Color.orange);
@@ -76,33 +69,24 @@ public class CambiarPassword extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtUsuarioReg)
-                        .addComponent(etiContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNuevaCont, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                        .addComponent(etiUsuario))
+                    .addComponent(txtUsuarioReg, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiUsuario)
                     .addComponent(txtEmailRecu, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(72, 72, 72)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
                         .addComponent(etiUsuario)
-                        .addGap(27, 27, 27)
+                        .addGap(37, 37, 37)
                         .addComponent(txtUsuarioReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(etiContraseña)
-                        .addGap(26, 26, 26)
-                        .addComponent(txtNuevaCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(2, 2, 2)
-                .addComponent(jLabel3)
-                .addGap(28, 28, 28)
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel3)))
+                .addGap(44, 44, 44)
                 .addComponent(txtEmailRecu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnActualizar)
@@ -110,8 +94,6 @@ public class CambiarPassword extends javax.swing.JFrame {
         );
         jLayeredPane1.setLayer(etiUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtUsuarioReg, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(etiContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtNuevaCont, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(btnActualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -119,7 +101,7 @@ public class CambiarPassword extends javax.swing.JFrame {
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 500, 340));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/fondo6.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/fondo6.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 364));
 
         pack();
@@ -127,14 +109,12 @@ public class CambiarPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnActualizar;
-    private javax.swing.JLabel etiContraseña;
     private javax.swing.JLabel etiUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
     public static javax.swing.JTextField txtEmailRecu;
-    public static javax.swing.JPasswordField txtNuevaCont;
     public static javax.swing.JTextField txtUsuarioReg;
     // End of variables declaration//GEN-END:variables
 }

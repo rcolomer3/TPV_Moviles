@@ -17,8 +17,8 @@ import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafi
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico.ModipideFechaNac;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico.ModpideUsuario;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Pager.pagina;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaEF;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarEF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
 import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
 import TPV_Moviles.Modulos.Login.Vista.Login;
@@ -34,17 +34,17 @@ public class BLLGrafico {
 
     public static void guardarEmpleadoEF() {
 
-        DAOGrafico.crearEF();
+        DAOGrafico.crearCliente();
         //dni no repes
         if (Singletons.e != null) {
             if (Singletons.conectado.equals("si")) {
                 Singletons.efi.add(Singletons.e);
-                BLLBD.nuevoEmpleadoBLL();
-                ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).cargar();
+                BLLBD.nuevoClienteBLL();
+                ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
             } else if (Singletons.conectado.equals("no")) {
                 Singletons.efi.add(Singletons.e);
-                BLLBD.nuevoEmpleadoBLL();
-                Singletons.CrearEF.dispose();
+                BLLBD.nuevoClienteBLL();
+                Singletons.CrearCli.dispose();
                 new Controlador_Login(new Login(), 0).iniciar(0);
             }
         }
@@ -61,8 +61,8 @@ public class BLLGrafico {
         return aux;
     }
 
-    public static void ModificarEFj() {
-        ModificarEF();
+    public static void ModificarCliente() {
+        ModificarCli();
     }
 
     public static void ModificarPager() {
@@ -79,12 +79,12 @@ public class BLLGrafico {
 
     public static void pideNombre() {
         DAOGrafico.pideNombre();
-        AltaEF.txtApellidos.requestFocus();
+        AltaCli.txtApellidos.requestFocus();
     }
 
     public static void pideApellidos() {
         DAOGrafico.pideApellidos();
-        AltaEF.txtDNI.requestFocus();
+        AltaCli.txtDNI.requestFocus();
     }
 
     public static void pideDNI() {
@@ -94,11 +94,11 @@ public class BLLGrafico {
 
         if (pos != -1) {
             JOptionPane.showMessageDialog(null, "DNI repetido", "Aviso", JOptionPane.QUESTION_MESSAGE);
-            AltaEF.NoDNI.setVisible(true);
-            AltaEF.txtDNI.requestFocus();
+            AltaCli.NoDNI.setVisible(true);
+            AltaCli.txtDNI.requestFocus();
         } else {
-            AltaEF.NoDNI.setVisible(false);
-            AltaEF.txtTelefono.requestFocus();
+            AltaCli.NoDNI.setVisible(false);
+            AltaCli.txtTelefono.requestFocus();
         }
     }
 
@@ -130,10 +130,10 @@ public class BLLGrafico {
         pos = buscar(e);
 
         if (pos != -1) {
-            ModificarEF.NoUsuario.setVisible(true);
-            ModificarEF.txtUsuario.requestFocus();
+            ModificarCli.NoUsuario.setVisible(true);
+            ModificarCli.txtUsuario.requestFocus();
         } else {
-            ModificarEF.NoUsuario.setVisible(false);
+            ModificarCli.NoUsuario.setVisible(false);
         }
     }
 
@@ -159,10 +159,10 @@ public class BLLGrafico {
         pos = buscar(e);
 
         if (pos != -1) {
-            AltaEF.NoDNI.setVisible(true);
-            AltaEF.txtDNI.requestFocus();
+            AltaCli.NoDNI.setVisible(true);
+            AltaCli.txtDNI.requestFocus();
         } else {
-            AltaEF.NoDNI.setVisible(false);
+            AltaCli.NoDNI.setVisible(false);
         }
     }
 
@@ -185,10 +185,10 @@ public class BLLGrafico {
 
         if (pos != -1) {
             //JOptionPane.showMessageDialog(null, "DNI repetido", "Aviso", JOptionPane.QUESTION_MESSAGE);
-            AltaEF.NoDNI.setVisible(true);
-            AltaEF.txtDNI.requestFocus();
+            AltaCli.NoDNI.setVisible(true);
+            AltaCli.txtDNI.requestFocus();
         } else {
-            AltaEF.NoDNI.setVisible(false);
+            AltaCli.NoDNI.setVisible(false);
         }
     }
 
@@ -198,7 +198,7 @@ public class BLLGrafico {
 
     public static void ModiNombre() {
         DAOGrafico.ModiPideNombre();
-        ModificarEF.txtApellidos.requestFocus();
+        ModificarCli.txtApellidos.requestFocus();
     }
 
     public static void ModiNombreKey() {
@@ -211,7 +211,7 @@ public class BLLGrafico {
 
     public static void ModApellidos() {
         DAOGrafico.ModPideApellidos();
-        ModificarEF.txtTelefono.requestFocus();
+        ModificarCli.txtTelefono.requestFocus();
     }
 
     public static void ModipideApellidosKey() {
@@ -246,61 +246,65 @@ public class BLLGrafico {
         DAOGrafico.ModPideEmailKeyPressed();
     }
 
-    public static void ModificarEF() {
+    public static void ModificarCli() {
 
-        if (ModificarEF.NoNombre.isVisible() == false) {
+        if (ModificarCli.NoNombre.isVisible() == false) {
             Singletons.e.setNombre(ModiPideNombre());
         }
-        if (ModificarEF.NoApellidos.isVisible() == false) {
+        if (ModificarCli.NoApellidos.isVisible() == false) {
             Singletons.e.setApellidos(ModPideApellidos());
         }
-        if (ModificarEF.NoTelefono.isVisible() == false) {
+        if (ModificarCli.NoTelefono.isVisible() == false) {
             Singletons.e.setTelefono(ModPideTelefono());
         }
-        if (ModificarEF.NOFNAC.isVisible() == false) {
+        if (ModificarCli.NOFNAC.isVisible() == false) {
             Singletons.e.setFechaNacimiento(ModipideFechaNac());
             Singletons.e.calcularEdad(ModipideFechaNac());
         }
-        if (ModificarEF.NOFALTA.isVisible() == false) {
+        if (ModificarCli.NOFALTA.isVisible() == false) {
             Singletons.e.setFechaAlta(ModipideFechaAlta());
             Singletons.e.calcularAntiguedad(ModipideFechaAlta());
         }
 
-        if (ModificarEF.NoUsuario.isVisible() == false) {
+        if (ModificarCli.NoUsuario.isVisible() == false) {
             Singletons.e.setUsuario(ModpideUsuario());
         }
 
-        if (ModificarEF.NoPassword.isVisible() == false) {
+        if (ModificarCli.NoPassword.isVisible() == false) {
             Singletons.e.setPassword(ModpidePassword());
         }
 
-        if (ModificarEF.NoEmail.isVisible() == false) {
+        if (ModificarCli.NoEmail.isVisible() == false) {
             Singletons.e.setEmail(ModpideEmail());
         }
+
+        Singletons.e.setSaldo(Singletons.e.getSaldo());
 
         if (Singletons.PATH_auto != null) {
             Singletons.e.setAvatar(Singletons.PATH_auto);
         }
 
-        Singletons.e.setTipo(ModificarEF.cmbTipoUser.getSelectedItem().toString());
+        if (ModificarCli.cmbTipoUser.getSelectedItem() != null) {
+            Singletons.e.setTipo(ModificarCli.cmbTipoUser.getSelectedItem().toString());
+        }
 
-        if ((ModificarEF.NoNombre.isVisible() == false) && (ModificarEF.NoApellidos.isVisible() == false) && (ModificarEF.NoTelefono.isVisible() == false) && (ModificarEF.NOFNAC.isVisible() == false)
-                && (ModificarEF.NOFALTA.isVisible() == false) && (ModificarEF.NoUsuario.isVisible() == false) && (ModificarEF.NoPassword.isVisible() == false) && (ModificarEF.NoEmail.isVisible() == false)) {
+        if ((ModificarCli.NoNombre.isVisible() == false) && (ModificarCli.NoApellidos.isVisible() == false) && (ModificarCli.NoTelefono.isVisible() == false) && (ModificarCli.NOFNAC.isVisible() == false)
+                && (ModificarCli.NOFALTA.isVisible() == false) && (ModificarCli.NoUsuario.isVisible() == false) && (ModificarCli.NoPassword.isVisible() == false) && (ModificarCli.NoEmail.isVisible() == false)) {
             Singletons.efi.set(Singletons.pos, Singletons.e);
-            BLLBD.modificarEmpleadoBLL();
-            ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).cargar();
+            BLLBD.modificarClienteBLL();
+            ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
 
-            ModificarEF.txtNombre.requestFocus();
-            ModificarEF.txtNombre.setText("");
-            ModificarEF.txtApellidos.setText("");
-            ModificarEF.txtTelefono.setText("");
-            ModificarEF.txtUsuario.setText("");
-            ModificarEF.txtEdad.setText("");
-            ModificarEF.txtAntiguedad.setText("");
-            ModificarEF.dcFnac.setDate(null);
-            ModificarEF.dcFalta.setDate(null);
-            ModificarEF.txtPassword.setText("");
-            ModificarEF.txtEmail.setText("");
+            ModificarCli.txtNombre.requestFocus();
+            ModificarCli.txtNombre.setText("");
+            ModificarCli.txtApellidos.setText("");
+            ModificarCli.txtTelefono.setText("");
+            ModificarCli.txtUsuario.setText("");
+            ModificarCli.txtEdad.setText("");
+            ModificarCli.txtAntiguedad.setText("");
+            ModificarCli.dcFnac.setDate(null);
+            ModificarCli.dcFalta.setDate(null);
+            ModificarCli.txtPassword.setText("");
+            ModificarCli.txtEmail.setText("");
         }
     }
 
@@ -335,7 +339,7 @@ public class BLLGrafico {
     public static void GuardarAPeticionUsuario() {// Guardar en el formato elegido por el
         // usuario previamente en configuracion
         if (!Singletons.efi.isEmpty()) {
-            ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).cargar();
+            ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
             switch (Config.getGuardar()) {
                 case "1":
                     TPV_Moviles.Librerias.json.generajsonCliente();
@@ -386,8 +390,8 @@ public class BLLGrafico {
                         "Info", JOptionPane.WARNING_MESSAGE);
                 if (opc == 0) {
                     ((miniSimpleTableModel_Cli) interfaz_Clientes.TABLA.getModel()).removeRow(selection1);
-                    BLLBD.borrarEmpleadoBLL();
-                    ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).cargar();
+                    BLLBD.borrarClienteBLL();
+                    ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
                 }
             }
         } else {

@@ -15,8 +15,8 @@ import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singl
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.miniSimpleTableModel_Cli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Pager.pagina;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaEF;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarEF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.autocomplete.AutocompleteJComboBox;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.autocomplete.StringSearchable;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
@@ -24,7 +24,7 @@ import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clie
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.buscador;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.panelPager;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
-import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Empleados;
+import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
 import TPV_Moviles.Modulos.Login.Vista.Login;
@@ -55,7 +55,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Raul
  */
-public class Controlador_EF implements ActionListener, KeyListener, MouseListener {
+public class Controlador_Cli implements ActionListener, KeyListener, MouseListener {
 
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_Cli());
     private JDKPConFondo fondo = new JDKPConFondo();
@@ -110,18 +110,18 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
         _CERRAR
     }
 
-    public Controlador_EF(JFrame pager, int i) {
+    public Controlador_Cli(JFrame pager, int i) {
 
         if (i == 0) {
-            Singletons.CrearEF = (AltaEF) pager;
+            Singletons.CrearCli = (AltaCli) pager;
         }
 
         if (i == 1) {
-            Singletons.ModificarEF = (ModificarEF) pager;
+            Singletons.ModificarCli = (ModificarCli) pager;
         }
 
         if (i == 2) {
-            Singletons.PagerEF = (interfaz_Clientes) pager;
+            Singletons.PagerCli = (interfaz_Clientes) pager;
         }
     }
 
@@ -129,16 +129,16 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
 
         if (i == 0) { // Ventana de Alta empleado
 
-            Singletons.CrearEF.setVisible(true);
-            Singletons.CrearEF.setResizable(false);
-            Singletons.CrearEF.setSize(637, 478); //ancho x alto
-            Singletons.CrearEF.setTitle("Alta Nuevo Cliente");
+            Singletons.CrearCli.setVisible(true);
+            Singletons.CrearCli.setResizable(false);
+            Singletons.CrearCli.setSize(800, 550); //ancho x alto
+            Singletons.CrearCli.setTitle("Alta Nuevo Cliente");
 
-            Singletons.CrearEF.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV/Img/LogoInicio.jpg");
-            Singletons.CrearEF.setIconImage(icono);
+            Singletons.CrearCli.setLocationRelativeTo(null);
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Singletons.CrearCli.setIconImage(icono);
 
-            Singletons.CrearEF.addWindowListener(new WindowAdapter() {
+            Singletons.CrearCli.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     JOptionPane.showMessageDialog(null, "Saliendo de la aplicación");
                     System.exit(0);
@@ -149,74 +149,74 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 BLLGrafico.OcultarErroresAlta();
                 Clientes clien = DAOGrafico.ObtenerClienteLogeado();
 
-                Singletons.CrearEF.labelNomUsu.setVisible(true);
+                Singletons.CrearCli.labelNomUsu.setVisible(true);
 
                 Singletons.PintaNombre = clien.getUsuario();
 
-                Singletons.CrearEF.labelNomUsu.setText(Singletons.PintaNombre);
+                Singletons.CrearCli.labelNomUsu.setText(Singletons.PintaNombre);
                 FileUploader.leer_imag(2);
             } else if (Singletons.conectado.equals("no")) {
                 BLLGrafico.OcultarErroresRegistro();
             }
 
-            Singletons.CrearEF.txtNombre.setName("_TXT_NOMBRE");
-            Singletons.CrearEF.txtNombre.setActionCommand("_TXT_NOMBRE");
-            Singletons.CrearEF.txtNombre.addActionListener(this);
-            Singletons.CrearEF.txtNombre.addKeyListener(this);
+            Singletons.CrearCli.txtNombre.setName("_TXT_NOMBRE");
+            Singletons.CrearCli.txtNombre.setActionCommand("_TXT_NOMBRE");
+            Singletons.CrearCli.txtNombre.addActionListener(this);
+            Singletons.CrearCli.txtNombre.addKeyListener(this);
 
-            Singletons.CrearEF.txtApellidos.setName("_TXT_APELLIDOS");
-            Singletons.CrearEF.txtApellidos.setActionCommand("_TXT_APELLIDOS");
-            Singletons.CrearEF.txtApellidos.addActionListener(this);
-            Singletons.CrearEF.txtApellidos.addKeyListener(this);
+            Singletons.CrearCli.txtApellidos.setName("_TXT_APELLIDOS");
+            Singletons.CrearCli.txtApellidos.setActionCommand("_TXT_APELLIDOS");
+            Singletons.CrearCli.txtApellidos.addActionListener(this);
+            Singletons.CrearCli.txtApellidos.addKeyListener(this);
 
-            Singletons.CrearEF.txtDNI.setName("_TXT_DNI");
-            Singletons.CrearEF.txtDNI.setActionCommand("_TXT_DNI");
-            Singletons.CrearEF.txtDNI.addActionListener(this);
-            Singletons.CrearEF.txtDNI.addKeyListener(this);
+            Singletons.CrearCli.txtDNI.setName("_TXT_DNI");
+            Singletons.CrearCli.txtDNI.setActionCommand("_TXT_DNI");
+            Singletons.CrearCli.txtDNI.addActionListener(this);
+            Singletons.CrearCli.txtDNI.addKeyListener(this);
 
-            Singletons.CrearEF.txtTelefono.setName("_TXT_TELEFONO");
-            Singletons.CrearEF.txtTelefono.setActionCommand("_TXT_TELEFONO");
-            Singletons.CrearEF.txtTelefono.addActionListener(this);
-            Singletons.CrearEF.txtTelefono.addKeyListener(this);
+            Singletons.CrearCli.txtTelefono.setName("_TXT_TELEFONO");
+            Singletons.CrearCli.txtTelefono.setActionCommand("_TXT_TELEFONO");
+            Singletons.CrearCli.txtTelefono.addActionListener(this);
+            Singletons.CrearCli.txtTelefono.addKeyListener(this);
 
-            Singletons.CrearEF.dcfnac.setName("_TXT_FNACIMIENTO");
-            Singletons.CrearEF.dcfnac.addKeyListener(this);
+            Singletons.CrearCli.dcfnac.setName("_TXT_FNACIMIENTO");
+            Singletons.CrearCli.dcfnac.addKeyListener(this);
 
-            Singletons.CrearEF.dcFAlta.setName("_TXT_FALTA");
-            Singletons.CrearEF.dcFAlta.addKeyListener(this);
+            Singletons.CrearCli.dcFAlta.setName("_TXT_FALTA");
+            Singletons.CrearCli.dcFAlta.addKeyListener(this);
 
-            Singletons.CrearEF.btnAnyadir.setActionCommand("_BTN_ANYADIR");
-            Singletons.CrearEF.btnAnyadir.addActionListener(this);
+            Singletons.CrearCli.btnAnyadir.setActionCommand("_BTN_ANYADIR");
+            Singletons.CrearCli.btnAnyadir.addActionListener(this);
 
-            Singletons.CrearEF.btnLimpiar.setActionCommand("_BTN_LIMPIAR");
-            Singletons.CrearEF.btnLimpiar.addActionListener(this);
+            Singletons.CrearCli.btnLimpiar.setActionCommand("_BTN_LIMPIAR");
+            Singletons.CrearCli.btnLimpiar.addActionListener(this);
 
-            Singletons.CrearEF.btnVolver.setActionCommand("_BTN_VOLVER_LISTADO");
-            Singletons.CrearEF.btnVolver.addActionListener(this);
+            Singletons.CrearCli.btnVolver.setActionCommand("_BTN_VOLVER_LISTADO");
+            Singletons.CrearCli.btnVolver.addActionListener(this);
 
-            Singletons.CrearEF.txtEmail.setName("_TXT_EMAIL");
-            Singletons.CrearEF.txtEmail.setActionCommand("_TXT_EMAIL");
-            Singletons.CrearEF.txtEmail.addActionListener(this);
-            Singletons.CrearEF.txtEmail.addKeyListener(this);
+            Singletons.CrearCli.txtEmail.setName("_TXT_EMAIL");
+            Singletons.CrearCli.txtEmail.setActionCommand("_TXT_EMAIL");
+            Singletons.CrearCli.txtEmail.addActionListener(this);
+            Singletons.CrearCli.txtEmail.addKeyListener(this);
             
-            Singletons.CrearEF.cmbTipo.setActionCommand("_CMB_TIPO_ALTA");
-            Singletons.CrearEF.cmbTipo.setName("_CMB_TIPO_ALTA");
-            Singletons.CrearEF.cmbTipo.addActionListener(this);
+            Singletons.CrearCli.cmbTipo.setActionCommand("_CMB_TIPO_ALTA");
+            Singletons.CrearCli.cmbTipo.setName("_CMB_TIPO_ALTA");
+            Singletons.CrearCli.cmbTipo.addActionListener(this);
 
         }
 
         if (i == 1) { // Ventana de Modificar Empleado
 
-            Singletons.ModificarEF.setVisible(true);
-            Singletons.ModificarEF.setResizable(false);
-            Singletons.ModificarEF.setLocation(2, 30);
-            Singletons.ModificarEF.setSize(708, 500); //ancho x alto
-            Singletons.ModificarEF.setTitle("Modificar Cliente Registrado");
-            Singletons.ModificarEF.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV/Img/LogoInicio.jpg");
-            Singletons.ModificarEF.setIconImage(icono);
+            Singletons.ModificarCli.setVisible(true);
+            Singletons.ModificarCli.setResizable(false);
+            Singletons.ModificarCli.setLocation(2, 30);
+            Singletons.ModificarCli.setSize(1000, 550); //ancho x alto
+            Singletons.ModificarCli.setTitle("Modificar Cliente Registrado");
+            Singletons.ModificarCli.setLocationRelativeTo(null);
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Singletons.ModificarCli.setIconImage(icono);
 
-            Singletons.ModificarEF.addWindowListener(new WindowAdapter() {
+            Singletons.ModificarCli.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     JOptionPane.showMessageDialog(null, "Saliendo de la aplicación");
                     System.exit(0);
@@ -228,93 +228,93 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
 
             Clientes clien = DAOGrafico.ObtenerClienteLogeado();
 
-            Singletons.ModificarEF.etiNomUsuario.setVisible(true);
+            Singletons.ModificarCli.etiNomUsuario.setVisible(true);
 
             Singletons.PintaNombre = clien.getUsuario();
 
-            Singletons.ModificarEF.etiNomUsuario.setText(Singletons.PintaNombre);
+            Singletons.ModificarCli.etiNomUsuario.setText(Singletons.PintaNombre);
             FileUploader.leer_imag(1);
 
-            Singletons.ModificarEF.txtNombre.setName("_TXT_ModiNOMBRE");
-            Singletons.ModificarEF.txtNombre.setActionCommand("_TXT_ModiNOMBRE");
-            Singletons.ModificarEF.txtNombre.addActionListener(this);
-            Singletons.ModificarEF.txtNombre.addKeyListener(this);
+            Singletons.ModificarCli.txtNombre.setName("_TXT_ModiNOMBRE");
+            Singletons.ModificarCli.txtNombre.setActionCommand("_TXT_ModiNOMBRE");
+            Singletons.ModificarCli.txtNombre.addActionListener(this);
+            Singletons.ModificarCli.txtNombre.addKeyListener(this);
 
-            Singletons.ModificarEF.txtApellidos.setName("_TXT_ModiAPELLIDOS");
-            Singletons.ModificarEF.txtApellidos.setActionCommand("_TXT_ModiAPELLIDOS");
-            Singletons.ModificarEF.txtApellidos.addActionListener(this);
-            Singletons.ModificarEF.txtApellidos.addKeyListener(this);
+            Singletons.ModificarCli.txtApellidos.setName("_TXT_ModiAPELLIDOS");
+            Singletons.ModificarCli.txtApellidos.setActionCommand("_TXT_ModiAPELLIDOS");
+            Singletons.ModificarCli.txtApellidos.addActionListener(this);
+            Singletons.ModificarCli.txtApellidos.addKeyListener(this);
 
-            Singletons.ModificarEF.txtTelefono.setName("_TXT_ModiTELEFONO");
-            Singletons.ModificarEF.txtTelefono.setActionCommand("_TXT_ModiTELEFONO");
-            Singletons.ModificarEF.txtTelefono.addActionListener(this);
-            Singletons.ModificarEF.txtTelefono.addKeyListener(this);
+            Singletons.ModificarCli.txtTelefono.setName("_TXT_ModiTELEFONO");
+            Singletons.ModificarCli.txtTelefono.setActionCommand("_TXT_ModiTELEFONO");
+            Singletons.ModificarCli.txtTelefono.addActionListener(this);
+            Singletons.ModificarCli.txtTelefono.addKeyListener(this);
 
-            Singletons.ModificarEF.dcFnac.setName("_TXT_ModiFNACIMIENTO");
-            Singletons.ModificarEF.dcFnac.addKeyListener(this);
+            Singletons.ModificarCli.dcFnac.setName("_TXT_ModiFNACIMIENTO");
+            Singletons.ModificarCli.dcFnac.addKeyListener(this);
 
-            Singletons.ModificarEF.dcFalta.setName("_TXT_ModiFALTA");
-            Singletons.ModificarEF.dcFalta.addKeyListener(this);
+            Singletons.ModificarCli.dcFalta.setName("_TXT_ModiFALTA");
+            Singletons.ModificarCli.dcFalta.addKeyListener(this);
 
-            Singletons.ModificarEF.txtUsuario.setName("_TXT_ModiUSUARIO");
-            Singletons.ModificarEF.txtUsuario.setActionCommand("_TXT_ModiUSUARIO");
-            Singletons.ModificarEF.txtUsuario.addActionListener(this);
-            Singletons.ModificarEF.txtUsuario.addKeyListener(this);
+            Singletons.ModificarCli.txtUsuario.setName("_TXT_ModiUSUARIO");
+            Singletons.ModificarCli.txtUsuario.setActionCommand("_TXT_ModiUSUARIO");
+            Singletons.ModificarCli.txtUsuario.addActionListener(this);
+            Singletons.ModificarCli.txtUsuario.addKeyListener(this);
 
-            Singletons.ModificarEF.txtPassword.setName("_TXT_ModiPASSWORD");
-            Singletons.ModificarEF.txtPassword.setActionCommand("_TXT_ModiPASSWORD");
-            Singletons.ModificarEF.txtPassword.addActionListener(this);
-            Singletons.ModificarEF.txtPassword.addKeyListener(this);
+            Singletons.ModificarCli.txtPassword.setName("_TXT_ModiPASSWORD");
+            Singletons.ModificarCli.txtPassword.setActionCommand("_TXT_ModiPASSWORD");
+            Singletons.ModificarCli.txtPassword.addActionListener(this);
+            Singletons.ModificarCli.txtPassword.addKeyListener(this);
 
-            Singletons.ModificarEF.txtEmail.setName("_TXT_ModiEMAIL");
-            Singletons.ModificarEF.txtEmail.setActionCommand("_TXT_ModiEMAIL");
-            Singletons.ModificarEF.txtEmail.addActionListener(this);
-            Singletons.ModificarEF.txtEmail.addKeyListener(this);
+            Singletons.ModificarCli.txtEmail.setName("_TXT_ModiEMAIL");
+            Singletons.ModificarCli.txtEmail.setActionCommand("_TXT_ModiEMAIL");
+            Singletons.ModificarCli.txtEmail.addActionListener(this);
+            Singletons.ModificarCli.txtEmail.addKeyListener(this);
 
-            Singletons.ModificarEF.btnModificar.setActionCommand("_BTN_MODIFICAR_EMP");
-            Singletons.ModificarEF.btnModificar.addActionListener(this);
+            Singletons.ModificarCli.btnModificar.setActionCommand("_BTN_MODIFICAR_EMP");
+            Singletons.ModificarCli.btnModificar.addActionListener(this);
 
-            Singletons.ModificarEF.btnCancelar.setActionCommand("_BTN_CANCELAR");
-            Singletons.ModificarEF.btnCancelar.addActionListener(this);
+            Singletons.ModificarCli.btnCancelar.setActionCommand("_BTN_CANCELAR");
+            Singletons.ModificarCli.btnCancelar.addActionListener(this);
 
-            Singletons.ModificarEF.btnVolver.setActionCommand("_BTN_VOLVER_ModiLISTADO");
-            Singletons.ModificarEF.btnVolver.addActionListener(this);
+            Singletons.ModificarCli.btnVolver.setActionCommand("_BTN_VOLVER_ModiLISTADO");
+            Singletons.ModificarCli.btnVolver.addActionListener(this);
 
-            Singletons.ModificarEF.btnCambiarAvatar.setActionCommand("_BTN_CAMBIARAVATAR");
-            Singletons.ModificarEF.btnCambiarAvatar.addActionListener(this);
+            Singletons.ModificarCli.btnCambiarAvatar.setActionCommand("_BTN_CAMBIARAVATAR");
+            Singletons.ModificarCli.btnCambiarAvatar.addActionListener(this);
 
-            Singletons.ModificarEF.cmbTipoUser.setActionCommand("_CMB_TIPO_Modif");
-            Singletons.ModificarEF.cmbTipoUser.setName("_CMB_TIPO_Modif");
-            Singletons.ModificarEF.cmbTipoUser.addActionListener(this);
+            Singletons.ModificarCli.cmbTipoUser.setActionCommand("_CMB_TIPO_Modif");
+            Singletons.ModificarCli.cmbTipoUser.setName("_CMB_TIPO_Modif");
+            Singletons.ModificarCli.cmbTipoUser.addActionListener(this);
         }
 
         if (i == 2) { //Ventana del pager
 
-            Singletons.PagerEF.setLocationRelativeTo(null);
-            Singletons.PagerEF.setTitle("Empleados fijos");
-            Singletons.PagerEF.setResizable(false);
-            Container content = Singletons.PagerEF.getContentPane();
+            Singletons.PagerCli.setLocationRelativeTo(null);
+            Singletons.PagerCli.setTitle("Clientes Registrados");
+            Singletons.PagerCli.setResizable(false);
+            Container content = Singletons.PagerCli.getContentPane();
             content.setLayout(new BorderLayout());
             //content.add(fondo, BorderLayout.CENTER);
 
             panelPager.setOpaque(false);
             panelPager.setVisible(true);
 
-            Singletons.PagerEF.setSize(819, 715); // //ancho x alto
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV/Img/LogoInicio.jpg");
-            Singletons.PagerEF.setIconImage(icono);
+            Singletons.PagerCli.setSize(819, 715); // //ancho x alto
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Singletons.PagerCli.setIconImage(icono);
 
-            Singletons.PagerEF.TABLA.setModel(new miniSimpleTableModel_Cli());
-            ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).cargar();
-            Singletons.PagerEF.TABLA.setFillsViewportHeight(true);
-            Singletons.PagerEF.TABLA.setRowSorter(Singletons.sorter);
+            Singletons.PagerCli.TABLA.setModel(new miniSimpleTableModel_Cli());
+            ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
+            Singletons.PagerCli.TABLA.setFillsViewportHeight(true);
+            Singletons.PagerCli.TABLA.setRowSorter(Singletons.sorter);
 
             pagina.inicializa();
             pagina.initLinkBox();
 
-            Singletons.PagerEF.contFiltrar.setText(String.valueOf(Singletons.AL_Clie.size()));
+            Singletons.PagerCli.contFiltrar.setText(String.valueOf(Singletons.AL_Clie.size()));
 
-            Singletons.PagerEF.addWindowListener(new WindowAdapter() {
+            Singletons.PagerCli.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     JOptionPane.showMessageDialog(null, "Saliendo de la aplicacion");
                     System.exit(0);
@@ -340,85 +340,85 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
 
             Clientes clie = DAOGrafico.ObtenerClienteLogeado();
 
-            Singletons.PagerEF.etiNombreUsu.setVisible(true);
+            Singletons.PagerCli.etiNombreUsu.setVisible(true);
 
-            Singletons.PagerEF.txtCerrar.setVisible(true);
-            Singletons.PagerEF.txtCerrar.setText("Cerrar sesión");
+            Singletons.PagerCli.txtCerrar.setVisible(true);
+            Singletons.PagerCli.txtCerrar.setText("Cerrar sesión");
 
             Singletons.PintaNombre = clie.getUsuario();
 
-            Singletons.PagerEF.etiNombreUsu.setText(Singletons.PintaNombre);
-            Singletons.PagerEF.labelAvatar.setVisible(true);
+            Singletons.PagerCli.etiNombreUsu.setText(Singletons.PintaNombre);
+            Singletons.PagerCli.labelAvatar.setVisible(true);
             FileUploader.leer_imag(0);
 
-            Singletons.PagerEF.ANTERIOR.setActionCommand("_BTN_ANTERIOR");
-            Singletons.PagerEF.ANTERIOR.addActionListener(this);
+            Singletons.PagerCli.ANTERIOR.setActionCommand("_BTN_ANTERIOR");
+            Singletons.PagerCli.ANTERIOR.addActionListener(this);
 
-            Singletons.PagerEF.SIGUIENTE.setActionCommand("_BTN_SIGUIENTE");
-            Singletons.PagerEF.SIGUIENTE.addActionListener(this);
+            Singletons.PagerCli.SIGUIENTE.setActionCommand("_BTN_SIGUIENTE");
+            Singletons.PagerCli.SIGUIENTE.addActionListener(this);
 
-            Singletons.PagerEF.ultimo.setActionCommand("_BTN_ULTIMO");
-            Singletons.PagerEF.ultimo.addActionListener(this);
+            Singletons.PagerCli.ultimo.setActionCommand("_BTN_ULTIMO");
+            Singletons.PagerCli.ultimo.addActionListener(this);
 
-            Singletons.PagerEF.primero.setActionCommand("_BTN_PRIMERO");
-            Singletons.PagerEF.primero.addActionListener(this);
+            Singletons.PagerCli.primero.setActionCommand("_BTN_PRIMERO");
+            Singletons.PagerCli.primero.addActionListener(this);
 
-            Singletons.PagerEF.jComboBox1.setActionCommand("_COMBOX");
-            Singletons.PagerEF.jComboBox1.addActionListener(this);
+            Singletons.PagerCli.jComboBox1.setActionCommand("_COMBOX");
+            Singletons.PagerCli.jComboBox1.addActionListener(this);
 
-            Singletons.PagerEF.buscador.setName("_BUSCADOR");
-            Singletons.PagerEF.buscador.setActionCommand("_BUSCADOR");
-            Singletons.PagerEF.buscador.addActionListener(this);
-            Singletons.PagerEF.buscador.addKeyListener(this);
+            Singletons.PagerCli.buscador.setName("_BUSCADOR");
+            Singletons.PagerCli.buscador.setActionCommand("_BUSCADOR");
+            Singletons.PagerCli.buscador.addActionListener(this);
+            Singletons.PagerCli.buscador.addKeyListener(this);
 
-            Singletons.PagerEF.TABLA.setName("_TABLA_CLICKED");
-            Singletons.PagerEF.TABLA.addMouseListener(this);
-            Singletons.PagerEF.TABLA.addKeyListener(this);
+            Singletons.PagerCli.TABLA.setName("_TABLA_CLICKED");
+            Singletons.PagerCli.TABLA.addMouseListener(this);
+            Singletons.PagerCli.TABLA.addKeyListener(this);
 
-            Singletons.PagerEF.btnCrear.setActionCommand("_BTN_CREAR");
-            Singletons.PagerEF.btnCrear.setName("_BTN_CREAR");
-            Singletons.PagerEF.btnCrear.addActionListener(this);
-            Singletons.PagerEF.btnCrear.addMouseListener(this);
+            Singletons.PagerCli.btnCrear.setActionCommand("_BTN_CREAR");
+            Singletons.PagerCli.btnCrear.setName("_BTN_CREAR");
+            Singletons.PagerCli.btnCrear.addActionListener(this);
+            Singletons.PagerCli.btnCrear.addMouseListener(this);
 
-            Singletons.PagerEF.btnModificar.setActionCommand("_BTN_MODIFICAR");
-            Singletons.PagerEF.btnModificar.setName("_BTN_MODIFICAR");
-            Singletons.PagerEF.btnModificar.addActionListener(this);
-            Singletons.PagerEF.btnModificar.addMouseListener(this);
+            Singletons.PagerCli.btnModificar.setActionCommand("_BTN_MODIFICAR");
+            Singletons.PagerCli.btnModificar.setName("_BTN_MODIFICAR");
+            Singletons.PagerCli.btnModificar.addActionListener(this);
+            Singletons.PagerCli.btnModificar.addMouseListener(this);
 
-            Singletons.PagerEF.btnEliminar.setActionCommand("_BTN_ELIMINAR");
-            Singletons.PagerEF.btnEliminar.setName("_BTN_ELIMINAR");
-            Singletons.PagerEF.btnEliminar.addActionListener(this);
-            Singletons.PagerEF.btnEliminar.addMouseListener(this);
+            Singletons.PagerCli.btnEliminar.setActionCommand("_BTN_ELIMINAR");
+            Singletons.PagerCli.btnEliminar.setName("_BTN_ELIMINAR");
+            Singletons.PagerCli.btnEliminar.addActionListener(this);
+            Singletons.PagerCli.btnEliminar.addMouseListener(this);
 
-            Singletons.PagerEF.btnInfo.setActionCommand("_BTN_INFO");
-            Singletons.PagerEF.btnInfo.setName("_BTN_INFO");
-            Singletons.PagerEF.btnInfo.addActionListener(this);
-            Singletons.PagerEF.btnInfo.addMouseListener(this);
+            Singletons.PagerCli.btnInfo.setActionCommand("_BTN_INFO");
+            Singletons.PagerCli.btnInfo.setName("_BTN_INFO");
+            Singletons.PagerCli.btnInfo.addActionListener(this);
+            Singletons.PagerCli.btnInfo.addMouseListener(this);
 
-            Singletons.PagerEF.btnVolver.setActionCommand("_BTN_VOLVER");
-            Singletons.PagerEF.btnVolver.addActionListener(this);
+            Singletons.PagerCli.btnVolver.setActionCommand("_BTN_VOLVER");
+            Singletons.PagerCli.btnVolver.addActionListener(this);
 
-            Singletons.PagerEF.btnGuardar.setActionCommand("_BTN_GUARDAR");
-            Singletons.PagerEF.btnGuardar.setName("_BTN_GUARDAR");
-            Singletons.PagerEF.btnGuardar.addActionListener(this);
-            Singletons.PagerEF.btnGuardar.addMouseListener(this);
+            Singletons.PagerCli.btnGuardar.setActionCommand("_BTN_GUARDAR");
+            Singletons.PagerCli.btnGuardar.setName("_BTN_GUARDAR");
+            Singletons.PagerCli.btnGuardar.addActionListener(this);
+            Singletons.PagerCli.btnGuardar.addMouseListener(this);
 
-            Singletons.PagerEF.btnAbrir.setActionCommand("_BTN_ABRIR");
-            Singletons.PagerEF.btnAbrir.setName("_BTN_ABRIR");
-            Singletons.PagerEF.btnAbrir.addActionListener(this);
-            Singletons.PagerEF.btnAbrir.addMouseListener(this);
+            Singletons.PagerCli.btnAbrir.setActionCommand("_BTN_ABRIR");
+            Singletons.PagerCli.btnAbrir.setName("_BTN_ABRIR");
+            Singletons.PagerCli.btnAbrir.addActionListener(this);
+            Singletons.PagerCli.btnAbrir.addMouseListener(this);
 
-            Singletons.PagerEF.btnEdad.setActionCommand("_BTN_EDADMINMAX");
-            Singletons.PagerEF.btnEdad.addActionListener(this);
+            Singletons.PagerCli.btnEdad.setActionCommand("_BTN_EDADMINMAX");
+            Singletons.PagerCli.btnEdad.addActionListener(this);
 
-            Singletons.PagerEF.btnMedia.setActionCommand("_BTN_EDAD_MEDIA");
-            Singletons.PagerEF.btnMedia.addActionListener(this);
+            Singletons.PagerCli.btnMedia.setActionCommand("_BTN_EDAD_MEDIA");
+            Singletons.PagerCli.btnMedia.addActionListener(this);
 
-            Singletons.PagerEF.etiNombreUsu.setName("_AVATAR_MIPERFIL");
-            Singletons.PagerEF.etiNombreUsu.addMouseListener(this);
+            Singletons.PagerCli.etiNombreUsu.setName("_AVATAR_MIPERFIL");
+            Singletons.PagerCli.etiNombreUsu.addMouseListener(this);
 
-            Singletons.PagerEF.txtCerrar.setName("_CERRAR");
-            Singletons.PagerEF.txtCerrar.addMouseListener(this);
+            Singletons.PagerCli.txtCerrar.setName("_CERRAR");
+            Singletons.PagerCli.txtCerrar.addMouseListener(this);
         }
     }
 
@@ -448,7 +448,7 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 break;
 
             case _COMBOX:
-                pagina.itemsPerPage = Integer.parseInt(Singletons.PagerEF.jComboBox1.getSelectedItem().toString());
+                pagina.itemsPerPage = Integer.parseInt(Singletons.PagerCli.jComboBox1.getSelectedItem().toString());
                 pagina.currentPageIndex = 1;
                 pagina.initLinkBox();
                 break;
@@ -459,11 +459,9 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 Singletons.tipoUsuario = _tipoUsu.TipoUsuarioBLL(usuario);
 
                 if (Singletons.tipoUsuario.equals("Administrador")) {
-                    Singletons.PagerEF.dispose();
-                    new Controlador_EF(new AltaEF(), 0).iniciar(0);
-                } else if (Singletons.tipoUsuario.equals("user")) {
-                    Singletons.PagerEF.btnCrear.setEnabled(false);
-                }
+                    Singletons.PagerCli.dispose();
+                    new Controlador_Cli(new AltaCli(), 0).iniciar(0);
+                } 
                 break;
 
             case _BTN_MODIFICAR:
@@ -473,11 +471,9 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
 
                 if (Singletons.tipoUsuario.equals("Administrador")) {
                     if (Singletons.e != null) {
-                        Singletons.PagerEF.dispose();
-                        new Controlador_EF(new ModificarEF(), 1).iniciar(1);
+                        Singletons.PagerCli.dispose();
+                        new Controlador_Cli(new ModificarCli(), 1).iniciar(1);
                     }
-                } else if (Singletons.tipoUsuario.equals("user")) {
-                    Singletons.PagerEF.btnModificar.setEnabled(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "No hay un empleado seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -492,8 +488,6 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                     if (Singletons.e != null) {
                         BLLGrafico.EliminarPager();
                     }
-                } else if (Singletons.tipoUsuario.equals("user")) {
-                    Singletons.PagerEF.btnEliminar.setEnabled(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "No hay un empleado seleccionado", "Info", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -508,8 +502,8 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 break;
 
             case _BTN_VOLVER:
-                Singletons.PagerEF.dispose();
-                new Controlador_Inicio(new Ventana_Empleados(), 0).iniciar(0);
+                Singletons.PagerCli.dispose();
+                new Controlador_Inicio(new Ventana_Inicio(), 0).iniciar(0);
                 break;
 
             case _BTN_GUARDAR:
@@ -555,8 +549,8 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 break;
 
             case _BTN_VOLVER_LISTADO:
-                Singletons.CrearEF.dispose();
-                Singletons.PagerEF.setVisible(true);
+                Singletons.CrearCli.dispose();
+                Singletons.PagerCli.setVisible(true);
                 break;
 
             case _TXT_EMAIL:
@@ -596,7 +590,7 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 break;
 
             case _BTN_MODIFICAR_EMP:
-                BLLGrafico.ModificarEF();
+                BLLGrafico.ModificarCli();
                 break;
 
             case _BTN_CANCELAR:
@@ -604,13 +598,13 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 break;
 
             case _BTN_VOLVER_ModiLISTADO:
-                Singletons.ModificarEF.dispose();
-                Singletons.PagerEF.setVisible(true);
+                Singletons.ModificarCli.dispose();
+                Singletons.PagerCli.setVisible(true);
                 break;
 
             case _BTN_EDADMINMAX:
-                BLLBD _empleado = new BLLBD();
-                _empleado.empleadoMenorMayorBLL();
+                BLLBD _cliente = new BLLBD();
+                _cliente.clienteMenorMayorBLL();
                 break;
 
             case _BTN_EDAD_MEDIA:
@@ -623,11 +617,11 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 break;
 
             case _CMB_TIPO_ALTA:
-                AltaEF.cmbTipo.getSelectedItem().toString();
+                AltaCli.cmbTipo.getSelectedItem().toString();
                 break;
 
             case _CMB_TIPO_Modif:
-                ModificarEF.cmbTipoUser.getSelectedItem().toString();
+                ModificarCli.cmbTipoUser.getSelectedItem().toString();
                 break;
 
         }
@@ -690,7 +684,7 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
             // Funcion para filtrar empleados por Dni
             case _BUSCADOR:
                 pagina.currentPageIndex = 1;
-                ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).filtrar();
+                ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).filtrar();
                 break;
         }
     }
@@ -747,7 +741,7 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
             // Funcion para filtrar empleados por Dni
             case _BUSCADOR:
                 pagina.currentPageIndex = 1;
-                ((miniSimpleTableModel_Cli) Singletons.PagerEF.TABLA.getModel()).filtrar();
+                ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).filtrar();
                 break;
         }
     }
@@ -769,14 +763,14 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
                 String usua = Singletons.log.txtUsuario.getText();
                 Singletons.tipoUsuario = _tipoUsuario.TipoUsuarioBLL(usua);
 
-                if (Singletons.tipoUsuario.equals("user")) {
-                    Singletons.PagerEF.dispose();
-                    new Controlador_EF(new ModificarEF(), 1).iniciar(1);
+                if (Singletons.tipoUsuario.equals("Cliente")) {
+                    Singletons.PagerCli.dispose();
+                    new Controlador_Cli(new ModificarCli(), 1).iniciar(1);
                 }
                 break;
 
             case _CERRAR:
-                Singletons.PagerEF.dispose();
+                Singletons.PagerCli.dispose();
                 new Controlador_Login(new Login(), 0).iniciar(0);
                 Singletons.conectado = "no";
                 break;
@@ -798,31 +792,31 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
         switch (Accion.valueOf(me.getComponent().getName())) {
 
             case _BTN_CREAR:
-                Singletons.PagerEF.btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/edit_add.png")));
+                Singletons.PagerCli.btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/edit_add.png")));
                 break;
 
             case _BTN_MODIFICAR:
-                Singletons.PagerEF.btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/color_line.png")));
+                Singletons.PagerCli.btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/color_line.png")));
                 break;
 
             case _BTN_ELIMINAR:
-                Singletons.PagerEF.btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/cancel.png")));
+                Singletons.PagerCli.btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png")));
                 break;
 
             case _BTN_INFO:
-                Singletons.PagerEF.btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/info.png")));
+                Singletons.PagerCli.btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/info.png")));
                 break;
 
             case _BTN_ABRIR:
-                Singletons.PagerEF.btnAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/folder_orange_open.png")));
+                Singletons.PagerCli.btnAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/folder_orange_open.png")));
                 break;
 
             case _BTN_GUARDAR:
-                Singletons.PagerEF.btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/guardar.png")));
+                Singletons.PagerCli.btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/guardar.png")));
                 break;
 
             case _CERRAR:
-                Singletons.PagerEF.txtCerrar.setForeground(Color.white);
+                Singletons.PagerCli.txtCerrar.setForeground(Color.white);
                 break;
         }
     }
@@ -833,31 +827,31 @@ public class Controlador_EF implements ActionListener, KeyListener, MouseListene
         switch (Accion.valueOf(me.getComponent().getName())) {
 
             case _BTN_CREAR:
-                Singletons.PagerEF.btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/edit_add_NS.png")));
+                Singletons.PagerCli.btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/edit_add_NS.png")));
                 break;
 
             case _BTN_MODIFICAR:
-                Singletons.PagerEF.btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/color_line_NS.png")));
+                Singletons.PagerCli.btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/color_line_NS.png")));
                 break;
 
             case _BTN_ELIMINAR:
-                Singletons.PagerEF.btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/cancel_NS.png")));
+                Singletons.PagerCli.btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel_NS.png")));
                 break;
 
             case _BTN_INFO:
-                Singletons.PagerEF.btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/info_NS.png")));
+                Singletons.PagerCli.btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/info_NS.png")));
                 break;
 
             case _BTN_ABRIR:
-                Singletons.PagerEF.btnAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/folder_yellow_open_NS.png")));
+                Singletons.PagerCli.btnAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/folder_yellow_open_NS.png")));
                 break;
 
             case _BTN_GUARDAR:
-                Singletons.PagerEF.btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV/Img/guardar_NS.png")));
+                Singletons.PagerCli.btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/guardar_NS.png")));
                 break;
 
             case _CERRAR:
-                Singletons.PagerEF.txtCerrar.setForeground(Color.orange);
+                Singletons.PagerCli.txtCerrar.setForeground(Color.orange);
                 break;
 
         }

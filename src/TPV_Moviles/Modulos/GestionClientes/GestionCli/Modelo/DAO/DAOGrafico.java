@@ -15,8 +15,8 @@ import TPV_Moviles.Librerias.Validate;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.BLL.BLLGrafico;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Clientes;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
-import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons.ModificarEF;
-import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaEF;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import TPV_Moviles.Modulos.Login.Vista.Login;
 import com.toedter.calendar.JTextFieldDateEditor;
@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
  */
 public class DAOGrafico {
 
-    public static void crearEF() {
+    public static void crearCliente() {
         String nombre = "", apellidos = "", dni = "", telefono = "", usuario = "", password = "", email = "", tipo = "", avatar = "",
                 subject = "Tu contraseña de registro es:  ", mensaje = "Gracias por registrarte", passwordEn = "";
         int estado = 0;
@@ -46,17 +46,19 @@ public class DAOGrafico {
         passwordEn = Encrypt.encriptarTokenMD5(password);
         email = pideEmail();
         estado = 0;
-        tipo = AltaEF.cmbTipo.getSelectedItem().toString();
+        tipo = AltaCli.cmbTipo.getSelectedItem().toString();
         avatar = Singletons.ruta;
-        saldo = 500.00f;
         
-        if ((AltaEF.NoNombre.isVisible() == false) && (AltaEF.NoApellidos.isVisible() == false) && (AltaEF.NoDNI.isVisible() == false) && (AltaEF.NoTelefono.isVisible() == false) && (AltaEF.NOFNAC.isVisible() == false) && (AltaEF.NOFALTA.isVisible() == false)
-                && (AltaEF.NoEmail.isVisible() == false)) {
+        if ((AltaCli.NoNombre.isVisible() == false) && (AltaCli.NoApellidos.isVisible() == false) && (AltaCli.NoDNI.isVisible() == false) && (AltaCli.NoTelefono.isVisible() == false) && (AltaCli.NOFNAC.isVisible() == false) && (AltaCli.NOFALTA.isVisible() == false)
+                && (AltaCli.NoEmail.isVisible() == false)) {
             Singletons.e = new Clientes(nombre, apellidos, dni, telefono, fechaNacimiento, fechaAlta, usuario, passwordEn, email, estado, tipo, avatar, saldo);
 
             //creamos el objeto Mail
             JavaMail mail = new JavaMail(email, password, subject, mensaje);
             //enviamos el mensaje
+            
+            //JOptionPane.showMessageDialog(null, mail.toString(), "Envio Email OK", JOptionPane.INFORMATION_MESSAGE);
+            
             String error = mail.send();
             if (error.equals("")) {
                 JOptionPane.showMessageDialog(null, "Envio Correcto", "Correcto", JOptionPane.INFORMATION_MESSAGE);
@@ -71,18 +73,18 @@ public class DAOGrafico {
         String nomb = "";
         boolean validar;
 
-        nomb = AltaEF.txtNombre.getText();
+        nomb = AltaCli.txtNombre.getText();
         if (nomb.isEmpty()) {
-            AltaEF.NoNombre.setVisible(true);
-            AltaEF.txtNombre.requestFocus();
+            AltaCli.NoNombre.setVisible(true);
+            AltaCli.txtNombre.requestFocus();
         } else {
-            nomb = AltaEF.txtNombre.getText();
+            nomb = AltaCli.txtNombre.getText();
             validar = Validate.validaNombre(nomb);
             if (validar == false) {
-                AltaEF.txtNombre.requestFocus();
-                AltaEF.NoNombre.setVisible(true);
+                AltaCli.txtNombre.requestFocus();
+                AltaCli.NoNombre.setVisible(true);
             } else {
-                AltaEF.NoNombre.setVisible(false);
+                AltaCli.NoNombre.setVisible(false);
             }
         }
         return nomb;
@@ -92,18 +94,18 @@ public class DAOGrafico {
         String nomb = "";
         boolean validar;
 
-        nomb = AltaEF.txtNombre.getText();
+        nomb = AltaCli.txtNombre.getText();
         if (nomb.isEmpty()) {
-            AltaEF.NoNombre.setVisible(true);
-            AltaEF.txtNombre.requestFocus();
+            AltaCli.NoNombre.setVisible(true);
+            AltaCli.txtNombre.requestFocus();
         } else {
-            nomb = AltaEF.txtNombre.getText();
+            nomb = AltaCli.txtNombre.getText();
             validar = Validate.validaNombre(nomb);
             if (validar == false) {
-                AltaEF.txtNombre.requestFocus();
-                AltaEF.NoNombre.setVisible(true);
+                AltaCli.txtNombre.requestFocus();
+                AltaCli.NoNombre.setVisible(true);
             } else {
-                AltaEF.NoNombre.setVisible(false);
+                AltaCli.NoNombre.setVisible(false);
             }
         }
         return nomb;
@@ -113,18 +115,18 @@ public class DAOGrafico {
         String nomb = "";
         boolean validar;
 
-        nomb = AltaEF.txtNombre.getText();
+        nomb = AltaCli.txtNombre.getText();
         if (nomb.isEmpty()) {
-            AltaEF.NoNombre.setVisible(true);
-            AltaEF.txtNombre.requestFocus();
+            AltaCli.NoNombre.setVisible(true);
+            AltaCli.txtNombre.requestFocus();
         } else {
-            nomb = AltaEF.txtNombre.getText();
+            nomb = AltaCli.txtNombre.getText();
             validar = Validate.validaNombre(nomb);
             if (validar == false) {
-                AltaEF.txtNombre.requestFocus();
-                AltaEF.NoNombre.setVisible(true);
+                AltaCli.txtNombre.requestFocus();
+                AltaCli.NoNombre.setVisible(true);
             } else {
-                AltaEF.NoNombre.setVisible(false);
+                AltaCli.NoNombre.setVisible(false);
             }
         }
         return nomb;
@@ -134,18 +136,18 @@ public class DAOGrafico {
         String nomb = "";
         boolean validar;
 
-        nomb = ModificarEF.txtNombre.getText();
+        nomb = ModificarCli.txtNombre.getText();
         if (nomb.isEmpty()) {
-            ModificarEF.NoNombre.setVisible(true);
-            ModificarEF.txtNombre.requestFocus();
+            ModificarCli.NoNombre.setVisible(true);
+            ModificarCli.txtNombre.requestFocus();
         } else {
-            nomb = ModificarEF.txtNombre.getText();
+            nomb = ModificarCli.txtNombre.getText();
             validar = Validate.validaNombre(nomb);
             if (validar == false) {
-                ModificarEF.txtNombre.requestFocus();
-                ModificarEF.NoNombre.setVisible(true);
+                ModificarCli.txtNombre.requestFocus();
+                ModificarCli.NoNombre.setVisible(true);
             } else {
-                ModificarEF.NoNombre.setVisible(false);
+                ModificarCli.NoNombre.setVisible(false);
             }
         }
         return nomb;
@@ -155,18 +157,18 @@ public class DAOGrafico {
         String nomb = "";
         boolean validar;
 
-        nomb = ModificarEF.txtNombre.getText();
+        nomb = ModificarCli.txtNombre.getText();
         if (nomb.isEmpty()) {
-            ModificarEF.NoNombre.setVisible(true);
-            ModificarEF.txtNombre.requestFocus();
+            ModificarCli.NoNombre.setVisible(true);
+            ModificarCli.txtNombre.requestFocus();
         } else {
-            nomb = ModificarEF.txtNombre.getText();
+            nomb = ModificarCli.txtNombre.getText();
             validar = Validate.validaNombre(nomb);
             if (validar == false) {
-                ModificarEF.txtNombre.requestFocus();
-                ModificarEF.NoNombre.setVisible(true);
+                ModificarCli.txtNombre.requestFocus();
+                ModificarCli.NoNombre.setVisible(true);
             } else {
-                ModificarEF.NoNombre.setVisible(false);
+                ModificarCli.NoNombre.setVisible(false);
             }
         }
         return nomb;
@@ -176,18 +178,18 @@ public class DAOGrafico {
         String nomb = "";
         boolean validar;
 
-        nomb = ModificarEF.txtNombre.getText();
+        nomb = ModificarCli.txtNombre.getText();
         if (nomb.isEmpty()) {
-            ModificarEF.NoNombre.setVisible(true);
-            ModificarEF.txtNombre.requestFocus();
+            ModificarCli.NoNombre.setVisible(true);
+            ModificarCli.txtNombre.requestFocus();
         } else {
-            nomb = ModificarEF.txtNombre.getText();
+            nomb = ModificarCli.txtNombre.getText();
             validar = Validate.validaNombre(nomb);
             if (validar == false) {
-                ModificarEF.txtNombre.requestFocus();
-                ModificarEF.NoNombre.setVisible(true);
+                ModificarCli.txtNombre.requestFocus();
+                ModificarCli.NoNombre.setVisible(true);
             } else {
-                ModificarEF.NoNombre.setVisible(false);
+                ModificarCli.NoNombre.setVisible(false);
             }
         }
         return nomb;
@@ -197,18 +199,18 @@ public class DAOGrafico {
         String apel = "";
         boolean validar;
 
-        apel = AltaEF.txtApellidos.getText();
+        apel = AltaCli.txtApellidos.getText();
         if (apel.isEmpty()) {
-            AltaEF.NoApellidos.setVisible(true);
-            AltaEF.txtApellidos.requestFocus();
+            AltaCli.NoApellidos.setVisible(true);
+            AltaCli.txtApellidos.requestFocus();
         } else {
-            apel = AltaEF.txtApellidos.getText();
+            apel = AltaCli.txtApellidos.getText();
             validar = Validate.validaNombre(apel);
             if (validar == false) {
-                AltaEF.txtApellidos.requestFocus();
-                AltaEF.NoApellidos.setVisible(true);
+                AltaCli.txtApellidos.requestFocus();
+                AltaCli.NoApellidos.setVisible(true);
             } else {
-                AltaEF.NoApellidos.setVisible(false);
+                AltaCli.NoApellidos.setVisible(false);
             }
         }
         return apel;
@@ -218,18 +220,18 @@ public class DAOGrafico {
         String apel = "";
         boolean validar;
 
-        apel = AltaEF.txtApellidos.getText();
+        apel = AltaCli.txtApellidos.getText();
         if (apel.isEmpty()) {
-            AltaEF.NoApellidos.setVisible(true);
-            AltaEF.txtApellidos.requestFocus();
+            AltaCli.NoApellidos.setVisible(true);
+            AltaCli.txtApellidos.requestFocus();
         } else {
-            apel = AltaEF.txtApellidos.getText();
+            apel = AltaCli.txtApellidos.getText();
             validar = Validate.validaNombre(apel);
             if (validar == false) {
-                AltaEF.txtApellidos.requestFocus();
-                AltaEF.NoApellidos.setVisible(true);
+                AltaCli.txtApellidos.requestFocus();
+                AltaCli.NoApellidos.setVisible(true);
             } else {
-                AltaEF.NoApellidos.setVisible(false);
+                AltaCli.NoApellidos.setVisible(false);
             }
         }
         return apel;
@@ -239,18 +241,18 @@ public class DAOGrafico {
         String apel = "";
         boolean validar;
 
-        apel = AltaEF.txtApellidos.getText();
+        apel = AltaCli.txtApellidos.getText();
         if (apel.isEmpty()) {
-            AltaEF.NoApellidos.setVisible(true);
-            AltaEF.txtApellidos.requestFocus();
+            AltaCli.NoApellidos.setVisible(true);
+            AltaCli.txtApellidos.requestFocus();
         } else {
-            apel = AltaEF.txtApellidos.getText();
+            apel = AltaCli.txtApellidos.getText();
             validar = Validate.validaNombre(apel);
             if (validar == false) {
-                AltaEF.txtApellidos.requestFocus();
-                AltaEF.NoApellidos.setVisible(true);
+                AltaCli.txtApellidos.requestFocus();
+                AltaCli.NoApellidos.setVisible(true);
             } else {
-                AltaEF.NoApellidos.setVisible(false);
+                AltaCli.NoApellidos.setVisible(false);
             }
         }
         return apel;
@@ -260,18 +262,18 @@ public class DAOGrafico {
         String apel = "";
         boolean validar;
 
-        apel = ModificarEF.txtApellidos.getText();
+        apel = ModificarCli.txtApellidos.getText();
         if (apel.isEmpty()) {
-            ModificarEF.NoApellidos.setVisible(true);
-            ModificarEF.txtApellidos.requestFocus();
+            ModificarCli.NoApellidos.setVisible(true);
+            ModificarCli.txtApellidos.requestFocus();
         } else {
-            apel = ModificarEF.txtApellidos.getText();
+            apel = ModificarCli.txtApellidos.getText();
             validar = Validate.validaNombre(apel);
             if (validar == false) {
-                ModificarEF.txtApellidos.requestFocus();
-                ModificarEF.NoApellidos.setVisible(true);
+                ModificarCli.txtApellidos.requestFocus();
+                ModificarCli.NoApellidos.setVisible(true);
             } else {
-                ModificarEF.NoApellidos.setVisible(false);
+                ModificarCli.NoApellidos.setVisible(false);
             }
         }
         return apel;
@@ -281,18 +283,18 @@ public class DAOGrafico {
         String apel = "";
         boolean validar;
 
-        apel = ModificarEF.txtApellidos.getText();
+        apel = ModificarCli.txtApellidos.getText();
         if (apel.isEmpty()) {
-            ModificarEF.NoApellidos.setVisible(true);
-            ModificarEF.txtApellidos.requestFocus();
+            ModificarCli.NoApellidos.setVisible(true);
+            ModificarCli.txtApellidos.requestFocus();
         } else {
-            apel = ModificarEF.txtApellidos.getText();
+            apel = ModificarCli.txtApellidos.getText();
             validar = Validate.validaNombre(apel);
             if (validar == false) {
-                ModificarEF.txtApellidos.requestFocus();
-                ModificarEF.NoApellidos.setVisible(true);
+                ModificarCli.txtApellidos.requestFocus();
+                ModificarCli.NoApellidos.setVisible(true);
             } else {
-                ModificarEF.NoApellidos.setVisible(false);
+                ModificarCli.NoApellidos.setVisible(false);
             }
         }
         return apel;
@@ -302,18 +304,18 @@ public class DAOGrafico {
         String apel = "";
         boolean validar;
 
-        apel = ModificarEF.txtApellidos.getText();
+        apel = ModificarCli.txtApellidos.getText();
         if (apel.isEmpty()) {
-            ModificarEF.NoApellidos.setVisible(true);
-            ModificarEF.txtApellidos.requestFocus();
+            ModificarCli.NoApellidos.setVisible(true);
+            ModificarCli.txtApellidos.requestFocus();
         } else {
-            apel = ModificarEF.txtApellidos.getText();
+            apel = ModificarCli.txtApellidos.getText();
             validar = Validate.validaNombre(apel);
             if (validar == false) {
-                ModificarEF.txtApellidos.requestFocus();
-                ModificarEF.NoApellidos.setVisible(true);
+                ModificarCli.txtApellidos.requestFocus();
+                ModificarCli.NoApellidos.setVisible(true);
             } else {
-                ModificarEF.NoApellidos.setVisible(false);
+                ModificarCli.NoApellidos.setVisible(false);
             }
         }
         return apel;
@@ -323,18 +325,18 @@ public class DAOGrafico {
         String dni = "";
         boolean validar;
 
-        dni = AltaEF.txtDNI.getText();
+        dni = AltaCli.txtDNI.getText();
         if (dni.isEmpty()) {
-            AltaEF.txtDNI.requestFocus();
-            AltaEF.NoDNI.setVisible(true);
+            AltaCli.txtDNI.requestFocus();
+            AltaCli.NoDNI.setVisible(true);
         } else {
-            dni = AltaEF.txtDNI.getText();
+            dni = AltaCli.txtDNI.getText();
             validar = Validate.validaDNI(dni);
             if (validar == false) {
-                AltaEF.txtDNI.requestFocus();
-                AltaEF.NoDNI.setVisible(true);
+                AltaCli.txtDNI.requestFocus();
+                AltaCli.NoDNI.setVisible(true);
             } else {
-                AltaEF.NoDNI.setVisible(false);
+                AltaCli.NoDNI.setVisible(false);
             }
         }
         return dni;
@@ -344,18 +346,18 @@ public class DAOGrafico {
         String dni = "";
         boolean validar;
 
-        dni = AltaEF.txtDNI.getText();
+        dni = AltaCli.txtDNI.getText();
         if (dni.isEmpty()) {
-            AltaEF.txtDNI.requestFocus();
-            AltaEF.NoDNI.setVisible(true);
+            AltaCli.txtDNI.requestFocus();
+            AltaCli.NoDNI.setVisible(true);
         } else {
-            dni = AltaEF.txtDNI.getText();
+            dni = AltaCli.txtDNI.getText();
             validar = Validate.validaDNI(dni);
             if (validar == false) {
-                AltaEF.txtDNI.requestFocus();
-                AltaEF.NoDNI.setVisible(true);
+                AltaCli.txtDNI.requestFocus();
+                AltaCli.NoDNI.setVisible(true);
             } else {
-                AltaEF.NoDNI.setVisible(false);
+                AltaCli.NoDNI.setVisible(false);
             }
         }
         return dni;
@@ -365,18 +367,18 @@ public class DAOGrafico {
         String dni = "";
         boolean validar;
 
-        dni = AltaEF.txtDNI.getText();
+        dni = AltaCli.txtDNI.getText();
         if (dni.isEmpty()) {
-            AltaEF.txtDNI.requestFocus();
-            AltaEF.NoDNI.setVisible(true);
+            AltaCli.txtDNI.requestFocus();
+            AltaCli.NoDNI.setVisible(true);
         } else {
-            dni = AltaEF.txtDNI.getText();
+            dni = AltaCli.txtDNI.getText();
             validar = Validate.validaDNI(dni);
             if (validar == false) {
-                AltaEF.txtDNI.requestFocus();
-                AltaEF.NoDNI.setVisible(true);
+                AltaCli.txtDNI.requestFocus();
+                AltaCli.NoDNI.setVisible(true);
             } else {
-                AltaEF.NoDNI.setVisible(false);
+                AltaCli.NoDNI.setVisible(false);
             }
         }
         return dni;
@@ -386,18 +388,18 @@ public class DAOGrafico {
         String telef = "";
         boolean validar;
 
-        telef = AltaEF.txtTelefono.getText();
+        telef = AltaCli.txtTelefono.getText();
         if (telef.isEmpty()) {
-            AltaEF.txtTelefono.requestFocus();
-            AltaEF.NoTelefono.setVisible(true);
+            AltaCli.txtTelefono.requestFocus();
+            AltaCli.NoTelefono.setVisible(true);
         } else {
-            telef = AltaEF.txtTelefono.getText();
+            telef = AltaCli.txtTelefono.getText();
             validar = Validate.validaTelefono(telef);
             if (validar == false) {
-                AltaEF.txtTelefono.requestFocus();
-                AltaEF.NoTelefono.setVisible(true);
+                AltaCli.txtTelefono.requestFocus();
+                AltaCli.NoTelefono.setVisible(true);
             } else {
-                AltaEF.NoTelefono.setVisible(false);
+                AltaCli.NoTelefono.setVisible(false);
             }
         }
         return telef;
@@ -407,18 +409,18 @@ public class DAOGrafico {
         String telef = "";
         boolean validar;
 
-        telef = ModificarEF.txtTelefono.getText();
+        telef = ModificarCli.txtTelefono.getText();
         if (telef.isEmpty()) {
-            ModificarEF.txtTelefono.requestFocus();
-            ModificarEF.NoTelefono.setVisible(true);
+            ModificarCli.txtTelefono.requestFocus();
+            ModificarCli.NoTelefono.setVisible(true);
         } else {
-            telef = ModificarEF.txtTelefono.getText();
+            telef = ModificarCli.txtTelefono.getText();
             validar = Validate.validaTelefono(telef);
             if (validar == false) {
-                ModificarEF.txtTelefono.requestFocus();
-                ModificarEF.NoTelefono.setVisible(true);
+                ModificarCli.txtTelefono.requestFocus();
+                ModificarCli.NoTelefono.setVisible(true);
             } else {
-                ModificarEF.NoTelefono.setVisible(false);
+                ModificarCli.NoTelefono.setVisible(false);
             }
         }
         return telef;
@@ -429,17 +431,17 @@ public class DAOGrafico {
         Fecha fechaNacimiento = null;
         int edad = 0;
 
-        if (AltaEF.dcfnac.getDate() == null) {
-            AltaEF.NOFNAC.setVisible(true);
+        if (AltaCli.dcfnac.getDate() == null) {
+            AltaCli.NOFNAC.setVisible(true);
         } else {
-            fecha = ((JTextFieldDateEditor) AltaEF.dcfnac.getDateEditor()).getText();
+            fecha = ((JTextFieldDateEditor) AltaCli.dcfnac.getDateEditor()).getText();
             fechaNacimiento = DAOCliente.introFecha(fecha);
             edad = fechaNacimiento.restaFechas();
             if (edad < 16) {
-                AltaEF.NOFNAC.setVisible(true);
+                AltaCli.NOFNAC.setVisible(true);
             } else {
-                AltaEF.txtEdad.setText(Integer.toString(edad));
-                AltaEF.NOFNAC.setVisible(false);
+                AltaCli.txtEdad.setText(Integer.toString(edad));
+                AltaCli.NOFNAC.setVisible(false);
             }
         }
         return fechaNacimiento;
@@ -450,17 +452,17 @@ public class DAOGrafico {
         Fecha fechaNacimiento = null;
         int edad = 0;
 
-        if (ModificarEF.dcFnac.getDate() == null) {
-            ModificarEF.NOFNAC.setVisible(true);
+        if (ModificarCli.dcFnac.getDate() == null) {
+            ModificarCli.NOFNAC.setVisible(true);
         } else {
-            fecha = ((JTextFieldDateEditor) ModificarEF.dcFnac.getDateEditor()).getText();
+            fecha = ((JTextFieldDateEditor) ModificarCli.dcFnac.getDateEditor()).getText();
             fechaNacimiento = DAOCliente.introFecha(fecha);
             edad = fechaNacimiento.restaFechas();
             if (edad < 16) {
-                ModificarEF.NOFNAC.setVisible(true);
+                ModificarCli.NOFNAC.setVisible(true);
             } else {
-                ModificarEF.txtEdad.setText(Integer.toString(edad));
-                ModificarEF.NOFNAC.setVisible(false);
+                ModificarCli.txtEdad.setText(Integer.toString(edad));
+                ModificarCli.NOFNAC.setVisible(false);
             }
         }
         return fechaNacimiento;
@@ -471,23 +473,23 @@ public class DAOGrafico {
         Fecha fechaAlta = null;
         int antiguedad = 0, edad = 0;
 
-        if (AltaEF.dcFAlta.getDate() == null) {
-            AltaEF.NOFALTA.setVisible(true);
+        if (AltaCli.dcFAlta.getDate() == null) {
+            AltaCli.NOFALTA.setVisible(true);
         } else {
-            fecha1 = ((JTextFieldDateEditor) AltaEF.dcFAlta.getDateEditor()).getText();
+            fecha1 = ((JTextFieldDateEditor) AltaCli.dcFAlta.getDateEditor()).getText();
             fechaAlta = DAOCliente.introFecha(fecha1);
-            if (AltaEF.dcFAlta.getCalendar().before(AltaEF.dcfnac.getCalendar())) {
+            if (AltaCli.dcFAlta.getCalendar().before(AltaCli.dcfnac.getCalendar())) {
                 JOptionPane.showMessageDialog(null, "La fecha de contratación no puede ser anterior a la de nacimiento");
             } else {
                 antiguedad = fechaAlta.restaFechas();
-                edad = Integer.parseInt(AltaEF.txtEdad.getText());
+                edad = Integer.parseInt(AltaCli.txtEdad.getText());
                 if ((edad - antiguedad) < 16) {
-                    AltaEF.txtEdad.setText("");
-                    AltaEF.txtAntiguedad.setText("");
-                    AltaEF.NOFALTA.setVisible(true);
+                    AltaCli.txtEdad.setText("");
+                    AltaCli.txtAntiguedad.setText("");
+                    AltaCli.NOFALTA.setVisible(true);
                 } else {
-                    AltaEF.txtAntiguedad.setText(Integer.toString(antiguedad));
-                    AltaEF.NOFALTA.setVisible(false);
+                    AltaCli.txtAntiguedad.setText(Integer.toString(antiguedad));
+                    AltaCli.NOFALTA.setVisible(false);
                 }
             }
         }
@@ -499,23 +501,23 @@ public class DAOGrafico {
         Fecha fechaAlta = null;
         int antiguedad = 0, edad = 0;
 
-        if (ModificarEF.dcFalta.getDate() == null) {
-            ModificarEF.NOFALTA.setVisible(true);
+        if (ModificarCli.dcFalta.getDate() == null) {
+            ModificarCli.NOFALTA.setVisible(true);
         } else {
-            fecha1 = ((JTextFieldDateEditor) ModificarEF.dcFalta.getDateEditor()).getText();
+            fecha1 = ((JTextFieldDateEditor) ModificarCli.dcFalta.getDateEditor()).getText();
             fechaAlta = DAOCliente.introFecha(fecha1);
-            if (ModificarEF.dcFalta.getCalendar().before(ModificarEF.dcFnac.getCalendar())) {
+            if (ModificarCli.dcFalta.getCalendar().before(ModificarCli.dcFnac.getCalendar())) {
                 JOptionPane.showMessageDialog(null, "La fecha de contratación no puede ser anterior a la de nacimiento");
             } else {
                 antiguedad = fechaAlta.restaFechas();
-                edad = Integer.parseInt(ModificarEF.txtEdad.getText());
+                edad = Integer.parseInt(ModificarCli.txtEdad.getText());
                 if ((edad - antiguedad) < 16) {
-                    ModificarEF.txtEdad.setText("");
-                    ModificarEF.txtAntiguedad.setText("");
-                    ModificarEF.NOFALTA.setVisible(true);
+                    ModificarCli.txtEdad.setText("");
+                    ModificarCli.txtAntiguedad.setText("");
+                    ModificarCli.NOFALTA.setVisible(true);
                 } else {
-                    ModificarEF.txtAntiguedad.setText(Integer.toString(antiguedad));
-                    ModificarEF.NOFALTA.setVisible(false);
+                    ModificarCli.txtAntiguedad.setText(Integer.toString(antiguedad));
+                    ModificarCli.NOFALTA.setVisible(false);
                 }
             }
         }
@@ -526,18 +528,18 @@ public class DAOGrafico {
         String email = "";
         boolean validar;
 
-        email = AltaEF.txtEmail.getText();
+        email = AltaCli.txtEmail.getText();
         if (email.isEmpty()) {
-            AltaEF.txtEmail.requestFocus();
-            AltaEF.NoEmail.setVisible(true);
+            AltaCli.txtEmail.requestFocus();
+            AltaCli.NoEmail.setVisible(true);
         } else {
-            email = AltaEF.txtEmail.getText();
+            email = AltaCli.txtEmail.getText();
             validar = Validate.validaEmail(email);
             if (validar == false) {
-                AltaEF.txtEmail.requestFocus();
-                AltaEF.NoEmail.setVisible(true);
+                AltaCli.txtEmail.requestFocus();
+                AltaCli.NoEmail.setVisible(true);
             } else {
-                AltaEF.NoEmail.setVisible(false);
+                AltaCli.NoEmail.setVisible(false);
             }
         }
         return email;
@@ -547,18 +549,18 @@ public class DAOGrafico {
         String email = "";
         boolean validar;
 
-        email = AltaEF.txtEmail.getText();
+        email = AltaCli.txtEmail.getText();
         if (email.isEmpty()) {
-            AltaEF.txtEmail.requestFocus();
-            AltaEF.NoEmail.setVisible(true);
+            AltaCli.txtEmail.requestFocus();
+            AltaCli.NoEmail.setVisible(true);
         } else {
-            email = AltaEF.txtEmail.getText();
+            email = AltaCli.txtEmail.getText();
             validar = Validate.validaEmail(email);
             if (validar == false) {
-                AltaEF.txtEmail.requestFocus();
-                AltaEF.NoEmail.setVisible(true);
+                AltaCli.txtEmail.requestFocus();
+                AltaCli.NoEmail.setVisible(true);
             } else {
-                AltaEF.NoEmail.setVisible(false);
+                AltaCli.NoEmail.setVisible(false);
             }
         }
         return email;
@@ -568,18 +570,18 @@ public class DAOGrafico {
         String email = "";
         boolean validar;
 
-        email = AltaEF.txtEmail.getText();
+        email = AltaCli.txtEmail.getText();
         if (email.isEmpty()) {
-            AltaEF.txtEmail.requestFocus();
-            AltaEF.NoEmail.setVisible(true);
+            AltaCli.txtEmail.requestFocus();
+            AltaCli.NoEmail.setVisible(true);
         } else {
-            email = AltaEF.txtEmail.getText();
+            email = AltaCli.txtEmail.getText();
             validar = Validate.validaEmail(email);
             if (validar == false) {
-                AltaEF.txtEmail.requestFocus();
-                AltaEF.NoEmail.setVisible(true);
+                AltaCli.txtEmail.requestFocus();
+                AltaCli.NoEmail.setVisible(true);
             } else {
-                AltaEF.NoEmail.setVisible(false);
+                AltaCli.NoEmail.setVisible(false);
             }
         }
         return email;
@@ -589,18 +591,18 @@ public class DAOGrafico {
         String email = "";
         boolean validar;
 
-        email = ModificarEF.txtEmail.getText();
+        email = ModificarCli.txtEmail.getText();
         if (email.isEmpty()) {
-            ModificarEF.txtEmail.requestFocus();
-            ModificarEF.NoEmail.setVisible(true);
+            ModificarCli.txtEmail.requestFocus();
+            ModificarCli.NoEmail.setVisible(true);
         } else {
-            email = ModificarEF.txtEmail.getText();
+            email = ModificarCli.txtEmail.getText();
             validar = Validate.validaEmail(email);
             if (validar == false) {
-                ModificarEF.txtEmail.requestFocus();
-                ModificarEF.NoEmail.setVisible(true);
+                ModificarCli.txtEmail.requestFocus();
+                ModificarCli.NoEmail.setVisible(true);
             } else {
-                ModificarEF.NoEmail.setVisible(false);
+                ModificarCli.NoEmail.setVisible(false);
             }
         }
         return email;
@@ -610,18 +612,18 @@ public class DAOGrafico {
         String email = "";
         boolean validar;
 
-        email = ModificarEF.txtEmail.getText();
+        email = ModificarCli.txtEmail.getText();
         if (email.isEmpty()) {
-            ModificarEF.txtEmail.requestFocus();
-            ModificarEF.NoEmail.setVisible(true);
+            ModificarCli.txtEmail.requestFocus();
+            ModificarCli.NoEmail.setVisible(true);
         } else {
-            email = ModificarEF.txtEmail.getText();
+            email = ModificarCli.txtEmail.getText();
             validar = Validate.validaEmail(email);
             if (validar == false) {
-                ModificarEF.txtEmail.requestFocus();
-                ModificarEF.NoEmail.setVisible(true);
+                ModificarCli.txtEmail.requestFocus();
+                ModificarCli.NoEmail.setVisible(true);
             } else {
-                ModificarEF.NoEmail.setVisible(false);
+                ModificarCli.NoEmail.setVisible(false);
             }
         }
         return email;
@@ -631,18 +633,18 @@ public class DAOGrafico {
         String email = "";
         boolean validar;
 
-        email = ModificarEF.txtEmail.getText();
+        email = ModificarCli.txtEmail.getText();
         if (email.isEmpty()) {
-            ModificarEF.txtEmail.requestFocus();
-            ModificarEF.NoEmail.setVisible(true);
+            ModificarCli.txtEmail.requestFocus();
+            ModificarCli.NoEmail.setVisible(true);
         } else {
-            email = ModificarEF.txtEmail.getText();
+            email = ModificarCli.txtEmail.getText();
             validar = Validate.validaEmail(email);
             if (validar == false) {
-                ModificarEF.txtEmail.requestFocus();
-                ModificarEF.NoEmail.setVisible(true);
+                ModificarCli.txtEmail.requestFocus();
+                ModificarCli.NoEmail.setVisible(true);
             } else {
-                ModificarEF.NoEmail.setVisible(false);
+                ModificarCli.NoEmail.setVisible(false);
             }
         }
         return email;
@@ -651,13 +653,13 @@ public class DAOGrafico {
     public static String ModpideUsuario() {
         String usuario = "";
 
-        usuario = ModificarEF.txtUsuario.getText();
+        usuario = ModificarCli.txtUsuario.getText();
         if (usuario.isEmpty()) {
-            ModificarEF.txtUsuario.requestFocus();
-            ModificarEF.NoUsuario.setVisible(true);
+            ModificarCli.txtUsuario.requestFocus();
+            ModificarCli.NoUsuario.setVisible(true);
         } else {
-            usuario = ModificarEF.txtUsuario.getText();
-            ModificarEF.NoUsuario.setVisible(false);
+            usuario = ModificarCli.txtUsuario.getText();
+            ModificarCli.NoUsuario.setVisible(false);
         }
         return usuario;
     }
@@ -665,42 +667,41 @@ public class DAOGrafico {
     public static String ModpidePassword() {
         String password = "";
 
-        password = ModificarEF.txtPassword.getText();
+        password = ModificarCli.txtPassword.getText();
 
         if (password.isEmpty()) {
-            ModificarEF.txtPassword.requestFocus();
-            ModificarEF.NoPassword.setVisible(true);
+            ModificarCli.txtPassword.requestFocus();
+            ModificarCli.NoPassword.setVisible(true);
         } else {
             password = Encrypt.encriptarTokenMD5(password);
-            ModificarEF.NoPassword.setVisible(false);
+            ModificarCli.NoPassword.setVisible(false);
         }
         return password;
     }
     
     public static void LimpiarCreaCliente() {
-        AltaEF.txtNombre.setText("");
-        AltaEF.txtApellidos.setText("");
-        AltaEF.txtDNI.setText("");
-        AltaEF.txtTelefono.setText("");
-        AltaEF.txtEdad.setText("");
-        AltaEF.txtAntiguedad.setText("");
-        AltaEF.dcfnac.setDate(null);
-        AltaEF.dcFAlta.setDate(null);
-        AltaEF.txtEmail.setText("");
+        AltaCli.txtNombre.setText("");
+        AltaCli.txtApellidos.setText("");
+        AltaCli.txtDNI.setText("");
+        AltaCli.txtTelefono.setText("");
+        AltaCli.txtEdad.setText("");
+        AltaCli.txtAntiguedad.setText("");
+        AltaCli.dcfnac.setDate(null);
+        AltaCli.dcFAlta.setDate(null);
+        AltaCli.txtEmail.setText("");
     }
 
     public static void LimpiarModificarCliente() {
-        ModificarEF.txtNombre.setText("");
-        ModificarEF.txtApellidos.setText("");
-        ModificarEF.txtTelefono.setText("");
-        ModificarEF.txtUsuario.setText("");
-        ModificarEF.txtAntiguedad.setText("");
-        ModificarEF.dcFnac.setDate(null);
-        ModificarEF.dcFalta.setDate(null);
-        ModificarEF.txtPassword.setText("");
-        ModificarEF.txtEmail.setText("");
-        ModificarEF.txtEdad.setText("");
-        ModificarEF.txtSaldo.setText("");
+        ModificarCli.txtNombre.setText("");
+        ModificarCli.txtApellidos.setText("");
+        ModificarCli.txtTelefono.setText("");
+        ModificarCli.txtUsuario.setText("");
+        ModificarCli.txtAntiguedad.setText("");
+        ModificarCli.dcFnac.setDate(null);
+        ModificarCli.dcFalta.setDate(null);
+        ModificarCli.txtPassword.setText("");
+        ModificarCli.txtEmail.setText("");
+        ModificarCli.txtEdad.setText("");
     }
 
     public static void OcultarErrores() {
@@ -713,15 +714,15 @@ public class DAOGrafico {
 
             if (Singletons.tipoUsuario.equals("Administrador")) {
 
-                AltaEF.NoNombre.setVisible(false);
-                AltaEF.NoApellidos.setVisible(false);
-                AltaEF.NoDNI.setVisible(false);
-                AltaEF.txtEdad.setEditable(false);
-                AltaEF.NoTelefono.setVisible(false);
-                AltaEF.NOFNAC.setVisible(false);
-                AltaEF.NOFALTA.setVisible(false);
-                AltaEF.NoEmail.setVisible(false);
-                AltaEF.txtAntiguedad.setEditable(false);
+                AltaCli.NoNombre.setVisible(false);
+                AltaCli.NoApellidos.setVisible(false);
+                AltaCli.NoDNI.setVisible(false);
+                AltaCli.txtEdad.setEditable(false);
+                AltaCli.NoTelefono.setVisible(false);
+                AltaCli.NOFNAC.setVisible(false);
+                AltaCli.NOFALTA.setVisible(false);
+                AltaCli.NoEmail.setVisible(false);
+                AltaCli.txtAntiguedad.setEditable(false);
             }
         }
     }
@@ -729,19 +730,19 @@ public class DAOGrafico {
     public static void OcultarErroresRegistro() {
 
         if (Singletons.conectado.equals("no")) {
-            AltaEF.NoNombre.setVisible(false);
-            AltaEF.NoApellidos.setVisible(false);
-            AltaEF.NoDNI.setVisible(false);
-            AltaEF.txtEdad.setEditable(false);
-            AltaEF.NoTelefono.setVisible(false);
-            AltaEF.NOFNAC.setVisible(false);
-            AltaEF.NOFALTA.setVisible(false);
-            AltaEF.NoEmail.setVisible(false);
-            AltaEF.txtAntiguedad.setEditable(false);
-            AltaEF.btnVolver.setVisible(false);
-            AltaEF.cmbTipo.setVisible(false);
-            AltaEF.etiTipo.setVisible(false);
-            AltaEF.labelFotoUsu.setVisible(false);
+            AltaCli.NoNombre.setVisible(false);
+            AltaCli.NoApellidos.setVisible(false);
+            AltaCli.NoDNI.setVisible(false);
+            AltaCli.txtEdad.setEditable(false);
+            AltaCli.NoTelefono.setVisible(false);
+            AltaCli.NOFNAC.setVisible(false);
+            AltaCli.NOFALTA.setVisible(false);
+            AltaCli.NoEmail.setVisible(false);
+            AltaCli.txtAntiguedad.setEditable(false);
+            AltaCli.btnVolver.setVisible(false);
+            AltaCli.cmbTipo.setVisible(false);
+            AltaCli.etiTipo.setVisible(false);
+            AltaCli.labelFotoUsu.setVisible(false);
         }
     }
 
@@ -752,30 +753,30 @@ public class DAOGrafico {
         Singletons.tipoUsuario = _tipoUsuario.TipoUsuarioBLL(usua);
 
         if (Singletons.tipoUsuario.equals("Administrador")) {
-            ModificarEF.NoNombre.setVisible(false);
-            ModificarEF.NoApellidos.setVisible(false);
-            ModificarEF.NoTelefono.setVisible(false);
-            ModificarEF.NOFNAC.setVisible(false);
-            ModificarEF.NOFALTA.setVisible(false);
-            ModificarEF.txtAntiguedad.setEditable(false);
-            ModificarEF.NoUsuario.setVisible(false);
-            ModificarEF.NoPassword.setVisible(false);
-            ModificarEF.NoEmail.setVisible(false);
-            ModificarEF.cmbTipoUser.setEnabled(true);
-            ModificarEF.NoSaldo.setVisible(false);
-        } else if (Singletons.tipoUsuario.equals("user")) {
-            ModificarEF.NoNombre.setVisible(false);
-            ModificarEF.NoApellidos.setVisible(false);
-            ModificarEF.NoTelefono.setVisible(false);
-            ModificarEF.NOFNAC.setVisible(false);
-            ModificarEF.NOFALTA.setVisible(false);
-            ModificarEF.txtAntiguedad.setEditable(false);
-            ModificarEF.NoUsuario.setVisible(false);
-            ModificarEF.NoPassword.setVisible(false);
-            ModificarEF.NoEmail.setVisible(false);
-            ModificarEF.cmbTipoUser.setVisible(false);
-            ModificarEF.etiTipoUser.setVisible(false);
-            ModificarEF.NoSaldo.setVisible(false);
+            ModificarCli.NoNombre.setVisible(false);
+            ModificarCli.NoApellidos.setVisible(false);
+            ModificarCli.NoTelefono.setVisible(false);
+            ModificarCli.NOFNAC.setVisible(false);
+            ModificarCli.NOFALTA.setVisible(false);
+            ModificarCli.txtAntiguedad.setEditable(false);
+            ModificarCli.NoUsuario.setVisible(false);
+            ModificarCli.NoPassword.setVisible(false);
+            ModificarCli.NoEmail.setVisible(false);
+            ModificarCli.cmbTipoUser.setEnabled(true);
+   
+        } else if (Singletons.tipoUsuario.equals("Cliente")) {
+            ModificarCli.NoNombre.setVisible(false);
+            ModificarCli.NoApellidos.setVisible(false);
+            ModificarCli.NoTelefono.setVisible(false);
+            ModificarCli.NOFNAC.setVisible(false);
+            ModificarCli.NOFALTA.setVisible(false);
+            ModificarCli.txtAntiguedad.setEditable(false);
+            ModificarCli.NoUsuario.setVisible(false);
+            ModificarCli.NoPassword.setVisible(false);
+            ModificarCli.NoEmail.setVisible(false);
+            ModificarCli.cmbTipoUser.setVisible(false);
+            ModificarCli.etiTipoUser.setVisible(false);
+           
         }
     }
 
@@ -787,43 +788,41 @@ public class DAOGrafico {
 
         if (Singletons.tipoUsuario.equals("Administrador")) {
 
-            ModificarEF.txtNombre.setText((Singletons.e).getNombre());
-            ModificarEF.txtApellidos.setText((Singletons.e).getApellidos());
-            ModificarEF.txtTelefono.setText((Singletons.e).getTelefono());
-            ModificarEF.txtAntiguedad.setText(Integer.toString((Singletons.e).getAntiguedad()));
-            ModificarEF.txtEdad.setText(Integer.toString((Singletons.e).getEdad()));
-            ((JTextFieldDateEditor) ModificarEF.dcFnac.getDateEditor()).setText((Singletons.e).getFechaNacimiento().toStringFecha());
-            ((JTextFieldDateEditor) ModificarEF.dcFalta.getDateEditor()).setText((Singletons.e).getFechaAlta().toStringFecha());
-            ModificarEF.txtUsuario.setText((Singletons.e).getUsuario());
-            ModificarEF.txtPassword.setText("");
-            ModificarEF.txtEmail.setText((Singletons.e).getEmail());
-            ModificarEF.txtSaldo.setText(Float.toString((Singletons.e).getSaldo()));
+            ModificarCli.txtNombre.setText((Singletons.e).getNombre());
+            ModificarCli.txtApellidos.setText((Singletons.e).getApellidos());
+            ModificarCli.txtTelefono.setText((Singletons.e).getTelefono());
+            ModificarCli.txtAntiguedad.setText(Integer.toString((Singletons.e).getAntiguedad()));
+            ModificarCli.txtEdad.setText(Integer.toString((Singletons.e).getEdad()));
+            ((JTextFieldDateEditor) ModificarCli.dcFnac.getDateEditor()).setText((Singletons.e).getFechaNacimiento().toStringFecha());
+            ((JTextFieldDateEditor) ModificarCli.dcFalta.getDateEditor()).setText((Singletons.e).getFechaAlta().toStringFecha());
+            ModificarCli.txtUsuario.setText((Singletons.e).getUsuario());
+            ModificarCli.txtPassword.setText("");
+            ModificarCli.txtEmail.setText((Singletons.e).getEmail());
             FileUploader.leer_imag(3);
             
-        } else if (Singletons.tipoUsuario.equals("user")) {
+        } else if (Singletons.tipoUsuario.equals("Cliente")) {
 
             Clientes empf = DAOGrafico.ObtenerClienteLogeado();
-            ModificarEF.txtNombre.setText(empf.getNombre());
-            ModificarEF.txtApellidos.setText(empf.getApellidos());
-            ModificarEF.txtTelefono.setText(empf.getTelefono());
-            ModificarEF.txtAntiguedad.setText(Integer.toString(empf.getAntiguedad()));
-            ModificarEF.txtEdad.setText(Integer.toString(empf.getEdad()));
-            ((JTextFieldDateEditor) ModificarEF.dcFnac.getDateEditor()).setText(empf.getFechaNacimiento().toStringFecha());
-            ((JTextFieldDateEditor) ModificarEF.dcFalta.getDateEditor()).setText(empf.getFechaAlta().toStringFecha());
-            ModificarEF.txtUsuario.setText(empf.getUsuario());
-            ModificarEF.txtPassword.setText("");
-            ModificarEF.txtEmail.setText(empf.getEmail());
-            ModificarEF.txtSaldo.setText(Float.toString((Singletons.e).getSaldo()));
+            ModificarCli.txtNombre.setText(empf.getNombre());
+            ModificarCli.txtApellidos.setText(empf.getApellidos());
+            ModificarCli.txtTelefono.setText(empf.getTelefono());
+            ModificarCli.txtAntiguedad.setText(Integer.toString(empf.getAntiguedad()));
+            ModificarCli.txtEdad.setText(Integer.toString(empf.getEdad()));
+            ((JTextFieldDateEditor) ModificarCli.dcFnac.getDateEditor()).setText(empf.getFechaNacimiento().toStringFecha());
+            ((JTextFieldDateEditor) ModificarCli.dcFalta.getDateEditor()).setText(empf.getFechaAlta().toStringFecha());
+            ModificarCli.txtUsuario.setText(empf.getUsuario());
+            ModificarCli.txtPassword.setText("");
+            ModificarCli.txtEmail.setText(empf.getEmail());
             FileUploader.leer_imag(4);
         }
     }
 
     public static Clientes ObtenerClienteLogeado() {
-        Clientes empf = pidednivaciopers(Login.txtUsuario.getText());
-        Singletons.pos = BLLGrafico.buscar(empf);
-        empf = Singletons.efi.get(Singletons.pos);
+        Clientes clie = pidednivaciopers(Login.txtUsuario.getText());
+        Singletons.pos = BLLGrafico.buscar(clie);
+        clie = Singletons.efi.get(Singletons.pos);
 
-        return empf;
+        return clie;
     }
    
     public static Clientes pidednivaciopers(String dnimatch) {

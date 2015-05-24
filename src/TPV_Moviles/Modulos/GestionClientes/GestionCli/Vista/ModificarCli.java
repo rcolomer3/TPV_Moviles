@@ -9,12 +9,12 @@ package TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista;
  *
  * @author Raul
  */
-public class ModificarEF extends javax.swing.JFrame {
+public class ModificarCli extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistroClie
      */
-    public ModificarEF() {
+    public ModificarCli() {
         initComponents();
     }
 
@@ -54,9 +54,6 @@ public class ModificarEF extends javax.swing.JFrame {
         etiFAlta = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         etiPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
-        etiSaldo = new javax.swing.JLabel();
-        txtSaldo = new javax.swing.JTextField();
         dcFalta = new com.toedter.calendar.JDateChooser();
         etiAntiguedad = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
@@ -66,9 +63,9 @@ public class ModificarEF extends javax.swing.JFrame {
         NOFNAC = new javax.swing.JLabel();
         NOFALTA = new javax.swing.JLabel();
         NoEmail = new javax.swing.JLabel();
-        NoSaldo = new javax.swing.JLabel();
         NoUsuario = new javax.swing.JLabel();
         NoPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         labelFotoUsuario = new javax.swing.JLabel();
         etiNomUsuario = new javax.swing.JLabel();
@@ -122,22 +119,24 @@ public class ModificarEF extends javax.swing.JFrame {
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 124, 161, -1));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 31, 161, -1));
         jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 73, 161, -1));
+
+        dcFnac.setDateFormatString("dd-MM-yyyy");
         jPanel1.add(dcFnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 174, 161, -1));
 
         txtAntiguedad.setEditable(false);
         jPanel1.add(txtAntiguedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 264, 42, -1));
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 314, 161, -1));
 
-        cmbTipoUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliente", "Administrador", " " }));
+        cmbTipoUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliente", "Administrador" }));
         jPanel1.add(cmbTipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 364, 123, -1));
 
         btnModificar.setText("Actualizar Datos");
         btnModificar.setOpaque(false);
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
 
         btnVolver.setText("Ir Pager");
         btnVolver.setOpaque(false);
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
 
         NoNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 31, -1, 20));
@@ -148,7 +147,7 @@ public class ModificarEF extends javax.swing.JFrame {
 
         btnCambiarAvatar.setText("Cambiar");
         btnCambiarAvatar.setOpaque(false);
-        jPanel1.add(btnCambiarAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 156, 116, -1));
+        jPanel1.add(btnCambiarAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 116, -1));
 
         etiFAlta.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         etiFAlta.setForeground(java.awt.Color.orange);
@@ -159,14 +158,9 @@ public class ModificarEF extends javax.swing.JFrame {
         etiPassword.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         etiPassword.setForeground(java.awt.Color.orange);
         etiPassword.setText("Password:");
-        jPanel1.add(etiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 365, -1, -1));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 364, 106, -1));
+        jPanel1.add(etiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
-        etiSaldo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        etiSaldo.setForeground(java.awt.Color.orange);
-        etiSaldo.setText("Saldo:");
-        jPanel1.add(etiSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 250, -1, -1));
-        jPanel1.add(txtSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 249, 106, -1));
+        dcFalta.setDateFormatString("dd-MM-yyyy");
         jPanel1.add(dcFalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 224, 161, -1));
 
         etiAntiguedad.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -179,7 +173,7 @@ public class ModificarEF extends javax.swing.JFrame {
 
         btnCancelar.setText("Cancelar");
         btnCancelar.setOpaque(false);
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 410, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
         NoApellidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 73, -1, 20));
@@ -196,14 +190,12 @@ public class ModificarEF extends javax.swing.JFrame {
         NoEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 314, -1, 20));
 
-        NoSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
-        jPanel1.add(NoSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 249, -1, 20));
-
         NoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 301, -1, 20));
 
         NoPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 364, -1, 20));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setForeground(java.awt.Color.green);
@@ -213,7 +205,7 @@ public class ModificarEF extends javax.swing.JFrame {
         labelFotoUsuario.setOpaque(true);
 
         etiNomUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        etiNomUsuario.setForeground(java.awt.Color.orange);
+        etiNomUsuario.setForeground(java.awt.Color.blue);
         etiNomUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
@@ -223,11 +215,11 @@ public class ModificarEF extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(jLabel1))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
@@ -265,13 +257,13 @@ public class ModificarEF extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLayeredPane2)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,7 +287,6 @@ public class ModificarEF extends javax.swing.JFrame {
     public static javax.swing.JLabel NoEmail;
     public static javax.swing.JLabel NoNombre;
     public static javax.swing.JLabel NoPassword;
-    public static javax.swing.JLabel NoSaldo;
     public static javax.swing.JLabel NoTelefono;
     public static javax.swing.JLabel NoUsuario;
     public static javax.swing.JButton btnCambiarAvatar;
@@ -314,7 +305,6 @@ public class ModificarEF extends javax.swing.JFrame {
     public static javax.swing.JLabel etiNomUsuario;
     private javax.swing.JLabel etiNombre;
     private javax.swing.JLabel etiPassword;
-    private javax.swing.JLabel etiSaldo;
     private javax.swing.JLabel etiTelefono;
     public static javax.swing.JLabel etiTipoUser;
     private javax.swing.JLabel etiUsuario;
@@ -330,8 +320,7 @@ public class ModificarEF extends javax.swing.JFrame {
     public static javax.swing.JTextField txtEdad;
     public static javax.swing.JTextField txtEmail;
     public static javax.swing.JTextField txtNombre;
-    public static javax.swing.JTextField txtPassword;
-    public static javax.swing.JTextField txtSaldo;
+    public static javax.swing.JPasswordField txtPassword;
     public static javax.swing.JTextField txtTelefono;
     public static javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

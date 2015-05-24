@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class BLLBD {
 
-    public static int nuevoEmpleadoBLL() {
+    public static int nuevoClienteBLL() {
 
         int correcto;
         Connection _con = null;
@@ -25,7 +25,7 @@ public class BLLBD {
 
         _con = _conexion_DB.AbrirConexion();
 
-        correcto = DAOBD.nuevoEmpleadoDAO(_con);
+        correcto = DAOBD.nuevoClienteDAO(_con);
 
         _conexion_DB.CerrarConexion(_con);
 
@@ -33,16 +33,16 @@ public class BLLBD {
     }
     // * obtener un arraylist con todos los empleados disponibles
 
-    public void listarEmpleadoBLL() {
+    public void listarClienteBLL() {
 
         Connection _con = null;
         ConexionBD _conexion_DB = new ConexionBD();
 
         _con = _conexion_DB.AbrirConexion();
-        DAOBD _empleadoDAO = new DAOBD();
+        DAOBD _clienteDAO = new DAOBD();
 
         try {
-            _empleadoDAO.listarEmpleadoDAO(_con);//Recuperamos los empleados 
+            _clienteDAO.listarClienteDAO(_con);//Recuperamos los empleados 
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error Logger2!");
@@ -52,22 +52,22 @@ public class BLLBD {
     }
 
     // modificar un empleado existente en la BD
-    public static void modificarEmpleadoBLL() {
+    public static void modificarClienteBLL() {
 
         Connection _con;
 
         ConexionBD _conexion_DB = new ConexionBD();
 
         _con = _conexion_DB.AbrirConexion();
-        DAOBD _empleadoDAO = new DAOBD();
+        DAOBD _clienteDAO = new DAOBD();
 
-        _empleadoDAO.modificarEmpleadoDAO(_con);
+        _clienteDAO.modificarClienteDAO(_con);
         _conexion_DB.CerrarConexion(_con);
 
     }
 
     // eliminar un empleado de la BD
-    public static boolean borrarEmpleadoBLL() {
+    public static boolean borrarClienteBLL() {
 
         Connection _con;
         boolean correcto;
@@ -75,9 +75,9 @@ public class BLLBD {
         ConexionBD _conexion_DB = new ConexionBD();
 
         _con = _conexion_DB.AbrirConexion();
-        DAOBD _empleadoDAO = new DAOBD();
+        DAOBD _clienteDAO = new DAOBD();
 
-        correcto = _empleadoDAO.borrarEmpleadoDAO(_con);
+        correcto = _clienteDAO.borrarClienteDAO(_con);
         _conexion_DB.CerrarConexion(_con);
 
         return correcto;
@@ -92,23 +92,23 @@ public class BLLBD {
         ConexionBD _conexion_DB = new ConexionBD();
 
         _con = _conexion_DB.AbrirConexion();
-        DAOBD _empleadoDAO = new DAOBD();
+        DAOBD _clienteDAO = new DAOBD();
 
-        correcto = _empleadoDAO.buscarPorDniDAO(_con);
+        correcto = _clienteDAO.buscarPorDniDAO(_con);
         _conexion_DB.CerrarConexion(_con);
 
         return correcto;
     }
 
     // Sacar empleado joven y mayor
-    public void empleadoMenorMayorBLL() {
+    public void clienteMenorMayorBLL() {
 
         Connection _con = null;
         ConexionBD _conexion_DB = new ConexionBD();
         _con = _conexion_DB.AbrirConexion();
 
-        DAOBD _empleadoDAO = new DAOBD();
-        _empleadoDAO.empleadoMenorMayorDAO(_con);
+        DAOBD _clienteDAO = new DAOBD();
+        _clienteDAO.clienteMenorMayorDAO(_con);
         _conexion_DB.CerrarConexion(_con);
     }
 
@@ -119,8 +119,8 @@ public class BLLBD {
         ConexionBD _conexion_DB = new ConexionBD();
         _con = _conexion_DB.AbrirConexion();
 
-        DAOBD _empleadoDAO = new DAOBD();
-        _empleadoDAO.EdadMediaDAO(_con);
+        DAOBD _clienteDAO = new DAOBD();
+        _clienteDAO.EdadMediaDAO(_con);
         _conexion_DB.CerrarConexion(_con);
     }
 }

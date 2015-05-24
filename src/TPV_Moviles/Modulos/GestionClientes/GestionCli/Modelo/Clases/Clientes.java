@@ -55,15 +55,15 @@ public class Clientes implements Comparable<Clientes>, Serializable {
 
     @XStreamAlias("avatar")
     private String avatar;
-    
-     @XStreamAlias("antiguedad")
+
+    @XStreamAlias("antiguedad")
     private int antiguedad;
-     
-     @XStreamAlias("saldo")
+
+    @XStreamAlias("saldo")
     private float saldo;
 
     public Clientes(String nombre, String apellidos, String dni, String telefono, Fecha fechaNacimiento,
-            Fecha fechaAlta, String usuario, String password, String email, int estado, String tipo, String avatar, Float saldo) {
+            Fecha fechaAlta, String usuario, String password, String email, int estado, String tipo, String avatar, float saldo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.DNI = dni;
@@ -78,52 +78,46 @@ public class Clientes implements Comparable<Clientes>, Serializable {
         this.tipo = tipo;
         this.avatar = avatar;
         this.setAntiguedad(this.calcularAntiguedad(fechaAlta));
+        this.saldo = (this.calcularSueldo());
     }
 
-    /*public String toString() {
-        return " Nombre=" + nombre + ", \n Apellidos=" + apellidos + ", \n Dni=" + DNI + ", \n Edad=" + edad
-                + ", \n Telefono=" + telefono + ", \n FechaNacimiento=" + fechaNacimiento + ", \n Fecha Alta="
-                + fechaAlta + " Usuario=" + usuario + ", \n Password=" + password + ", \n Email=" + email + ", \n Estado=" + estado + ", \n Tipo=" + tipo + ", \n Avatar=" + avatar
-                + ", \n Saldo=" + saldo;
-    }*/
-    
     public String toString() {
         String cad = "";
         if (Ppal.conf == null) {
-            cad = "Empleado Fijo" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
+            cad = "Cliente" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
                     + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
                     + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
                     + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
                     + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
-                    + "Saldo= " + Formato.formato1d(this.getSaldo()) + Config.getMoneda() + "\n"
+                    + "Saldo= " + Formato.formato1d(getSaldo()) + Config.getMoneda() + "\n"
                     + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
         } else {
             if (Config.getNumdecimal().equals("1")) {
-                cad = "Empleado Fijo" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
-                    + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
-                    + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
-                    + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
-                    + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
-                    + "Saldo= " + Formato.formato1d(this.getSaldo()) + Config.getMoneda() + "\n"
-                    + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
-                
+                cad = "Cliente" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
+                        + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
+                        + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
+                        + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
+                        + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
+                        + "Saldo= " + Formato.formato1d(getSaldo()) + Config.getMoneda() + "\n"
+                        + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
+
             } else if (Config.getNumdecimal().equals("2")) {
-                cad = "Empleado Fijo" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
-                    + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
-                    + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
-                    + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
-                    + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
-                    + "Saldo= " + Formato.formato2d(this.getSaldo()) + Config.getMoneda() + "\n"
-                    + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
-                
+                cad = "Cliente" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
+                        + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
+                        + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
+                        + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
+                        + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
+                        + "Saldo= " + Formato.formato2d(getSaldo()) + Config.getMoneda() + "\n"
+                        + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
+
             } else if (Config.getNumdecimal().equals("3")) {
-                cad = "Empleado Fijo" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
-                    + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
-                    + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
-                    + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
-                    + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
-                    + "Saldo= " + Formato.formato3d(this.getSaldo()) + Config.getMoneda() + "\n"
-                    + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
+                cad = "Cliente" + "\n" + "Nombre= " + getNombre() + "\n" + "Apellidos= "
+                        + getApellidos() + "\n" + "DNI= " + getDni() + "\n" + "Edad= " + getEdad() + "\n"
+                        + "Telefono= " + getTelefono() + "\n" + "Fecha Nacimiento= "
+                        + getFechaNacimiento().toStringFecha() + "\n" + "Fecha Alta= "
+                        + getFechaAlta().toStringFecha() + "\n" + "Antiguedad= " + getAntiguedad() + "\n"
+                        + "Saldo= " + Formato.formato3d(getSaldo()) + Config.getMoneda() + "\n"
+                        + "Usuario= " + getUsuario() + "\n" + "E-mail= " + getEmail();
             }
         }
         return cad;
@@ -252,7 +246,7 @@ public class Clientes implements Comparable<Clientes>, Serializable {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
-    
+
     public int getAntiguedad() {
         return antiguedad;
     }
@@ -278,5 +272,18 @@ public class Clientes implements Comparable<Clientes>, Serializable {
 
     public boolean equals(Object c) {
         return getDni().equals(((Clientes) c).getDni());
+    }
+    
+    public float calcularSueldo() {
+        if ((this.getEdad() > 16) && (this.getEdad() < 25)) {
+            this.setSaldo(700);
+        }
+        else if ((this.getEdad() > 25) && (this.getEdad() < 50)) {
+            this.setSaldo(900);
+        } 
+        else if (this.getEdad() > 50) {
+            this.setSaldo(1000);
+        }
+        return this.getSaldo();
     }
 }

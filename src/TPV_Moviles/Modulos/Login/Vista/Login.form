@@ -71,7 +71,7 @@
               <Color blue="0" green="ff" id="green" palette="1" red="0" type="palette"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Login de empleados"/>
+            <Property name="text" type="java.lang.String" value="Login de clientes"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -196,12 +196,12 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/TPV/Img/default-avatar.png"/>
+              <Image iconType="3" name="/TPV_Moviles/Img/default-avatar.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="122" y="73" width="-1" height="61"/>
+              <AbsoluteConstraints x="122" y="73" width="70" height="61"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -210,7 +210,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/TPV/Img/fondo5.jpg"/>
+          <Image iconType="3" name="/TPV_Moviles/Img/fondo5.jpg"/>
         </Property>
       </Properties>
     </Component>
