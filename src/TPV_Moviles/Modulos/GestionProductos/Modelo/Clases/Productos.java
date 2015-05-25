@@ -40,7 +40,7 @@ public class Productos implements Comparable<Productos>, Serializable {
     private String avatar;
 
     public Productos(String referencia, String modelo, String marca, String descripcion,
-            Fecha fechaMercado, int precio, int stock, String tipo, String avatar) {
+            Fecha fechaMercado, float precio, int stock, String tipo, String avatar) {
         this.referencia = referencia;
         this.modelo = modelo;
         this.marca = marca;

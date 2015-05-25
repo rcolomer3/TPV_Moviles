@@ -9,15 +9,12 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.autocomplete.AutocompleteJComboBox;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
-import TPV_Moviles.Modulos.GestionProductos.Vista.ModificarPro;
-import TPV_Moviles.Modulos.GestionProductos.Vista.RegistroPro;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.Vista.CambiarPassword;
 import TPV_Moviles.Modulos.Login.Vista.Login;
 import java.util.ArrayList;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import projectefinal_moviles.Modulos.Gestion_Productos.Vista.Ventana_Prod;
 
 /**
  *
@@ -32,9 +29,6 @@ public class Singletons {
     public static AltaCli CrearCli;
     public static ModificarCli ModificarCli;
     public static interfaz_Clientes PagerCli;
-    public static RegistroPro CrearPro;
-    public static ModificarPro ModificarPro;
-    public static Ventana_Prod PagerPro;
     public static ArrayList<Clientes> efi;
     public static Clientes e;
     public static int pos;

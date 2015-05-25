@@ -23,6 +23,7 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.TABLA;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.buscador;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.panelPager;
+import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
@@ -87,6 +88,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
         _BTN_MODIFICAR_EMP,
         _BTN_CANCELAR,
         _BTN_VOLVER_ModiLISTADO,
+        _BTN_VOLVER_LISTPRO,
         _BTN_CAMBIARAVATAR,
         _CMB_TIPO_Modif,
         // Acciones del Pager
@@ -198,7 +200,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
             Singletons.CrearCli.txtEmail.setActionCommand("_TXT_EMAIL");
             Singletons.CrearCli.txtEmail.addActionListener(this);
             Singletons.CrearCli.txtEmail.addKeyListener(this);
-            
+
             Singletons.CrearCli.cmbTipo.setActionCommand("_CMB_TIPO_ALTA");
             Singletons.CrearCli.cmbTipo.setName("_CMB_TIPO_ALTA");
             Singletons.CrearCli.cmbTipo.addActionListener(this);
@@ -279,6 +281,9 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
 
             Singletons.ModificarCli.btnVolver.setActionCommand("_BTN_VOLVER_ModiLISTADO");
             Singletons.ModificarCli.btnVolver.addActionListener(this);
+
+            Singletons.ModificarCli.btnVolverPro.setActionCommand("_BTN_VOLVER_LISTPRO");
+            Singletons.ModificarCli.btnVolverPro.addActionListener(this);
 
             Singletons.ModificarCli.btnCambiarAvatar.setActionCommand("_BTN_CAMBIARAVATAR");
             Singletons.ModificarCli.btnCambiarAvatar.addActionListener(this);
@@ -461,7 +466,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 if (Singletons.tipoUsuario.equals("Administrador")) {
                     Singletons.PagerCli.dispose();
                     new Controlador_Cli(new AltaCli(), 0).iniciar(0);
-                } 
+                }
                 break;
 
             case _BTN_MODIFICAR:
@@ -598,8 +603,31 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 break;
 
             case _BTN_VOLVER_ModiLISTADO:
-                Singletons.ModificarCli.dispose();
-                Singletons.PagerCli.setVisible(true);
+
+                LoginBLL _tipoUsuari = new LoginBLL();
+                String us = Singletons.log.txtUsuario.getText();
+                Singletons.tipoUsuario = _tipoUsuari.TipoUsuarioBLL(us);
+
+                if (Singletons.tipoUsuario.equals("Administrador")) {
+                    if (Singletons.e != null) {
+                        Singletons.ModificarCli.dispose();
+                        Singletons.PagerCli.setVisible(true);
+                    }
+                }
+                break;
+
+            case _BTN_VOLVER_LISTPRO:
+
+                LoginBLL _tipoUsuar = new LoginBLL();
+                String u = Singletons.log.txtUsuario.getText();
+                Singletons.tipoUsuario = _tipoUsuar.TipoUsuarioBLL(u);
+
+                if (Singletons.tipoUsuario.equals("Cliente")) {
+                    if (Singletons.e != null) {
+                        Singletons.ModificarCli.dispose();
+                        SingletonsPro.PagerPro.setVisible(true);
+                    }
+                }
                 break;
 
             case _BTN_EDADMINMAX:
@@ -613,7 +641,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 break;
 
             case _BTN_CAMBIARAVATAR:
-                FileUploader.guardar_img();
+                FileUploader.guardar_img(1);
                 break;
 
             case _CMB_TIPO_ALTA:
@@ -758,7 +786,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 }
                 break;
 
-            case _AVATAR_MIPERFIL:
+            case _AVATAR_MIPERFIL: //aço anira en el pager de Productos
                 LoginBLL _tipoUsuario = new LoginBLL();
                 String usua = Singletons.log.txtUsuario.getText();
                 Singletons.tipoUsuario = _tipoUsuario.TipoUsuarioBLL(usua);

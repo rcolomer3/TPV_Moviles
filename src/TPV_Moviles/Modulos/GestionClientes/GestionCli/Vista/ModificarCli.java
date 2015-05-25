@@ -47,7 +47,7 @@ public class ModificarCli extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         cmbTipoUser = new javax.swing.JComboBox();
         btnModificar = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
+        btnVolverPro = new javax.swing.JButton();
         NoNombre = new javax.swing.JLabel();
         labelAvatar = new javax.swing.JLabel();
         btnCambiarAvatar = new javax.swing.JButton();
@@ -66,6 +66,7 @@ public class ModificarCli extends javax.swing.JFrame {
         NoUsuario = new javax.swing.JLabel();
         NoPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
+        btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         labelFotoUsuario = new javax.swing.JLabel();
         etiNomUsuario = new javax.swing.JLabel();
@@ -132,11 +133,11 @@ public class ModificarCli extends javax.swing.JFrame {
 
         btnModificar.setText("Actualizar Datos");
         btnModificar.setOpaque(false);
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
-        btnVolver.setText("Ir Pager");
-        btnVolver.setOpaque(false);
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
+        btnVolverPro.setText("Ir Pager Pro");
+        btnVolverPro.setOpaque(false);
+        jPanel1.add(btnVolverPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
 
         NoNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 31, -1, 20));
@@ -173,7 +174,7 @@ public class ModificarCli extends javax.swing.JFrame {
 
         btnCancelar.setText("Cancelar");
         btnCancelar.setOpaque(false);
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
 
         NoApellidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 73, -1, 20));
@@ -196,6 +197,10 @@ public class ModificarCli extends javax.swing.JFrame {
         NoPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 364, -1, 20));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 100, -1));
+
+        btnVolver.setText("Ir Pager");
+        btnVolver.setOpaque(false);
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setForeground(java.awt.Color.green);
@@ -293,6 +298,7 @@ public class ModificarCli extends javax.swing.JFrame {
     public static javax.swing.JButton btnCancelar;
     public static javax.swing.JButton btnModificar;
     public static javax.swing.JButton btnVolver;
+    public static javax.swing.JButton btnVolverPro;
     public static javax.swing.JComboBox cmbTipoUser;
     public static com.toedter.calendar.JDateChooser dcFalta;
     public static com.toedter.calendar.JDateChooser dcFnac;

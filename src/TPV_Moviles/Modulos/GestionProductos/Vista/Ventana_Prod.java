@@ -51,7 +51,7 @@ public class Ventana_Prod extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         spinnerCantidad = new javax.swing.JSpinner();
         btnCompra = new javax.swing.JButton();
-        txtID = new javax.swing.JTextField();
+        txtRef = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -61,6 +61,10 @@ public class Ventana_Prod extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         buscadorP = new javax.swing.JTextField();
         contFiltrar = new javax.swing.JLabel();
+        btnAnyadir = new javax.swing.JButton();
+        btnModif = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -161,9 +165,9 @@ public class Ventana_Prod extends javax.swing.JFrame {
         btnCompra.setText("Realizar Compra");
         btnCompra.setOpaque(false);
 
-        txtID.setEditable(false);
-        txtID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtRef.setEditable(false);
+        txtRef.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRef.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel10.setForeground(java.awt.Color.orange);
@@ -219,7 +223,7 @@ public class Ventana_Prod extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel11)
-                                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtRef, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel10)
                                             .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
@@ -257,7 +261,7 @@ public class Ventana_Prod extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(25, 25, 25)
                         .addComponent(jLabel7)
                         .addGap(0, 0, 0)
@@ -286,14 +290,30 @@ public class Ventana_Prod extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel13.setForeground(java.awt.Color.orange);
-        jLabel13.setText("Filtra por Tipo Producto:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 408, -1, -1));
-        jPanel1.add(buscadorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 438, 163, -1));
+        jLabel13.setText("Filtra por Marca:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
+        jPanel1.add(buscadorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 438, 100, -1));
 
         contFiltrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         contFiltrar.setForeground(java.awt.Color.orange);
         contFiltrar.setText("Filtrar");
-        jPanel1.add(contFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 439, -1, -1));
+        jPanel1.add(contFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
+
+        btnAnyadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/edit_add_NS.png"))); // NOI18N
+        btnAnyadir.setOpaque(false);
+        jPanel1.add(btnAnyadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 39, 35));
+
+        btnModif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/color_line_NS.png"))); // NOI18N
+        btnModif.setOpaque(false);
+        jPanel1.add(btnModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 39, 32));
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel_NS.png"))); // NOI18N
+        btnEliminar.setOpaque(false);
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 39, 32));
+
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/info_NS.png"))); // NOI18N
+        btnInfo.setOpaque(false);
+        jPanel1.add(btnInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 39, 32));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/fondo7.jpg"))); // NOI18N
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 510));
@@ -316,8 +336,12 @@ public class Ventana_Prod extends javax.swing.JFrame {
     public static javax.swing.JTextField CAJA;
     public static javax.swing.JTable TablaProductos;
     public static javax.swing.JButton anterior;
+    public static javax.swing.JButton btnAnyadir;
     public static javax.swing.JButton btnCompra;
+    public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btnInfo;
+    public static javax.swing.JButton btnModif;
     public static javax.swing.JTextField buscadorP;
     public static javax.swing.JComboBox combobox;
     public static javax.swing.JLabel contFiltrar;
@@ -344,9 +368,9 @@ public class Ventana_Prod extends javax.swing.JFrame {
     public static javax.swing.JButton siguiente;
     public static javax.swing.JSpinner spinnerCantidad;
     public static javax.swing.JTextField txtDescripcion;
-    public static javax.swing.JTextField txtID;
     public static javax.swing.JTextField txtNombre;
     public static javax.swing.JTextField txtPrecio;
+    public static javax.swing.JTextField txtRef;
     public static javax.swing.JButton ultimo;
     // End of variables declaration//GEN-END:variables
 }

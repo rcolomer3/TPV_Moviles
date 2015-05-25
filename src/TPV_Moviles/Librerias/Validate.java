@@ -54,6 +54,12 @@ public class Validate {
 		return telefono
 				.matches("0{0,2}([\\+]?[\\d]{1,3} ?)?([\\(]([\\d]{2,3})[)] ?)?[0-9][0-9 \\-]{6,}( ?([xX]|([eE]xt[\\.]?)) ?([\\d]{1,5}))?");
 	}
+        
+        // validar telefono
+	public static boolean validaReferencia(String referencia) {
+		return referencia
+				.matches("0{0,2}([\\+]?[\\d]{1,3} ?)?([\\(]([\\d]{2,3})[)] ?)?[0-9][0-9 \\-]{6,}( ?([xX]|([eE]xt[\\.]?)) ?([\\d]{1,5}))?");
+	}
 
 	// validar contrase�a
 	public static boolean validaContrasenya(String contrasenya) {

@@ -35,11 +35,9 @@ public class RegistroPro extends javax.swing.JFrame {
         labRef = new javax.swing.JLabel();
         labModelo = new javax.swing.JLabel();
         labDesc = new javax.swing.JLabel();
-        labStock = new javax.swing.JLabel();
         txtReferencia = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         txtDesc = new javax.swing.JTextField();
-        txtStock = new javax.swing.JTextField();
         btnAnyadir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnIrPager = new javax.swing.JButton();
@@ -56,7 +54,6 @@ public class RegistroPro extends javax.swing.JFrame {
         NoMarca = new javax.swing.JLabel();
         NoDesc = new javax.swing.JLabel();
         NoFmercado = new javax.swing.JLabel();
-        NoStock = new javax.swing.JLabel();
         labelFotoUsu = new javax.swing.JLabel();
         labelNomUsu = new javax.swing.JLabel();
         etiTitulo = new javax.swing.JLabel();
@@ -82,35 +79,29 @@ public class RegistroPro extends javax.swing.JFrame {
         labDesc.setForeground(java.awt.Color.orange);
         labDesc.setText("Descripcion:");
         jPanel1.add(labDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 198, 90, -1));
-
-        labStock.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        labStock.setForeground(java.awt.Color.orange);
-        labStock.setText("Stock:");
-        jPanel1.add(labStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 352, -1, -1));
-        jPanel1.add(txtReferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 36, 161, -1));
-        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 88, 161, -1));
+        jPanel1.add(txtReferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 36, 170, -1));
+        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 88, 170, -1));
         jPanel1.add(txtDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 182, 161, 50));
-        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 351, 161, -1));
 
         btnAnyadir.setText("Añadir");
         btnAnyadir.setOpaque(false);
-        jPanel1.add(btnAnyadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
+        jPanel1.add(btnAnyadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
 
         btnCancelar.setText("Cancelar");
         btnCancelar.setOpaque(false);
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, -1, -1));
 
         btnIrPager.setText("Ir Pager");
         btnIrPager.setOpaque(false);
-        jPanel1.add(btnIrPager, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, -1, -1));
+        jPanel1.add(btnIrPager, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         labTipoP.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labTipoP.setForeground(java.awt.Color.orange);
         labTipoP.setText("Tipo Producto:");
-        jPanel1.add(labTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+        jPanel1.add(labTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         cmbTipoP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Smartphone", "Accesorio" }));
-        jPanel1.add(cmbTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 419, 161, -1));
+        jPanel1.add(cmbTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 161, -1));
 
         fotoPro.setOpaque(true);
         jPanel1.add(fotoPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 90, 90));
@@ -128,8 +119,8 @@ public class RegistroPro extends javax.swing.JFrame {
         labMarca.setForeground(java.awt.Color.orange);
         labMarca.setText("Marca:");
         jPanel1.add(labMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 137, -1, -1));
-        jPanel1.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 136, 161, -1));
-        jPanel1.add(dcFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 160, -1));
+        jPanel1.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 136, 160, -1));
+        jPanel1.add(dcFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 160, -1));
 
         NoRef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoRef, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 20, 20));
@@ -145,9 +136,6 @@ public class RegistroPro extends javax.swing.JFrame {
 
         NoFmercado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 20, 20));
-
-        NoStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
-        jPanel1.add(NoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 20, 20));
 
         labelFotoUsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         labelFotoUsu.setOpaque(true);
@@ -167,37 +155,34 @@ public class RegistroPro extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
+                        .addGap(178, 178, 178)
+                        .addComponent(etiTitulo))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(labelNomUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelFotoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(etiTitulo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelFotoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addComponent(etiTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelFotoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelNomUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(91, 91, 91)
-                        .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(labelFotoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNomUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         jLayeredPane2.setLayer(iconoalta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -216,7 +201,7 @@ public class RegistroPro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,9 +212,9 @@ public class RegistroPro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -241,7 +226,6 @@ public class RegistroPro extends javax.swing.JFrame {
     public static javax.swing.JLabel NoMarca;
     public static javax.swing.JLabel NoModelo;
     public static javax.swing.JLabel NoRef;
-    public static javax.swing.JLabel NoStock;
     public static javax.swing.JButton btnAnyadir;
     public static javax.swing.JButton btnCancelar;
     public static javax.swing.JButton btnElegir;
@@ -259,7 +243,6 @@ public class RegistroPro extends javax.swing.JFrame {
     private javax.swing.JLabel labMarca;
     private javax.swing.JLabel labModelo;
     private javax.swing.JLabel labRef;
-    private javax.swing.JLabel labStock;
     private javax.swing.JLabel labTipoP;
     public static javax.swing.JLabel labelFotoUsu;
     public static javax.swing.JLabel labelNomUsu;
@@ -267,6 +250,5 @@ public class RegistroPro extends javax.swing.JFrame {
     public static javax.swing.JTextField txtMarca;
     public static javax.swing.JTextField txtModelo;
     public static javax.swing.JTextField txtReferencia;
-    public static javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables
 }

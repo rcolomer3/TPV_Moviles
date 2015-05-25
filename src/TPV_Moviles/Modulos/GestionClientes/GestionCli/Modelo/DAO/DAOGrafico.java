@@ -763,6 +763,7 @@ public class DAOGrafico {
             ModificarCli.NoPassword.setVisible(false);
             ModificarCli.NoEmail.setVisible(false);
             ModificarCli.cmbTipoUser.setEnabled(true);
+            ModificarCli.btnVolverPro.setVisible(false);
    
         } else if (Singletons.tipoUsuario.equals("Cliente")) {
             ModificarCli.NoNombre.setVisible(false);
@@ -776,6 +777,7 @@ public class DAOGrafico {
             ModificarCli.NoEmail.setVisible(false);
             ModificarCli.cmbTipoUser.setVisible(false);
             ModificarCli.etiTipoUser.setVisible(false);
+            ModificarCli.btnVolver.setVisible(false);
            
         }
     }

@@ -31,7 +31,7 @@ public class FileUploader {
         buscador.addChoosableFileFilter(new FileNameExtensionFilter("Imágenes (*.jpg, *.gif, *.png)", "jpg", "jpeg", "gif", "png"));
     }
 
-    public static void guardar_img() {
+    public static void guardar_img(int i) {
         File imagen;
         BufferedImage image;
         String extension = "";
@@ -50,18 +50,19 @@ public class FileUploader {
                 JOptionPane.showMessageDialog(null, "La ruta de la imagen debe "
                         + "tener como máximo 500 caracteres", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                ImageIcon icon = new ImageIcon(Singletons.ruta);
-                Image img = icon.getImage();
-                Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon newIcon = new ImageIcon(newimg);
-                Singletons.PagerCli.labelAvatar.setIcon(newIcon); //pintamos la imagen en jlabel1
-
-                ImageIcon icon1 = new ImageIcon(Singletons.ruta);
-                Image img1 = icon1.getImage();
-                Image newimg1 = img1.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon newIcon1 = new ImageIcon(newimg1);
-                Singletons.ModificarCli.labelAvatar.setIcon(newIcon1); //pintamos la imagen en jlabel1
-                
+                if (i == 0) {
+                    ImageIcon icon = new ImageIcon(Singletons.ruta);
+                    Image img = icon.getImage();
+                    Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newIcon = new ImageIcon(newimg);
+                    Singletons.PagerCli.labelAvatar.setIcon(newIcon); //pintamos la imagen en jlabel1
+                } else if (i == 1) {
+                    ImageIcon icon1 = new ImageIcon(Singletons.ruta);
+                    Image img1 = icon1.getImage();
+                    Image newimg1 = img1.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newIcon1 = new ImageIcon(newimg1);
+                    Singletons.ModificarCli.labelAvatar.setIcon(newIcon1); //pintamos la imagen en jlabel1
+                }
             }
             try {
                 //guardamos la imagen
@@ -144,7 +145,7 @@ public class FileUploader {
                 ImageIcon newIcon = new ImageIcon(newimg);
                 ModificarCli.labelAvatar.setIcon(newIcon);
             }
-            
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error eee imagen", "Error", JOptionPane.ERROR_MESSAGE);
         }

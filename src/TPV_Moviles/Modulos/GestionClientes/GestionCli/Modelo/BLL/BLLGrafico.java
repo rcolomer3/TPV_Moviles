@@ -278,8 +278,6 @@ public class BLLGrafico {
             Singletons.e.setEmail(ModpideEmail());
         }
 
-        Singletons.e.setSaldo(Singletons.e.getSaldo());
-
         if (Singletons.PATH_auto != null) {
             Singletons.e.setAvatar(Singletons.PATH_auto);
         }

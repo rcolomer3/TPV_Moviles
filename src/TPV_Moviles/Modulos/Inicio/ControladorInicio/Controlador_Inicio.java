@@ -9,6 +9,7 @@ import TPV_Moviles.Clases.Config;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Controlador.Controlador_Cli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
+import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -72,7 +73,7 @@ public class Controlador_Inicio implements ActionListener {
         }
         
         if (i== 3) { //Pestaña Gestion Productos
-            Singletons.PagerPro = (Ventana_Prod) menuPpal;
+            SingletonsPro.PagerPro = (Ventana_Prod) menuPpal;
             //new Controlador_Prod(new Ventana_Prod(), 2).iniciar(2);
         }
         

@@ -30,6 +30,9 @@ public class Ventana_Inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        fotoppal = new javax.swing.JLabel();
+        usuppal = new javax.swing.JLabel();
+        csppal = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuProd = new javax.swing.JMenu();
@@ -72,6 +75,17 @@ public class Ventana_Inicio extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/portada.jpg"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, 410));
+
+        fotoppal.setOpaque(true);
+        jPanel1.add(fotoppal, new org.netbeans.lib.awtextra.AbsoluteConstraints(824, 10, 50, 40));
+
+        usuppal.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        usuppal.setForeground(java.awt.Color.orange);
+        jPanel1.add(usuppal, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 60, 50, 20));
+
+        csppal.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        csppal.setForeground(java.awt.Color.orange);
+        jPanel1.add(csppal, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 20, 80, 20));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/fondo1.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 630));
@@ -211,6 +225,7 @@ public class Ventana_Inicio extends javax.swing.JFrame {
     public static javax.swing.JMenuItem aparienciaGTK;
     public static javax.swing.JMenuItem aparienciaMetal;
     public static javax.swing.JMenuItem aparienciaNimbus;
+    public static javax.swing.JLabel csppal;
     public static javax.swing.JMenuItem decimal1;
     public static javax.swing.JMenuItem decimal2;
     public static javax.swing.JMenuItem decimal3;
@@ -220,6 +235,7 @@ public class Ventana_Inicio extends javax.swing.JFrame {
     public static javax.swing.JMenuItem fecha4;
     public static javax.swing.JMenuItem fecha5;
     public static javax.swing.JMenuItem fecha6;
+    public static javax.swing.JLabel fotoppal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -232,5 +248,6 @@ public class Ventana_Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JMenuItem menuComp;
     public static javax.swing.JMenuItem menuProd;
+    public static javax.swing.JLabel usuppal;
     // End of variables declaration//GEN-END:variables
 }

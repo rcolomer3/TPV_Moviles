@@ -36,11 +36,9 @@ public class ModificarPro extends javax.swing.JFrame {
         labMarca = new javax.swing.JLabel();
         labDesc = new javax.swing.JLabel();
         labFmercado = new javax.swing.JLabel();
-        labStock = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtReferencia = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
-        txtDNI = new javax.swing.JTextField();
-        txtCiudad = new javax.swing.JTextField();
+        txtDesc = new javax.swing.JTextField();
         btnActualizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnIrPager = new javax.swing.JButton();
@@ -55,8 +53,7 @@ public class ModificarPro extends javax.swing.JFrame {
         NoModelo = new javax.swing.JLabel();
         NoMarca = new javax.swing.JLabel();
         NoFmercado = new javax.swing.JLabel();
-        NoDesc1 = new javax.swing.JLabel();
-        NoStock = new javax.swing.JLabel();
+        NoDesc = new javax.swing.JLabel();
         labelFotoUsu = new javax.swing.JLabel();
         etiTitulo = new javax.swing.JLabel();
         labelNomUsu = new javax.swing.JLabel();
@@ -87,35 +84,29 @@ public class ModificarPro extends javax.swing.JFrame {
         labFmercado.setForeground(java.awt.Color.orange);
         labFmercado.setText("Fecha Mercado:");
         jPanel1.add(labFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 251, -1, -1));
-
-        labStock.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        labStock.setForeground(java.awt.Color.orange);
-        labStock.setText("Stock:");
-        jPanel1.add(labStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 297, -1, -1));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 26, 161, -1));
+        jPanel1.add(txtReferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 26, 161, -1));
         jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 75, 161, -1));
-        jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 170, 161, 60));
-        jPanel1.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 296, 161, -1));
+        jPanel1.add(txtDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 170, 161, 60));
 
         btnActualizar.setText("Actualizar");
         btnActualizar.setOpaque(false);
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 410, -1, -1));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
 
         btnCancelar.setText("Cancelar");
         btnCancelar.setOpaque(false);
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 410, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, -1, -1));
 
         btnIrPager.setText("Ir Pager");
         btnIrPager.setOpaque(false);
-        jPanel1.add(btnIrPager, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 410, -1, -1));
+        jPanel1.add(btnIrPager, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
 
         labTipoP.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labTipoP.setForeground(java.awt.Color.orange);
         labTipoP.setText("Tipo Producto:");
-        jPanel1.add(labTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 348, -1, -1));
+        jPanel1.add(labTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         cmbTipoP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Smartphone", "Accesorio" }));
-        jPanel1.add(cmbTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 347, 161, -1));
+        jPanel1.add(cmbTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 161, -1));
 
         fotoPro_M.setOpaque(true);
         jPanel1.add(fotoPro_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 49, 100, 100));
@@ -143,11 +134,8 @@ public class ModificarPro extends javax.swing.JFrame {
         NoFmercado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 251, -1, -1));
 
-        NoDesc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
-        jPanel1.add(NoDesc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 195, -1, -1));
-
-        NoStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
-        jPanel1.add(NoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 300, -1, -1));
+        NoDesc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
+        jPanel1.add(NoDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 195, -1, -1));
 
         labelFotoUsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         labelFotoUsu.setOpaque(true);
@@ -179,9 +167,7 @@ public class ModificarPro extends javax.swing.JFrame {
                         .addComponent(labelNomUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelFotoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(iconoalta, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39))
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -200,8 +186,8 @@ public class ModificarPro extends javax.swing.JFrame {
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(etiTitulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
         );
         jLayeredPane2.setLayer(iconoalta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -219,7 +205,7 @@ public class ModificarPro extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,19 +218,18 @@ public class ModificarPro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel NoDesc1;
+    public static javax.swing.JLabel NoDesc;
     public static javax.swing.JLabel NoFmercado;
     public static javax.swing.JLabel NoMarca;
     public static javax.swing.JLabel NoModelo;
     public static javax.swing.JLabel NoRef;
-    public static javax.swing.JLabel NoStock;
     public static javax.swing.JButton btnActualizar;
     public static javax.swing.JButton btnCancelar;
     public static javax.swing.JButton btnElegir_M;
@@ -262,14 +247,12 @@ public class ModificarPro extends javax.swing.JFrame {
     private javax.swing.JLabel labMarca;
     private javax.swing.JLabel labModelo;
     private javax.swing.JLabel labRef;
-    private javax.swing.JLabel labStock;
     private javax.swing.JLabel labTipoP;
     public static javax.swing.JLabel labelFotoUsu;
     public static javax.swing.JLabel labelNomUsu;
-    public static javax.swing.JTextField txtCiudad;
-    public static javax.swing.JTextField txtDNI;
+    public static javax.swing.JTextField txtDesc;
     public static javax.swing.JTextField txtMarca;
     public static javax.swing.JTextField txtModelo;
-    public static javax.swing.JTextField txtNombre;
+    public static javax.swing.JTextField txtReferencia;
     // End of variables declaration//GEN-END:variables
 }
