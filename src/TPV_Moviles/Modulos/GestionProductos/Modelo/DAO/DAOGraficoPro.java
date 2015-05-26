@@ -475,7 +475,7 @@ public class DAOGraficoPro {
             ModificarPro.txtMarca.setText((SingletonsPro.p).getMarca());
             ModificarPro.txtDesc.setText((SingletonsPro.p).getDescripcion());
             ((JTextFieldDateEditor) ModificarPro.dcFmercado.getDateEditor()).setText((SingletonsPro.p).getFechaMercado().toStringFecha());
-            FileUploader.leer_imag(3);
+            //FileUploader.leer_imag(3); Pintar cuando seleccionas producto? 
 
         }
     }

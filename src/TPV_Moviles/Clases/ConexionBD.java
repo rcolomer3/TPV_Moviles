@@ -25,7 +25,7 @@ public class ConexionBD {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String urlOdbc = "jdbc:mysql://127.0.0.1:3306/gestionbbdd";
+            String urlOdbc = "jdbc:mysql://127.0.0.1:3306/movilesbbdd";
             con = (java.sql.DriverManager.getConnection(urlOdbc, "root", ""));
             
         } catch (Exception e) {

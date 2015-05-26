@@ -254,14 +254,15 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
 
         com.mysql.jdbc.CallableStatement cstmt = null;
         String cadena = "";
+        
         try {
-            cstmt = (com.mysql.jdbc.CallableStatement) con.prepareCall("{call procedure_edad(?,?)}");
+            cstmt = (com.mysql.jdbc.CallableStatement) con.prepareCall("{call proce_edad(?,?)}");
             cstmt.registerOutParameter(1, java.sql.Types.INTEGER);
             cstmt.registerOutParameter(2, java.sql.Types.INTEGER);
             cstmt.execute();
-            cadena = cadena + "Empleado joven: " + cstmt.getInt(1) + " años" + "\n";
-            cadena = cadena + "Empleado mayor: " + cstmt.getInt(2) + " años";
-            JOptionPane.showMessageDialog(null, cadena, "Empleado joven/mayor", 1);
+            cadena = cadena + "Cliente joven: " + cstmt.getInt(1) + " años" + "\n";
+            cadena = cadena + "Cliente mayor: " + cstmt.getInt(2) + " años";
+            JOptionPane.showMessageDialog(null, cadena, "Cliente joven/mayor", 1);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error Logger!");
         }
