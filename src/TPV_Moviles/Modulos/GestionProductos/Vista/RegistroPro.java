@@ -43,9 +43,7 @@ public class RegistroPro extends javax.swing.JFrame {
         btnIrPager = new javax.swing.JButton();
         labTipoP = new javax.swing.JLabel();
         cmbTipoP = new javax.swing.JComboBox();
-        fotoPro = new javax.swing.JLabel();
         labFmercado = new javax.swing.JLabel();
-        btnElegir = new javax.swing.JButton();
         labMarca = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
         dcFmercado = new com.toedter.calendar.JDateChooser();
@@ -103,23 +101,18 @@ public class RegistroPro extends javax.swing.JFrame {
         cmbTipoP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Smartphone", "Accesorio" }));
         jPanel1.add(cmbTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 161, -1));
 
-        fotoPro.setOpaque(true);
-        jPanel1.add(fotoPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 90, 90));
-
         labFmercado.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labFmercado.setForeground(java.awt.Color.orange);
         labFmercado.setText("Fecha Mercado:");
         jPanel1.add(labFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 282, -1, -1));
-
-        btnElegir.setText("Elegir");
-        btnElegir.setOpaque(false);
-        jPanel1.add(btnElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
 
         labMarca.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labMarca.setForeground(java.awt.Color.orange);
         labMarca.setText("Marca:");
         jPanel1.add(labMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 137, -1, -1));
         jPanel1.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 136, 160, -1));
+
+        dcFmercado.setDateFormatString("dd-MM-yyyy");
         jPanel1.add(dcFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 160, -1));
 
         NoRef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
@@ -228,12 +221,10 @@ public class RegistroPro extends javax.swing.JFrame {
     public static javax.swing.JLabel NoRef;
     public static javax.swing.JButton btnAnyadir;
     public static javax.swing.JButton btnCancelar;
-    public static javax.swing.JButton btnElegir;
     public static javax.swing.JButton btnIrPager;
     public static javax.swing.JComboBox cmbTipoP;
     public static com.toedter.calendar.JDateChooser dcFmercado;
     private javax.swing.JLabel etiTitulo;
-    public static javax.swing.JLabel fotoPro;
     private javax.swing.JLabel iconoalta;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;

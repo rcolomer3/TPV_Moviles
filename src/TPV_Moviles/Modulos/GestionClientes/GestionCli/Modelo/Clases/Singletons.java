@@ -38,7 +38,7 @@ public class Singletons {
     public static String PATH_auto;
     public static String PintaNombre = "";
     public static String tipoUsuario = "nulo";
-    public static Clientes usu;
+    public static Clientes usu = new Clientes(); //cliente logeado
     public static String conectado = "no";
     public static String ruta = "src/TPV_Moviles/Img/empleado.png";
 }

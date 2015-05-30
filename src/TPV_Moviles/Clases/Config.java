@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import TPV_Moviles.Clases.Dummies;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Clientes;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
+import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.Productos;
+import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 
 public class Config {
 
@@ -25,7 +27,7 @@ public class Config {
                 abrir = "2"; // per defecte s'obri en formato TXT
 
 		Singletons.efi = new ArrayList<Clientes>();
-		
+		SingletonsPro.pro = new ArrayList<Productos>();
 		
 		//Dummies.cargar_datosDummies();
 	}

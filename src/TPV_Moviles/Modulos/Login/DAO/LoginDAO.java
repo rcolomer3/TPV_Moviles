@@ -7,6 +7,7 @@ package TPV_Moviles.Modulos.Login.DAO;
 
 import TPV_Moviles.Librerias.Encrypt;
 import TPV_Moviles.Librerias.Validate;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.BLL.BLLBD;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
@@ -57,7 +58,7 @@ public class LoginDAO {
     public static void AccesoLogeado() {
         String usuario = Singletons.log.txtUsuario.getText();
         String password = Singletons.log.txtPassword.getText();
-       
+
         boolean login;
 
         LoginBLL _login = new LoginBLL();
@@ -73,9 +74,10 @@ public class LoginDAO {
 
         } else {
             Singletons.conectado = "si";
+            BLLBD cli = new BLLBD();
+            cli.listarClienteBLL();
             Singletons.log.dispose();
             new Controlador_Inicio(new Ventana_Inicio(), 0).iniciar(0);
-            
         }
 
     }
@@ -92,14 +94,14 @@ public class LoginDAO {
             stmt.setString(1, dni);
             stmt.setString(2, Password);
             stmt.setString(2, Encrypt.encriptarTokenMD5(Password));
-            
+
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
                 dni = rs.getString("DNI");
                 Password = rs.getString("Password");
-              
+
                 resultado = true;
             }
         } catch (SQLException ex) {
@@ -130,10 +132,10 @@ public class LoginDAO {
 
         try {
             stmt = con.prepareStatement("UPDATE movilesbbdd.clientes SET Password=? WHERE DNI=?");
-            
+
             stmt.setString(1, password);
             stmt.setString(2, dni);
-            
+
             correcto = stmt.executeUpdate();
 
         } catch (SQLException ex) {

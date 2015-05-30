@@ -27,8 +27,6 @@ import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
-import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
-import TPV_Moviles.Modulos.Login.Vista.Login;
 import TPV_Moviles.Ppal;
 import TPV_Moviles.Utiles.Menus;
 import java.awt.BorderLayout;
@@ -60,7 +58,6 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
 
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_Cli());
     private JDKPConFondo fondo = new JDKPConFondo();
-    public static int modo = 1;
 
     public enum Accion {
 
@@ -88,7 +85,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
         _BTN_MODIFICAR_EMP,
         _BTN_CANCELAR,
         _BTN_VOLVER_ModiLISTADO,
-        _BTN_VOLVER_LISTPRO,
+        _BTN_VOLVER_PPAL,
         _BTN_CAMBIARAVATAR,
         _CMB_TIPO_Modif,
         // Acciones del Pager
@@ -108,7 +105,6 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
         _BTN_VOLVER,
         _BTN_EDADMINMAX,
         _BTN_EDAD_MEDIA,
-        _AVATAR_MIPERFIL,
         _CERRAR
     }
 
@@ -137,7 +133,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
             Singletons.CrearCli.setTitle("Alta Nuevo Cliente");
 
             Singletons.CrearCli.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/logo.png");
             Singletons.CrearCli.setIconImage(icono);
 
             Singletons.CrearCli.addWindowListener(new WindowAdapter() {
@@ -149,8 +145,9 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
 
             if (Singletons.conectado.equals("si")) {
                 BLLGrafico.OcultarErroresAlta();
+                
                 Clientes clien = DAOGrafico.ObtenerClienteLogeado();
-
+                
                 Singletons.CrearCli.labelNomUsu.setVisible(true);
 
                 Singletons.PintaNombre = clien.getUsuario();
@@ -215,7 +212,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
             Singletons.ModificarCli.setSize(1000, 550); //ancho x alto
             Singletons.ModificarCli.setTitle("Modificar Cliente Registrado");
             Singletons.ModificarCli.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/logo.png");
             Singletons.ModificarCli.setIconImage(icono);
 
             Singletons.ModificarCli.addWindowListener(new WindowAdapter() {
@@ -282,8 +279,8 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
             Singletons.ModificarCli.btnVolver.setActionCommand("_BTN_VOLVER_ModiLISTADO");
             Singletons.ModificarCli.btnVolver.addActionListener(this);
 
-            Singletons.ModificarCli.btnVolverPro.setActionCommand("_BTN_VOLVER_LISTPRO");
-            Singletons.ModificarCli.btnVolverPro.addActionListener(this);
+            Singletons.ModificarCli.btnVolverMenu.setActionCommand("_BTN_VOLVER_PPAL");
+            Singletons.ModificarCli.btnVolverMenu.addActionListener(this);
 
             Singletons.ModificarCli.btnCambiarAvatar.setActionCommand("_BTN_CAMBIARAVATAR");
             Singletons.ModificarCli.btnCambiarAvatar.addActionListener(this);
@@ -306,7 +303,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
             panelPager.setVisible(true);
 
             Singletons.PagerCli.setSize(819, 715); // //ancho x alto
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/logo.png");
             Singletons.PagerCli.setIconImage(icono);
 
             Singletons.PagerCli.TABLA.setModel(new miniSimpleTableModel_Cli());
@@ -343,14 +340,14 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 }
             });
 
-            Clientes clie = DAOGrafico.ObtenerClienteLogeado();
+            Clientes clien = DAOGrafico.ObtenerClienteLogeado();
 
             Singletons.PagerCli.etiNombreUsu.setVisible(true);
 
             Singletons.PagerCli.txtCerrar.setVisible(true);
             Singletons.PagerCli.txtCerrar.setText("Cerrar sesión");
 
-            Singletons.PintaNombre = clie.getUsuario();
+            Singletons.PintaNombre = clien.getUsuario();
 
             Singletons.PagerCli.etiNombreUsu.setText(Singletons.PintaNombre);
             Singletons.PagerCli.labelAvatar.setVisible(true);
@@ -419,9 +416,6 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
             Singletons.PagerCli.btnMedia.setActionCommand("_BTN_EDAD_MEDIA");
             Singletons.PagerCli.btnMedia.addActionListener(this);
 
-            Singletons.PagerCli.etiNombreUsu.setName("_AVATAR_MIPERFIL");
-            Singletons.PagerCli.etiNombreUsu.addMouseListener(this);
-
             Singletons.PagerCli.txtCerrar.setName("_CERRAR");
             Singletons.PagerCli.txtCerrar.addMouseListener(this);
         }
@@ -478,9 +472,10 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                     if (Singletons.e != null) {
                         Singletons.PagerCli.dispose();
                         new Controlador_Cli(new ModificarCli(), 1).iniciar(1);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay un empleado seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE);
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "No hay un empleado seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE);
                 }
                 break;
 
@@ -492,9 +487,9 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 if (Singletons.tipoUsuario.equals("Administrador")) {
                     if (Singletons.e != null) {
                         BLLGrafico.EliminarPager();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay un empleado seleccionado", "Info", JOptionPane.INFORMATION_MESSAGE);
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "No hay un empleado seleccionado", "Info", JOptionPane.INFORMATION_MESSAGE);
                 }
                 break;
 
@@ -616,7 +611,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 }
                 break;
 
-            case _BTN_VOLVER_LISTPRO:
+            case _BTN_VOLVER_PPAL:
 
                 LoginBLL _tipoUsuar = new LoginBLL();
                 String u = Singletons.log.txtUsuario.getText();
@@ -625,7 +620,7 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 if (Singletons.tipoUsuario.equals("Cliente")) {
                     if (Singletons.e != null) {
                         Singletons.ModificarCli.dispose();
-                        SingletonsPro.PagerPro.setVisible(true);
+                        Singletons.menuPpal.setVisible(true);
                     }
                 }
                 break;
@@ -786,21 +781,16 @@ public class Controlador_Cli implements ActionListener, KeyListener, MouseListen
                 }
                 break;
 
-            case _AVATAR_MIPERFIL: //aço anira en el pager de Productos
-                LoginBLL _tipoUsuario = new LoginBLL();
-                String usua = Singletons.log.txtUsuario.getText();
-                Singletons.tipoUsuario = _tipoUsuario.TipoUsuarioBLL(usua);
-
-                if (Singletons.tipoUsuario.equals("Cliente")) {
-                    Singletons.PagerCli.dispose();
-                    new Controlador_Cli(new ModificarCli(), 1).iniciar(1);
-                }
-                break;
-
             case _CERRAR:
-                Singletons.PagerCli.dispose();
-                new Controlador_Login(new Login(), 0).iniciar(0);
-                Singletons.conectado = "no";
+                LoginBLL _tipoUsuar = new LoginBLL();
+                String u = Singletons.log.txtUsuario.getText();
+                Singletons.tipoUsuario = _tipoUsuar.TipoUsuarioBLL(u);
+
+                if (Singletons.tipoUsuario.equals("Administrador")) {
+                    Singletons.conectado = "no";
+                    Singletons.PagerCli.dispose();
+                    new Controlador_Inicio(new Ventana_Inicio(), 0).iniciar(0);
+                }
                 break;
         }
     }

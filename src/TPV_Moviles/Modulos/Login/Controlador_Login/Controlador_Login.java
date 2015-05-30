@@ -63,7 +63,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.log.setSize(380, 517); //ancho x alto
             Singletons.log.setTitle("Login Clientes");
             Singletons.log.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/logo.png");
             Singletons.log.setIconImage(icono);
 
             Singletons.log.addWindowListener(new WindowAdapter() {
@@ -73,6 +73,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
                 }
             });
 
+            //if (Singletons.conectado.equals("no")) {
             Singletons.log.txtPassword.setActionCommand("_TXT_USUARIO");
             Singletons.log.txtUsuario.addActionListener(this);
 
@@ -88,6 +89,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.log.btnAcceder.setActionCommand("_BTN_ACCEDER");
             Singletons.log.btnAcceder.addActionListener(this);
 
+            // }
         }
 
         if (i == 1) {
@@ -97,7 +99,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.cbpass.setSize(526, 389); //ancho x alto
             Singletons.cbpass.setTitle("Recuperar Password");
             Singletons.cbpass.setLocationRelativeTo(null);
-            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/movilalta.png");
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/logo.png");
             Singletons.cbpass.setIconImage(icono);
 
             Singletons.cbpass.addWindowListener(new WindowAdapter() {
@@ -107,6 +109,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
                 }
             });
 
+            //if (Singletons.conectado.equals("no")) {
             Singletons.cbpass.txtUsuarioReg.setActionCommand("_TXT_USUARIO_M");
             Singletons.cbpass.txtUsuarioReg.addActionListener(this);
 
@@ -116,7 +119,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
 
             Singletons.cbpass.btnActualizar.setActionCommand("_BTN_ACTUALIZAR");
             Singletons.cbpass.btnActualizar.addActionListener(this);
-
+            //}
         }
     }
 
@@ -126,21 +129,29 @@ public class Controlador_Login implements ActionListener, MouseListener {
         switch (Accion.valueOf(e.getActionCommand())) {
 
             case _TXT_USUARIO:
+
                 LoginBLL.Usuario();
+
                 break;
 
             case _TXT_PASSWORD:
+
                 LoginBLL.Password();
+
                 break;
 
             case _BTN_ACCEDER:
+
                 LoginBLL.AccesoLogeado();
+
                 break;
 
-                //Ventana CambiarPassword
+            //Ventana CambiarPassword
             case _BTN_ACTUALIZAR:
+
                 LoginBLL logi = new LoginBLL();
                 logi.actualizarPasswordBLL();
+
                 break;
         }
     }
@@ -150,13 +161,17 @@ public class Controlador_Login implements ActionListener, MouseListener {
         switch (Accion.valueOf(e.getComponent().getName())) {
 
             case _OLVIDAR:
+
                 Singletons.log.dispose();
                 new Controlador_Login(new CambiarPassword(), 1).iniciar(1);
+
                 break;
 
             case _REGISTER:
+
                 Singletons.log.dispose();
                 new Controlador_Cli(new AltaCli(), 0).iniciar(0);
+
                 break;
         }
     }
@@ -176,11 +191,15 @@ public class Controlador_Login implements ActionListener, MouseListener {
         switch (Accion.valueOf(me.getComponent().getName())) {
 
             case _REGISTER:
+
                 Singletons.log.Registrar.setForeground(Color.orange);
+
                 break;
 
             case _OLVIDAR:
+
                 Singletons.log.Recordar.setForeground(Color.orange);
+
                 break;
         }
     }
@@ -189,11 +208,15 @@ public class Controlador_Login implements ActionListener, MouseListener {
     public void mouseExited(MouseEvent me) {
         switch (Accion.valueOf(me.getComponent().getName())) {
             case _REGISTER:
+
                 Singletons.log.Registrar.setForeground(Color.white);
+
                 break;
 
             case _OLVIDAR:
+
                 Singletons.log.Recordar.setForeground(Color.white);
+
                 break;
         }
     }

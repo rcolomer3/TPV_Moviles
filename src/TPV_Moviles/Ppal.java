@@ -6,6 +6,7 @@
 package TPV_Moviles;
 
 import TPV_Moviles.Clases.Config;
+import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
@@ -23,7 +24,8 @@ public class Ppal {
 
         conf = new Config();
         
-        //new Controlador_Inicio(new Ventana_Inicio(),0).iniciar(0);
-        new Controlador_Login(new Login(), 0).iniciar(0);
+        Singletons.conectado = "no";
+        new Controlador_Inicio(new Ventana_Inicio(),0).iniciar(0);
+        //new Controlador_Login(new Login(), 0).iniciar(0);
     }
 }

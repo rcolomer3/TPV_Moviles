@@ -47,7 +47,7 @@ public class ModificarCli extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         cmbTipoUser = new javax.swing.JComboBox();
         btnModificar = new javax.swing.JButton();
-        btnVolverPro = new javax.swing.JButton();
+        btnVolverMenu = new javax.swing.JButton();
         NoNombre = new javax.swing.JLabel();
         labelAvatar = new javax.swing.JLabel();
         btnCambiarAvatar = new javax.swing.JButton();
@@ -135,20 +135,20 @@ public class ModificarCli extends javax.swing.JFrame {
         btnModificar.setOpaque(false);
         jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
-        btnVolverPro.setText("Ir Pager Pro");
-        btnVolverPro.setOpaque(false);
-        jPanel1.add(btnVolverPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
+        btnVolverMenu.setText("Ir al Menu ");
+        btnVolverMenu.setOpaque(false);
+        jPanel1.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
 
         NoNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N
         jPanel1.add(NoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 31, -1, 20));
 
         labelAvatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         labelAvatar.setOpaque(true);
-        jPanel1.add(labelAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 31, 116, 112));
+        jPanel1.add(labelAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 31, 100, 112));
 
         btnCambiarAvatar.setText("Cambiar");
         btnCambiarAvatar.setOpaque(false);
-        jPanel1.add(btnCambiarAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 116, -1));
+        jPanel1.add(btnCambiarAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 90, -1));
 
         etiFAlta.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         etiFAlta.setForeground(java.awt.Color.orange);
@@ -298,7 +298,7 @@ public class ModificarCli extends javax.swing.JFrame {
     public static javax.swing.JButton btnCancelar;
     public static javax.swing.JButton btnModificar;
     public static javax.swing.JButton btnVolver;
-    public static javax.swing.JButton btnVolverPro;
+    public static javax.swing.JButton btnVolverMenu;
     public static javax.swing.JComboBox cmbTipoUser;
     public static com.toedter.calendar.JDateChooser dcFalta;
     public static com.toedter.calendar.JDateChooser dcFnac;

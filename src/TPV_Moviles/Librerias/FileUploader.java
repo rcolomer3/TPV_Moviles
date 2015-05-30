@@ -11,6 +11,11 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.DAO.DAOGrafico;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
+import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
+import static TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro.ModificarPro;
+import TPV_Moviles.Modulos.GestionProductos.Vista.RegistroPro;
+import TPV_Moviles.Modulos.GestionProductos.Vista.Ventana_Prod;
+import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -62,7 +67,13 @@ public class FileUploader {
                     Image newimg1 = img1.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
                     ImageIcon newIcon1 = new ImageIcon(newimg1);
                     Singletons.ModificarCli.labelAvatar.setIcon(newIcon1); //pintamos la imagen en jlabel1
-                }
+                } else if (i == 2) {
+                    ImageIcon icon2 = new ImageIcon(Singletons.ruta);
+                    Image img2 = icon2.getImage();
+                    Image newimg2 = img2.getScaledInstance(100, 90, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newIcon2 = new ImageIcon(newimg2);
+                    SingletonsPro.ModificarPro.fotoPro_M.setIcon(newIcon2); //pintamos la imagen en jlabel1
+                } 
             }
             try {
                 //guardamos la imagen
@@ -128,7 +139,7 @@ public class FileUploader {
                 //Se extrae la imagen del icono
                 Image img = icon.getImage();
                 //Se modifica su tamaño
-                Image newimg = img.getScaledInstance(101, 114, java.awt.Image.SCALE_SMOOTH);
+                Image newimg = img.getScaledInstance(105, 114, java.awt.Image.SCALE_SMOOTH);
                 //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
                 ImageIcon newIcon = new ImageIcon(newimg);
                 ModificarCli.labelAvatar.setIcon(newIcon);
@@ -145,9 +156,69 @@ public class FileUploader {
                 ImageIcon newIcon = new ImageIcon(newimg);
                 ModificarCli.labelAvatar.setIcon(newIcon);
             }
-
+            
+            if (i == 5) {
+                //pintamos la imagen en el Jlabel
+                ImageIcon icon = new ImageIcon(SingletonsPro.p.getAvatar());
+                //Se extrae la imagen del icono
+                Image img = icon.getImage();
+                //Se modifica su tamaño
+                Image newimg = img.getScaledInstance(101, 49, java.awt.Image.SCALE_SMOOTH);
+                //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+                ImageIcon newIcon = new ImageIcon(newimg);
+                ModificarPro.fotoPro_M.setIcon(newIcon);
+            }
+            
+            if (i == 6) {
+                //pintamos la imagen en el Jlabel
+                ImageIcon icon = new ImageIcon(empf.getAvatar());
+                //Se extrae la imagen del icono
+                Image img = icon.getImage();
+                //Se modifica su tamaño
+                Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
+                //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+                ImageIcon newIcon = new ImageIcon(newimg);
+                RegistroPro.labelFotoUsu.setIcon(newIcon);
+            }
+            
+            if (i == 7) {
+                //pintamos la imagen en el Jlabel
+                ImageIcon icon = new ImageIcon(empf.getAvatar());
+                //Se extrae la imagen del icono
+                Image img = icon.getImage();
+                //Se modifica su tamaño
+                Image newimg = img.getScaledInstance(49, 40, java.awt.Image.SCALE_SMOOTH);
+                //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+                ImageIcon newIcon = new ImageIcon(newimg);
+                ModificarPro.labelFotoUsu.setIcon(newIcon);
+            }
+            
+            if (i == 8) {
+                //pintamos la imagen en el Jlabel
+                ImageIcon icon = new ImageIcon(empf.getAvatar());
+                //Se extrae la imagen del icono
+                Image img = icon.getImage();
+                //Se modifica su tamaño
+                Image newimg = img.getScaledInstance(50, 40, java.awt.Image.SCALE_SMOOTH);
+                //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+                ImageIcon newIcon = new ImageIcon(newimg);
+                Ventana_Prod.fotoUsu.setIcon(newIcon);
+            }
+            
+            if (i == 9) {
+                //pintamos la imagen en el Jlabel
+                ImageIcon icon = new ImageIcon(empf.getAvatar());
+                //Se extrae la imagen del icono
+                Image img = icon.getImage();
+                //Se modifica su tamaño
+                Image newimg = img.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+                //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+                ImageIcon newIcon = new ImageIcon(newimg);
+                Ventana_Inicio.fotoppal.setIcon(newIcon);
+            }
+            
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error eee imagen", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error imagen", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

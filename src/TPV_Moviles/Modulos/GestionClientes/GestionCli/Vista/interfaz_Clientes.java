@@ -3,7 +3,7 @@ package TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class interfaz_Clientes extends javax.swing.JFrame implements ActionListener {
+public class interfaz_Clientes extends javax.swing.JFrame  {
 
     public interfaz_Clientes() {
         initComponents();
@@ -350,8 +350,5 @@ public class interfaz_Clientes extends javax.swing.JFrame implements ActionListe
     public static javax.swing.JButton ultimo;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }

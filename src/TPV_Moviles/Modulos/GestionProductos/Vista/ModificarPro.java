@@ -109,7 +109,7 @@ public class ModificarPro extends javax.swing.JFrame {
         jPanel1.add(cmbTipoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 161, -1));
 
         fotoPro_M.setOpaque(true);
-        jPanel1.add(fotoPro_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 49, 100, 100));
+        jPanel1.add(fotoPro_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 69, 100, 80));
 
         btnElegir_M.setText("Elegir");
         btnElegir_M.setOpaque(false);
@@ -120,6 +120,8 @@ public class ModificarPro extends javax.swing.JFrame {
         labModelo.setText("Modelo:");
         jPanel1.add(labModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 76, -1, -1));
         jPanel1.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 122, 161, -1));
+
+        dcFmercado.setDateFormatString("dd-MM-yyyy");
         jPanel1.add(dcFmercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 251, 161, -1));
 
         NoRef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/cancel.png"))); // NOI18N

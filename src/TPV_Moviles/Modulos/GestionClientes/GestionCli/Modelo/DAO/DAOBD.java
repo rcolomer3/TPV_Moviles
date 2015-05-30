@@ -21,12 +21,12 @@ import javax.swing.JOptionPane;
  */
 public class DAOBD {
 
-    //Dar de alta a un empleado
+    //Dar de alta a un cliente
     public static int nuevoClienteDAO(Connection con) {
 
         PreparedStatement stmt = null;
         int correcto = 0;
-         JOptionPane.showMessageDialog(null, "EEE!");
+        
         try {
 
             stmt = con.prepareStatement("INSERT INTO movilesbbdd.clientes"
@@ -48,7 +48,7 @@ public class DAOBD {
             stmt.setString(13, Singletons.e.getAvatar());
             stmt.setInt(14, Singletons.e.getAntiguedad());
             stmt.setFloat(15, Singletons.e.getSaldo());
-JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
+            
             correcto = stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
 
@@ -66,7 +66,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
         return correcto;
     }
 
-    //Listamos todos los empleados y los metemos en su array
+    //Listamos todos los clientes y los metemos en su array
     public void listarClienteDAO(Connection con) {
 
         ResultSet rs = null;
@@ -113,7 +113,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
         }
     }
 
-    //Modificamos un empleado
+    //Modificamos un cliente
     public static int modificarClienteDAO(Connection con) {
         PreparedStatement stmt = null;
         int correcto = 0;
@@ -139,7 +139,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
             stmt.setString(13, Singletons.e.getAvatar());
             stmt.setInt(14, Singletons.e.getAntiguedad());
             stmt.setFloat(15, Singletons.e.getSaldo());
-            
+
             stmt.setString(16, Singletons.e.getDni());
             correcto = stmt.executeUpdate();
 
@@ -158,7 +158,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
         return correcto;
     }
 
-    //Borramos un empleado
+    //Borramos un cliente
     public boolean borrarClienteDAO(Connection con) {
 
         PreparedStatement stmt = null;
@@ -183,7 +183,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
         return correcto;
     }
 
-    //Buscamos por dni un empleado
+    //Buscamos por dni un cliente
     public boolean buscarPorDniDAO(Connection con) {
 
         ResultSet rs = null;
@@ -241,7 +241,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
             Singletons.e.setAvatar(rs.getString("Avatar"));
             Singletons.e.setAntiguedad(rs.getInt("Antiguedad"));
             Singletons.e.setSaldo(rs.getFloat("Saldo"));
-            
+
             correcto = true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en el Logger");
@@ -254,7 +254,7 @@ JOptionPane.showMessageDialog(null, Singletons.e.getTelefono());
 
         com.mysql.jdbc.CallableStatement cstmt = null;
         String cadena = "";
-        
+
         try {
             cstmt = (com.mysql.jdbc.CallableStatement) con.prepareCall("{call proce_edad(?,?)}");
             cstmt.registerOutParameter(1, java.sql.Types.INTEGER);

@@ -6,11 +6,12 @@
 package TPV_Moviles.Modulos.GestionProductos.Modelo.Clases;
 
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.DAOCliente;
+import TPV_Moviles.Modulos.GestionProductos.Modelo.BLL.BLLProBD;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Pager.pagina;
+import TPV_Moviles.Modulos.GestionProductos.Vista.Ventana_Prod;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
-import projectefinal_moviles.Modulos.Gestion_Productos.Vista.Ventana_Prod;
 
 /**
  *
@@ -20,7 +21,7 @@ public class miniSimpleTableModel_Pro extends AbstractTableModel {
 
     public static ArrayList<Productos> datos = new ArrayList<Productos>();
     public static ArrayList<Productos> datosaux = new ArrayList<Productos>();
-    String[] columnas = {"Referencia", "Modelo", "Marca"};
+    String[] columnas = {"Referencia", "Modelo", "Marca", "FMercado"};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override
@@ -58,6 +59,10 @@ public class miniSimpleTableModel_Pro extends AbstractTableModel {
 
             case 2:
                 dev = fila.getMarca();
+                break;
+
+            case 3:
+                dev = fila.getFechaMercado().toStringFecha();
                 break;
         }
         return dev;
@@ -126,8 +131,8 @@ public class miniSimpleTableModel_Pro extends AbstractTableModel {
         datos.clear();
         datosaux.clear();
 
-        BLLBD _produ = new BLLBD();
-        _produ.listarClienteBLL();
+        BLLProBD _produ = new BLLProBD();
+        _produ.listarProductosBLL();
 
         for (int i = 0; i <= SingletonsPro.pro.size() - 1; i++) {
             addRow(SingletonsPro.pro.get(i));

@@ -50,7 +50,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES ('Juan','Lopez','06571095H',22,'685693365','20-5-1993','8-5-2011','juan','4dd5dbcf08fcce332740989256e8fd53','rcolomer3@gmail.com',0,'Cliente','src/TPV_Moviles/Img/empleado.png',4,500),('Raul','Colomer','48607190W',22,'665538067','14-3-1993','8-5-2010','raul','827ccb0eea8a706c4c34a16891f84e7b','rcolomer3@gmail.com',0,'Administrador','src/TPV_Moviles/Img/empleado.png',5,501),('Lucia','Sanchez','52352718A',32,'658963658','7-5-1983','11-5-2008','UWQ51','81dc9bdb52d04dc20036dbd8313ed055','rcolomer3@gmail.com',0,'Cliente','src/TPV_Moviles/Img/empleado.png',7,500);
+INSERT INTO `clientes` VALUES ('Juanjo','Lopez','06571095H',22,'685693365','20-5-1993','8-5-2011','juan','81dc9bdb52d04dc20036dbd8313ed055','rcolomer3@gmail.com',0,'Cliente','src/TPV_Moviles/Img/empleado.png',4,500),('Manolo','Martinez','25645074M',42,'650236958','20-5-1973','7-5-2010','manolo','81dc9bdb52d04dc20036dbd8313ed055','rcolomer3@gmail.com',0,'Cliente','src/TPV_Moviles/Img/0EQ2IAS4ZP.jpg',5,900),('Raul','Colomer','48607190W',22,'665538067','14-3-1993','8-5-2010','raul','827ccb0eea8a706c4c34a16891f84e7b','rcolomer3@gmail.com',0,'Administrador','src/TPV_Moviles/Img/FKMZHURYO7.jpg',5,501),('Lucia','Sanchez','52352718A',32,'658963658','7-5-1983','11-5-2008','lucia','81dc9bdb52d04dc20036dbd8313ed055','rcolomer3@gmail.com',0,'Cliente','src/TPV_Moviles/Img/empleado.png',7,500);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -191,6 +191,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES ('001','G2','LG','Movil Gama Alta','10-11-2013',1,489,10,'Smartphone','src/TPV_Moviles/Img/9E8RICMEQ9.jpg'),('002','5','Nexus','Gama Alta','11-5-2013',2,350,15,'Smartphone','src/TPV_Moviles/Img/ZINMPR0J1M.jpg'),('003','Funda Ae5','BQ','Funda de alta calidad','9-5-2014',1,10,15,'Accesorio','src/TPV_Moviles/Img/WQAE2UMNAV.jpg'),('004','Funda G3','LG','Funda LG','4-5-2013',2,10,15,'Accesorio','src/TPV_Moviles/Img/0UJI1UVCTR.jpg'),('005','Cargador LG','LG','Cargador para LG','9-5-2014',1,20,15,'Accesorio','src/TPV_Moviles/Img/FI5EI56MVX.jpg'),('006','Player','Nexus','SmartBox Nexus Player','22-5-2014',1,100,15,'Accesorio','src/TPV_Moviles/Img/K7FGOAWO4F.jpg');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -205,7 +206,7 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tr_registro_prod` AFTER INSERT ON `productos` FOR EACH
 ROW BEGIN
 insert into registro_prod(Referencia, Modelo, Marca, Precio, Tipo, Fecha_creacion)
-values( new.Referencia, new.Modelo, newm.Marca, new.Precio, new.Tipo, Now());
+values( new.Referencia, new.Modelo, new.Marca, new.Precio, new.Tipo, Now());
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -275,7 +276,7 @@ CREATE TABLE `registro_clientes` (
 
 LOCK TABLES `registro_clientes` WRITE;
 /*!40000 ALTER TABLE `registro_clientes` DISABLE KEYS */;
-INSERT INTO `registro_clientes` VALUES ('Juan','Lopez','06571095H','Cliente','juan','rcolomer3@gmail.com','2015-05-22 10:04:36'),('Lucia','Sanchez','52352718A','Cliente','UWQ51','rcolomer3@gmail.com','2015-05-22 10:06:45');
+INSERT INTO `registro_clientes` VALUES ('Juan','Lopez','06571095H','Cliente','juan','rcolomer3@gmail.com','2015-05-22 10:04:36'),('Lucia','Sanchez','52352718A','Cliente','UWQ51','rcolomer3@gmail.com','2015-05-22 10:06:45'),('Manolo','Sanz','25645074M','Cliente','5PLP0','rcolomer3@gmail.com','2015-05-28 08:34:30');
 /*!40000 ALTER TABLE `registro_clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,6 +303,7 @@ CREATE TABLE `registro_prod` (
 
 LOCK TABLES `registro_prod` WRITE;
 /*!40000 ALTER TABLE `registro_prod` DISABLE KEYS */;
+INSERT INTO `registro_prod` VALUES ('001','G2','LG',489,'Smartphone','2015-05-28 20:40:23'),('002','5','Nexus',0,'Smartphone','2015-05-28 20:47:48'),('003','Aquaris E5','BQ',600,'Accesorio','2015-05-29 20:35:21'),('004','Funda G3','LG',600,'Accesorio','2015-05-29 21:12:16'),('005','Cargador LG','LG',600,'Accesorio','2015-05-29 21:14:34'),('006','Player','Nexus',600,'Accesorio','2015-05-29 21:21:39');
 /*!40000 ALTER TABLE `registro_prod` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -330,7 +332,7 @@ CREATE TABLE `update_clientes` (
 
 LOCK TABLES `update_clientes` WRITE;
 /*!40000 ALTER TABLE `update_clientes` DISABLE KEYS */;
-INSERT INTO `update_clientes` VALUES ('Raul','Raul','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 08:24:03'),('Raul','Raul','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 08:47:44'),('Raul','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 08:48:13'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:09:47'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:37:40'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:50:18'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:53:30'),('Raulet','Raulet','Colomer','Colomeret','48607190W','MJ2UF','raul','2015-05-22 09:53:59'),('Juan','Juan','Lopez','Lopez','06571095H','juan','juan','2015-05-22 10:05:33'),('Lucia','Lucia','Sanchez','Sanchez','52352718A','UWQ51','UWQ51','2015-05-23 08:22:38'),('Juan','Juan','Lopez','Lopez','06571095H','juan','juan','2015-05-23 08:27:37'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 09:59:15'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 09:59:43'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 10:01:02'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 10:03:32'),('Juan','Juan','Lopez','Lopez','06571095H','juan','juan','2015-05-23 21:12:48'),('Raulet','Raul','Colomeret','Colomer','48607190W','raul','raul','2015-05-24 13:18:53');
+INSERT INTO `update_clientes` VALUES ('Raul','Raul','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 08:24:03'),('Raul','Raul','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 08:47:44'),('Raul','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 08:48:13'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:09:47'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:37:40'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:50:18'),('Raulet','Raulet','Colomer','Colomer','48607190W','MJ2UF','MJ2UF','2015-05-22 09:53:30'),('Raulet','Raulet','Colomer','Colomeret','48607190W','MJ2UF','raul','2015-05-22 09:53:59'),('Juan','Juan','Lopez','Lopez','06571095H','juan','juan','2015-05-22 10:05:33'),('Lucia','Lucia','Sanchez','Sanchez','52352718A','UWQ51','UWQ51','2015-05-23 08:22:38'),('Juan','Juan','Lopez','Lopez','06571095H','juan','juan','2015-05-23 08:27:37'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 09:59:15'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 09:59:43'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 10:01:02'),('Raulet','Raulet','Colomeret','Colomeret','48607190W','raul','raul','2015-05-23 10:03:32'),('Juan','Juan','Lopez','Lopez','06571095H','juan','juan','2015-05-23 21:12:48'),('Raulet','Raul','Colomeret','Colomer','48607190W','raul','raul','2015-05-24 13:18:53'),('Manolo','Manolo','Sanz','Sanz','25645074M','5PLP0','5PLP0','2015-05-28 08:38:04'),('Juan','Juanjo','Lopez','Lopez','06571095H','juan','juan','2015-05-29 19:44:10'),('Raul','Raul','Colomer','Colomer','48607190W','raul','raul','2015-05-29 20:32:35'),('Manolo','Manoloo','Sanz','Sanz','25645074M','5PLP0','5PLP0','2015-05-30 08:42:46'),('Manoloo','Manolo','Sanz','Sanz','25645074M','5PLP0','manolo','2015-05-30 08:43:38'),('Lucia','Lucia','Sanchez','Sanchez','52352718A','UWQ51','lucia','2015-05-30 08:45:49'),('Manolo','Manolo','Sanz','Martinez','25645074M','manolo','manolo','2015-05-30 09:10:12'),('Manolo','Manoloo','Martinez','Martinez','25645074M','manolo','manolo','2015-05-30 10:02:12'),('Manoloo','Manolo','Martinez','Martinez','25645074M','manolo','manolo','2015-05-30 10:03:30'),('Manolo','Manolo','Martinez','Martinez','25645074M','manolo','manoloo','2015-05-30 10:05:24'),('Manolo','Manolo','Martinez','Martinez','25645074M','manoloo','manolo','2015-05-30 10:06:27');
 /*!40000 ALTER TABLE `update_clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,6 +361,7 @@ CREATE TABLE `update_prod` (
 
 LOCK TABLES `update_prod` WRITE;
 /*!40000 ALTER TABLE `update_prod` DISABLE KEYS */;
+INSERT INTO `update_prod` VALUES ('002','5','5','Nexus','Nexus','Smartphone','Smartphone','2015-05-28 21:07:30'),('002','5','5','Nexus','Nexus','Smartphone','Smartphone','2015-05-29 08:51:46'),('001','G2','G2','LG','LG','Smartphone','Smartphone','2015-05-29 08:51:46'),('001','G2','G2','LG','LG','Smartphone','Smartphone','2015-05-29 08:52:24'),('002','5','5','Nexus','Nexus','Smartphone','Smartphone','2015-05-29 08:54:40'),('001','G2','G2','LG','LGs','Smartphone','Smartphone','2015-05-29 20:30:32'),('002','5','5','Nexus','Nexuss','Smartphone','Smartphone','2015-05-29 20:31:16'),('003','Aquaris E5','Aquaris E5','BQ','BQ','Accesorio','Smartphone','2015-05-29 20:38:45'),('001','G2','G2','LGs','LGs','Smartphone','Smartphone','2015-05-29 20:41:34'),('001','G2','G2','LGs','LGs','Smartphone','Smartphone','2015-05-29 20:41:50'),('001','G2','G2','LGs','LGs','Smartphone','Smartphone','2015-05-29 20:43:32'),('001','G2','G2','LGs','LGs','Smartphone','Smartphone','2015-05-29 20:49:00'),('002','5','5','Nexuss','Nexuss','Smartphone','Smartphone','2015-05-29 20:49:58'),('003','Aquaris E5','Aquaris E5 Funda','BQ','BQ','Smartphone','Accesorio','2015-05-29 20:50:34'),('003','Aquaris E5 Funda','Aquaris E5','BQ','BQ','Accesorio','Accesorio','2015-05-29 20:51:41'),('003','Aquaris E5','Aquaris E5','BQ','BQ','Accesorio','Accesorio','2015-05-29 20:52:59'),('003','Aquaris E5','Aquaris E5','BQ','BQ','Accesorio','Accesorio','2015-05-29 20:56:37'),('003','Aquaris E5','Aquaris E5','BQ','BQ','Accesorio','Accesorio','2015-05-29 21:05:24'),('003','Aquaris E5','Funda Ae5','BQ','BQ','Accesorio','Accesorio','2015-05-29 21:13:58'),('004','Funda G3','Funda G3','LG','LG','Accesorio','Accesorio','2015-05-29 21:14:56'),('005','Cargador LG','Cargador LG','LG','LG','Accesorio','Accesorio','2015-05-29 21:14:56'),('004','Funda G3','Funda G3','LG','LG','Accesorio','Accesorio','2015-05-29 21:17:18'),('005','Cargador LG','Cargador LG','LG','LG','Accesorio','Accesorio','2015-05-29 21:17:30'),('006','Player','Player','Nexus','Nexus','Accesorio','Accesorio','2015-05-29 21:26:02'),('006','Player','Player','Nexus','Nexus','Accesorio','Accesorio','2015-05-29 21:28:01'),('001','G2','G2','LGs','LG','Smartphone','Smartphone','2015-05-30 08:47:11'),('002','5','5','Nexuss','Nexus','Smartphone','Smartphone','2015-05-30 08:47:22');
 /*!40000 ALTER TABLE `update_prod` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,6 +387,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `procedure_precio_medio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `procedure_precio_medio`(OUT `Precio_medio` DOUBLE)
+BEGIN
+SELECT ROUND(AVG(Precio)) into Precio_medio FROM productos;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `proce_edad` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -403,6 +425,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `proce_precio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proce_precio`(OUT `producto_barato` INT, OUT `producto_caro` INT)
+BEGIN
+SELECT MIN(Precio),MAX(Precio) into producto_barato, producto_caro FROM productos ORDER BY Precio;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -413,4 +454,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-26  9:06:52
+-- Dump completed on 2015-05-30 10:14:07

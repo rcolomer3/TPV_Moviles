@@ -20,6 +20,7 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Pager.pagina;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
+import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
 import TPV_Moviles.Modulos.Login.Vista.Login;
 import java.util.ArrayList;
@@ -184,7 +185,6 @@ public class BLLGrafico {
         pos = buscar(e);
 
         if (pos != -1) {
-            //JOptionPane.showMessageDialog(null, "DNI repetido", "Aviso", JOptionPane.QUESTION_MESSAGE);
             AltaCli.NoDNI.setVisible(true);
             AltaCli.txtDNI.requestFocus();
         } else {
@@ -248,61 +248,123 @@ public class BLLGrafico {
 
     public static void ModificarCli() {
 
-        if (ModificarCli.NoNombre.isVisible() == false) {
-            Singletons.e.setNombre(ModiPideNombre());
-        }
-        if (ModificarCli.NoApellidos.isVisible() == false) {
-            Singletons.e.setApellidos(ModPideApellidos());
-        }
-        if (ModificarCli.NoTelefono.isVisible() == false) {
-            Singletons.e.setTelefono(ModPideTelefono());
-        }
-        if (ModificarCli.NOFNAC.isVisible() == false) {
-            Singletons.e.setFechaNacimiento(ModipideFechaNac());
-            Singletons.e.calcularEdad(ModipideFechaNac());
-        }
-        if (ModificarCli.NOFALTA.isVisible() == false) {
-            Singletons.e.setFechaAlta(ModipideFechaAlta());
-            Singletons.e.calcularAntiguedad(ModipideFechaAlta());
-        }
+        LoginBLL _tipoUsu = new LoginBLL();
+        String usuario = Singletons.log.txtUsuario.getText();
+        Singletons.tipoUsuario = _tipoUsu.TipoUsuarioBLL(usuario);
 
-        if (ModificarCli.NoUsuario.isVisible() == false) {
-            Singletons.e.setUsuario(ModpideUsuario());
-        }
+        if ((Singletons.conectado.equals("si")) && (Singletons.tipoUsuario.equals("Administrador"))) {
 
-        if (ModificarCli.NoPassword.isVisible() == false) {
-            Singletons.e.setPassword(ModpidePassword());
-        }
+            if (ModificarCli.NoNombre.isVisible() == false) {
+                Singletons.e.setNombre(ModiPideNombre());
+            }
+            if (ModificarCli.NoApellidos.isVisible() == false) {
+                Singletons.e.setApellidos(ModPideApellidos());
+            }
+            if (ModificarCli.NoTelefono.isVisible() == false) {
+                Singletons.e.setTelefono(ModPideTelefono());
+            }
+            if (ModificarCli.NOFNAC.isVisible() == false) {
+                Singletons.e.setFechaNacimiento(ModipideFechaNac());
+                Singletons.e.calcularEdad(ModipideFechaNac());
+            }
+            if (ModificarCli.NOFALTA.isVisible() == false) {
+                Singletons.e.setFechaAlta(ModipideFechaAlta());
+                Singletons.e.calcularAntiguedad(ModipideFechaAlta());
+            }
 
-        if (ModificarCli.NoEmail.isVisible() == false) {
-            Singletons.e.setEmail(ModpideEmail());
-        }
+            if (ModificarCli.NoUsuario.isVisible() == false) {
+                Singletons.e.setUsuario(ModpideUsuario());
+            }
 
-        if (Singletons.PATH_auto != null) {
-            Singletons.e.setAvatar(Singletons.PATH_auto);
-        }
+            if (ModificarCli.NoPassword.isVisible() == false) {
+                Singletons.e.setPassword(ModpidePassword());
+            }
 
-        if (ModificarCli.cmbTipoUser.getSelectedItem() != null) {
-            Singletons.e.setTipo(ModificarCli.cmbTipoUser.getSelectedItem().toString());
-        }
+            if (ModificarCli.NoEmail.isVisible() == false) {
+                Singletons.e.setEmail(ModpideEmail());
+            }
 
-        if ((ModificarCli.NoNombre.isVisible() == false) && (ModificarCli.NoApellidos.isVisible() == false) && (ModificarCli.NoTelefono.isVisible() == false) && (ModificarCli.NOFNAC.isVisible() == false)
-                && (ModificarCli.NOFALTA.isVisible() == false) && (ModificarCli.NoUsuario.isVisible() == false) && (ModificarCli.NoPassword.isVisible() == false) && (ModificarCli.NoEmail.isVisible() == false)) {
-            Singletons.efi.set(Singletons.pos, Singletons.e);
-            BLLBD.modificarClienteBLL();
-            ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
+            if (Singletons.PATH_auto != null) {
+                Singletons.e.setAvatar(Singletons.PATH_auto);
+            }
 
-            ModificarCli.txtNombre.requestFocus();
-            ModificarCli.txtNombre.setText("");
-            ModificarCli.txtApellidos.setText("");
-            ModificarCli.txtTelefono.setText("");
-            ModificarCli.txtUsuario.setText("");
-            ModificarCli.txtEdad.setText("");
-            ModificarCli.txtAntiguedad.setText("");
-            ModificarCli.dcFnac.setDate(null);
-            ModificarCli.dcFalta.setDate(null);
-            ModificarCli.txtPassword.setText("");
-            ModificarCli.txtEmail.setText("");
+            if (ModificarCli.cmbTipoUser.getSelectedItem() != null) {
+                Singletons.e.setTipo(ModificarCli.cmbTipoUser.getSelectedItem().toString());
+            }
+
+            if ((ModificarCli.NoNombre.isVisible() == false) && (ModificarCli.NoApellidos.isVisible() == false) && (ModificarCli.NoTelefono.isVisible() == false) && (ModificarCli.NOFNAC.isVisible() == false)
+                    && (ModificarCli.NOFALTA.isVisible() == false) && (ModificarCli.NoUsuario.isVisible() == false) && (ModificarCli.NoPassword.isVisible() == false) && (ModificarCli.NoEmail.isVisible() == false)) {
+                Singletons.efi.set(Singletons.pos, Singletons.e);
+                BLLBD.modificarClienteBLL();
+                ((miniSimpleTableModel_Cli) Singletons.PagerCli.TABLA.getModel()).cargar();
+
+                ModificarCli.txtNombre.requestFocus();
+                ModificarCli.txtNombre.setText("");
+                ModificarCli.txtApellidos.setText("");
+                ModificarCli.txtTelefono.setText("");
+                ModificarCli.txtUsuario.setText("");
+                ModificarCli.txtEdad.setText("");
+                ModificarCli.txtAntiguedad.setText("");
+                ModificarCli.dcFnac.setDate(null);
+                ModificarCli.dcFalta.setDate(null);
+                ModificarCli.txtPassword.setText("");
+                ModificarCli.txtEmail.setText("");
+            }
+        } else if ((Singletons.conectado.equals("si")) && (Singletons.tipoUsuario.equals("Cliente"))) {
+            
+            Singletons.e = DAOGrafico.ObtenerClienteLogeado();
+            
+            if (ModificarCli.NoNombre.isVisible() == false) {
+                Singletons.e.setNombre(ModiPideNombre());
+            }
+            if (ModificarCli.NoApellidos.isVisible() == false) {
+                Singletons.e.setApellidos(ModPideApellidos());
+            }
+            if (ModificarCli.NoTelefono.isVisible() == false) {
+                Singletons.e.setTelefono(ModPideTelefono());
+            }
+            if (ModificarCli.NOFNAC.isVisible() == false) {
+                Singletons.e.setFechaNacimiento(ModipideFechaNac());
+                Singletons.e.calcularEdad(ModipideFechaNac());
+            }
+            if (ModificarCli.NOFALTA.isVisible() == false) {
+                Singletons.e.setFechaAlta(ModipideFechaAlta());
+                Singletons.e.calcularAntiguedad(ModipideFechaAlta());
+            }
+
+            if (ModificarCli.NoUsuario.isVisible() == false) {
+                Singletons.e.setUsuario(ModpideUsuario());
+            }
+
+            if (ModificarCli.NoPassword.isVisible() == false) {
+                Singletons.e.setPassword(ModpidePassword());
+            }
+
+            if (ModificarCli.NoEmail.isVisible() == false) {
+                Singletons.e.setEmail(ModpideEmail());
+            }
+
+            if (Singletons.PATH_auto != null) {
+                Singletons.e.setAvatar(Singletons.PATH_auto);
+            }
+
+            if ((ModificarCli.NoNombre.isVisible() == false) && (ModificarCli.NoApellidos.isVisible() == false) && (ModificarCli.NoTelefono.isVisible() == false) && (ModificarCli.NOFNAC.isVisible() == false)
+                    && (ModificarCli.NOFALTA.isVisible() == false) && (ModificarCli.NoUsuario.isVisible() == false) && (ModificarCli.NoPassword.isVisible() == false) && (ModificarCli.NoEmail.isVisible() == false)) {
+                Singletons.efi.set(Singletons.pos, Singletons.e);
+                BLLBD.modificarClienteBLL();
+                
+                ModificarCli.txtNombre.requestFocus();
+                ModificarCli.txtNombre.setText("");
+                ModificarCli.txtApellidos.setText("");
+                ModificarCli.txtTelefono.setText("");
+                ModificarCli.txtUsuario.setText("");
+                ModificarCli.txtEdad.setText("");
+                ModificarCli.txtAntiguedad.setText("");
+                ModificarCli.dcFnac.setDate(null);
+                ModificarCli.dcFalta.setDate(null);
+                ModificarCli.txtPassword.setText("");
+                ModificarCli.txtEmail.setText("");
+            }
         }
     }
 
@@ -381,10 +443,10 @@ public class BLLGrafico {
             selection = interfaz_Clientes.TABLA.getSelectedRow();
             selection1 = inicio + selection;
             if (n == -1) {
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, "No hay un cliente seleccionada", "Error!", 2);
             } else {
                 dni = (String) interfaz_Clientes.TABLA.getModel().getValueAt(selection1, 2);
-                int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a la persona con DNI: " + dni,
+                int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar al cliente con DNI: " + dni,
                         "Info", JOptionPane.WARNING_MESSAGE);
                 if (opc == 0) {
                     ((miniSimpleTableModel_Cli) interfaz_Clientes.TABLA.getModel()).removeRow(selection1);
@@ -393,7 +455,7 @@ public class BLLGrafico {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No hay empleados", "Error!", 2);
+            JOptionPane.showMessageDialog(null, "No hay clientes", "Error!", 2);
         }
     }
 }

@@ -763,7 +763,7 @@ public class DAOGrafico {
             ModificarCli.NoPassword.setVisible(false);
             ModificarCli.NoEmail.setVisible(false);
             ModificarCli.cmbTipoUser.setEnabled(true);
-            ModificarCli.btnVolverPro.setVisible(false);
+            ModificarCli.btnVolverMenu.setVisible(false);
    
         } else if (Singletons.tipoUsuario.equals("Cliente")) {
             ModificarCli.NoNombre.setVisible(false);
@@ -803,7 +803,7 @@ public class DAOGrafico {
             FileUploader.leer_imag(3);
             
         } else if (Singletons.tipoUsuario.equals("Cliente")) {
-
+            
             Clientes empf = DAOGrafico.ObtenerClienteLogeado();
             ModificarCli.txtNombre.setText(empf.getNombre());
             ModificarCli.txtApellidos.setText(empf.getApellidos());
@@ -820,13 +820,12 @@ public class DAOGrafico {
     }
 
     public static Clientes ObtenerClienteLogeado() {
-        Clientes clie = pidednivaciopers(Login.txtUsuario.getText());
-        Singletons.pos = BLLGrafico.buscar(clie);
-        clie = Singletons.efi.get(Singletons.pos);
-
-        return clie;
+        Clientes clien = pidednivaciopers(Login.txtUsuario.getText());
+        Singletons.pos = BLLGrafico.buscar(clien);
+        clien = Singletons.efi.get(Singletons.pos);
+        return clien;
     }
-   
+    
     public static Clientes pidednivaciopers(String dnimatch) {
         Clientes empf = null;
         String dni;

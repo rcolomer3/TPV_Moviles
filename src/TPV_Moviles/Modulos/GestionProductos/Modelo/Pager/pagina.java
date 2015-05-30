@@ -7,6 +7,7 @@ package TPV_Moviles.Modulos.GestionProductos.Modelo.Pager;
 
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.miniSimpleTableModel_Pro;
+import TPV_Moviles.Modulos.GestionProductos.Vista.Ventana_Prod;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -18,7 +19,6 @@ import javax.swing.ButtonModel;
 import javax.swing.JRadioButton;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
-import projectefinal_moviles.Modulos.Gestion_Productos.Vista.Ventana_Prod;
 
 /**
  *

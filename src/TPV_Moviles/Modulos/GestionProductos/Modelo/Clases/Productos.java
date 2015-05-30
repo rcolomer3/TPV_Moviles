@@ -164,34 +164,33 @@ public class Productos implements Comparable<Productos>, Serializable {
         String cad = "";
         if (Ppal.conf == null) {
             cad = "Productos" + "\n" + "Referencia= " + getReferencia() + "\n" + "Modelo= "
-                    + getModelo() + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato1d(getPrecio()) + "\n"
+                    + getModelo() + "\n" + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato1d(getPrecio()) + Config.getMoneda() + "\n"
                     + "Tipo= " + getTipo();
         } else {
             if (Config.getNumdecimal().equals("1")) {
                 cad = "Productos" + "\n" + "Referencia= " + getReferencia() + "\n" + "Modelo= "
-                        + getModelo() + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato1d(getPrecio()) + "\n"
+                        + getModelo() + "\n" + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato1d(getPrecio()) + Config.getMoneda() + "\n"
                         + "Tipo= " + getTipo();
             } else if (Config.getNumdecimal().equals("2")) {
                 cad = "Productos" + "\n" + "Referencia= " + getReferencia() + "\n" + "Modelo= "
-                        + getModelo() + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato1d(getPrecio()) + "\n"
+                        + getModelo() + "\n" + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato2d(getPrecio()) + Config.getMoneda() + "\n"
                         + "Tipo= " + getTipo();
             } else if (Config.getNumdecimal().equals("3")) {
                 cad = "Productos" + "\n" + "Referencia= " + getReferencia() + "\n" + "Modelo= "
-                        + getModelo() + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato1d(getPrecio()) + "\n"
+                        + getModelo() + "\n" + "Marca= " + getMarca() + "\n" + "Precio= " + Formato.formato3d(getPrecio()) + Config.getMoneda() + "\n"
                         + "Tipo= " + getTipo();
             }
         }
         return cad;
     }
-    
+
     public float calcularPrecio() {
-        if ((this.getAntiguedad() > 1) && (this.getAntiguedad() < 2)) {
+
+        if ((this.getAntiguedad() >= 1) || (this.getAntiguedad() <= 2)) {
             this.setPrecio(600);
-        }
-        else if ((this.getAntiguedad() > 2) && (this.getAntiguedad() < 3)) {
+        } else if ((this.getAntiguedad() >= 2) || (this.getAntiguedad() <= 5)) {
             this.setPrecio(300);
-        } 
-        else if (this.getAntiguedad() > 3) {
+        } else if (this.getAntiguedad() >= 5) {
             this.setPrecio(120);
         }
         return this.getPrecio();

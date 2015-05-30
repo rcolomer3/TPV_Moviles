@@ -6,6 +6,7 @@
 package TPV_Moviles.Modulos.GestionProductos.Modelo.DAO;
 
 import TPV_Moviles.Clases.Fecha;
+import TPV_Moviles.Librerias.FileUploader;
 import TPV_Moviles.Librerias.Validate;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.DAOCliente;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
@@ -14,9 +15,9 @@ import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.Productos;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.GestionProductos.Vista.ModificarPro;
 import TPV_Moviles.Modulos.GestionProductos.Vista.RegistroPro;
+import TPV_Moviles.Modulos.GestionProductos.Vista.Ventana_Prod;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import com.toedter.calendar.JTextFieldDateEditor;
-import projectefinal_moviles.Modulos.Gestion_Productos.Vista.Ventana_Prod;
 
 /**
  *
@@ -38,7 +39,7 @@ public class DAOGraficoPro {
         stock = 15;
         tipo = RegistroPro.cmbTipoP.getSelectedItem().toString();
         avatar = SingletonsPro.ruta;
-
+       
         if ((RegistroPro.NoRef.isVisible() == false) && (RegistroPro.NoModelo.isVisible() == false) && (RegistroPro.NoMarca.isVisible() == false) && (RegistroPro.NoDesc.isVisible() == false)
                 && (RegistroPro.NoFmercado.isVisible() == false)) {
             SingletonsPro.p = new Productos(referencia, modelo, marca, descripcion, fechaMercado, precio, stock, tipo, avatar);
@@ -47,7 +48,6 @@ public class DAOGraficoPro {
 
     public static String pideReferencia() {
         String ref = "";
-        boolean validar;
 
         ref = RegistroPro.txtReferencia.getText();
         if (ref.isEmpty()) {
@@ -55,20 +55,14 @@ public class DAOGraficoPro {
             RegistroPro.NoRef.setVisible(true);
         } else {
             ref = RegistroPro.txtReferencia.getText();
-            validar = Validate.validaTelefono(ref);
-            if (validar == false) {
-                RegistroPro.txtReferencia.requestFocus();
-                RegistroPro.NoRef.setVisible(true);
-            } else {
-                RegistroPro.NoRef.setVisible(false);
-            }
+            RegistroPro.NoRef.setVisible(false);
+
         }
         return ref;
     }
 
     public static String ModpideReferencia() {
         String ref = "";
-        boolean validar;
 
         ref = ModificarPro.txtReferencia.getText();
         if (ref.isEmpty()) {
@@ -76,13 +70,8 @@ public class DAOGraficoPro {
             ModificarPro.NoRef.setVisible(true);
         } else {
             ref = ModificarPro.txtReferencia.getText();
-            validar = Validate.validaTelefono(ref);
-            if (validar == false) {
-                ModificarPro.txtReferencia.requestFocus();
-                ModificarPro.NoRef.setVisible(true);
-            } else {
-                ModificarPro.NoRef.setVisible(false);
-            }
+            ModificarPro.NoRef.setVisible(false);
+
         }
         return ref;
     }
@@ -90,7 +79,6 @@ public class DAOGraficoPro {
     public static String pideModelo() {
 
         String modelo = "";
-        boolean validar;
 
         modelo = RegistroPro.txtModelo.getText();
         if (modelo.isEmpty()) {
@@ -98,20 +86,13 @@ public class DAOGraficoPro {
             RegistroPro.txtModelo.requestFocus();
         } else {
             modelo = RegistroPro.txtModelo.getText();
-            validar = Validate.validaNombre(modelo);
-            if (validar == false) {
-                RegistroPro.txtModelo.requestFocus();
-                RegistroPro.NoModelo.setVisible(true);
-            } else {
-                RegistroPro.NoModelo.setVisible(false);
-            }
+            RegistroPro.NoModelo.setVisible(false);
         }
         return modelo;
     }
 
     public static String pideModeloKey() {
         String modelo = "";
-        boolean validar;
 
         modelo = RegistroPro.txtModelo.getText();
         if (modelo.isEmpty()) {
@@ -119,20 +100,13 @@ public class DAOGraficoPro {
             RegistroPro.txtModelo.requestFocus();
         } else {
             modelo = RegistroPro.txtModelo.getText();
-            validar = Validate.validaNombre(modelo);
-            if (validar == false) {
-                RegistroPro.txtModelo.requestFocus();
-                RegistroPro.NoModelo.setVisible(true);
-            } else {
-                RegistroPro.NoModelo.setVisible(false);
-            }
+            RegistroPro.NoModelo.setVisible(false);
         }
         return modelo;
     }
 
     public static String pideModeloKeyPressed() {
         String modelo = "";
-        boolean validar;
 
         modelo = RegistroPro.txtModelo.getText();
         if (modelo.isEmpty()) {
@@ -140,20 +114,15 @@ public class DAOGraficoPro {
             RegistroPro.txtModelo.requestFocus();
         } else {
             modelo = RegistroPro.txtModelo.getText();
-            validar = Validate.validaNombre(modelo);
-            if (validar == false) {
-                RegistroPro.txtModelo.requestFocus();
-                RegistroPro.NoModelo.setVisible(true);
-            } else {
-                RegistroPro.NoModelo.setVisible(false);
-            }
+
+            RegistroPro.NoModelo.setVisible(false);
+
         }
         return modelo;
     }
 
     public static String ModipideModelo() {
         String modelo = "";
-        boolean validar;
 
         modelo = ModificarPro.txtModelo.getText();
         if (modelo.isEmpty()) {
@@ -161,20 +130,14 @@ public class DAOGraficoPro {
             ModificarPro.txtModelo.requestFocus();
         } else {
             modelo = ModificarPro.txtModelo.getText();
-            validar = Validate.validaNombre(modelo);
-            if (validar == false) {
-                ModificarPro.txtModelo.requestFocus();
-                ModificarPro.NoModelo.setVisible(true);
-            } else {
-                ModificarPro.NoModelo.setVisible(false);
-            }
+            ModificarPro.NoModelo.setVisible(false);
+
         }
         return modelo;
     }
 
     public static String ModipideModeloKey() {
         String modelo = "";
-        boolean validar;
 
         modelo = ModificarPro.txtModelo.getText();
         if (modelo.isEmpty()) {
@@ -182,20 +145,15 @@ public class DAOGraficoPro {
             ModificarPro.txtModelo.requestFocus();
         } else {
             modelo = ModificarPro.txtModelo.getText();
-            validar = Validate.validaNombre(modelo);
-            if (validar == false) {
-                ModificarPro.txtModelo.requestFocus();
-                ModificarPro.NoModelo.setVisible(true);
-            } else {
-                ModificarPro.NoModelo.setVisible(false);
-            }
+
+            ModificarPro.NoModelo.setVisible(false);
+
         }
         return modelo;
     }
 
     public static String ModipideModeloKeyPressed() {
         String nomb = "";
-        boolean validar;
 
         nomb = ModificarPro.txtModelo.getText();
         if (nomb.isEmpty()) {
@@ -203,13 +161,8 @@ public class DAOGraficoPro {
             ModificarPro.txtModelo.requestFocus();
         } else {
             nomb = ModificarPro.txtModelo.getText();
-            validar = Validate.validaNombre(nomb);
-            if (validar == false) {
-                ModificarPro.txtModelo.requestFocus();
-                ModificarPro.NoModelo.setVisible(true);
-            } else {
-                ModificarPro.NoModelo.setVisible(false);
-            }
+            ModificarPro.NoModelo.setVisible(false);
+
         }
         return nomb;
     }
@@ -447,6 +400,19 @@ public class DAOGraficoPro {
         }
     }
 
+    public static void OcultarProd() {
+        LoginBLL _tipoUsu = new LoginBLL();
+        String usuario = Singletons.log.txtUsuario.getText();
+        Singletons.tipoUsuario = _tipoUsu.TipoUsuarioBLL(usuario);
+
+        if (Singletons.conectado.equals("no")) {
+            SingletonsPro.PagerPro.btnAnyadir.setVisible(false);
+            SingletonsPro.PagerPro.btnModif.setVisible(false);
+            SingletonsPro.PagerPro.btnEliminar.setVisible(false);
+            SingletonsPro.PagerPro.btnInfo.setVisible(false);
+        }
+    }
+
     public static void OcultarErroresModif() {
 
         LoginBLL _tipoUsuario = new LoginBLL();
@@ -454,7 +420,7 @@ public class DAOGraficoPro {
         Singletons.tipoUsuario = _tipoUsuario.TipoUsuarioBLL(usua);
 
         if (Singletons.tipoUsuario.equals("Administrador")) {
-            RegistroPro.NoRef.setVisible(false);
+            ModificarPro.NoRef.setVisible(false);
             ModificarPro.NoModelo.setVisible(false);
             ModificarPro.NoMarca.setVisible(false);
             ModificarPro.NoDesc.setVisible(false);
@@ -475,7 +441,7 @@ public class DAOGraficoPro {
             ModificarPro.txtMarca.setText((SingletonsPro.p).getMarca());
             ModificarPro.txtDesc.setText((SingletonsPro.p).getDescripcion());
             ((JTextFieldDateEditor) ModificarPro.dcFmercado.getDateEditor()).setText((SingletonsPro.p).getFechaMercado().toStringFecha());
-            //FileUploader.leer_imag(3); Pintar cuando seleccionas producto? 
+            FileUploader.leer_imag(5);
 
         }
     }
@@ -484,7 +450,6 @@ public class DAOGraficoPro {
         Productos prod = pideRefvacio(Ventana_Prod.txtRef.getText());
         SingletonsPro.pos = BLLGraficoPro.buscar(prod);
         prod = SingletonsPro.pro.get(SingletonsPro.pos);
-
         return prod;
     }
 
