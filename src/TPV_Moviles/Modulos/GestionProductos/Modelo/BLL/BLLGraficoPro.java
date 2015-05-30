@@ -5,6 +5,7 @@
  */
 package TPV_Moviles.Modulos.GestionProductos.Modelo.BLL;
 
+import TPV_Moviles.Clases.Config;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.Productos;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
@@ -276,7 +277,7 @@ public class BLLGraficoPro {
         Ventana_Prod.txtMarca.setText(prod.getMarca());
         Ventana_Prod.txtModelo.setText(prod.getModelo());
         Ventana_Prod.txtDescripcion.setText(prod.getDescripcion());
-        Ventana_Prod.txtPrecio.setText(Float.toString(prod.getPrecio()));
+        Ventana_Prod.txtPrecio.setText(Float.toString(prod.getPrecio()) + Config.getMoneda());
         ImageIcon icon = new ImageIcon(prod.getAvatar());
         Image img = icon.getImage();
         
