@@ -5,6 +5,7 @@
  */
 package TPV_Moviles.Modulos.GestionProductos.Modelo.BLL;
 
+import TPV_Moviles.Clases.Config;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Modelo.Clases.Singletons;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.Productos;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
@@ -91,10 +92,12 @@ public class BLLGraficoPro {
 
     public static void pideModelo() {
         DAOGraficoPro.pideModelo();
+        RegistroPro.txtMarca.requestFocus();
     }
 
     public static void pideMarca() {
         DAOGraficoPro.pideMarca();
+        RegistroPro.txtDesc.requestFocus();
     }
 
     public static void pideDescripcion() {
@@ -122,10 +125,12 @@ public class BLLGraficoPro {
 
     public static void ModpideModelo() {
         DAOGraficoPro.ModipideModelo();
+        ModificarPro.txtMarca.requestFocus();
     }
 
     public static void ModpideMarca() {
         DAOGraficoPro.ModipideMarca();
+        ModificarPro.txtDesc.requestFocus();
     }
 
     public static void ModpideDescripcion() {
@@ -276,7 +281,7 @@ public class BLLGraficoPro {
         Ventana_Prod.txtMarca.setText(prod.getMarca());
         Ventana_Prod.txtModelo.setText(prod.getModelo());
         Ventana_Prod.txtDescripcion.setText(prod.getDescripcion());
-        Ventana_Prod.txtPrecio.setText(Float.toString(prod.getPrecio()));
+        Ventana_Prod.txtPrecio.setText(Float.toString(prod.getPrecio()) + Config.getMoneda());
         ImageIcon icon = new ImageIcon(prod.getAvatar());
         Image img = icon.getImage();
         
@@ -299,7 +304,9 @@ public class BLLGraficoPro {
                 Productos prod = DAOGraficoPro.pideRefvacio(ref);
                 SingletonsPro.pos = BLLGraficoPro.buscar(prod);
                 prod = SingletonsPro.pro.get(SingletonsPro.pos);
-                BLLGraficoPro.PintaProductos(prod);
+                PintaProductos(prod);
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay ningun producto seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

@@ -23,7 +23,6 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.TABLA;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.buscador;
 import static TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes.panelPager;
-import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.Inicio.ControladorInicio.Controlador_Inicio;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;

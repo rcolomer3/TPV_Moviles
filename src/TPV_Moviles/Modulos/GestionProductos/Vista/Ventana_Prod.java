@@ -310,7 +310,7 @@ public class Ventana_Prod extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel13.setForeground(java.awt.Color.orange);
-        jLabel13.setText("Filtra por Refencia:");
+        jLabel13.setText("Filtra por Marca:");
         panelProd.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
         panelProd.add(buscadorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 438, 100, -1));
 

@@ -73,7 +73,6 @@ public class Controlador_Login implements ActionListener, MouseListener {
                 }
             });
 
-            //if (Singletons.conectado.equals("no")) {
             Singletons.log.txtPassword.setActionCommand("_TXT_USUARIO");
             Singletons.log.txtUsuario.addActionListener(this);
 
@@ -89,7 +88,6 @@ public class Controlador_Login implements ActionListener, MouseListener {
             Singletons.log.btnAcceder.setActionCommand("_BTN_ACCEDER");
             Singletons.log.btnAcceder.addActionListener(this);
 
-            // }
         }
 
         if (i == 1) {
@@ -109,7 +107,7 @@ public class Controlador_Login implements ActionListener, MouseListener {
                 }
             });
 
-            //if (Singletons.conectado.equals("no")) {
+           
             Singletons.cbpass.txtUsuarioReg.setActionCommand("_TXT_USUARIO_M");
             Singletons.cbpass.txtUsuarioReg.addActionListener(this);
 
@@ -119,7 +117,6 @@ public class Controlador_Login implements ActionListener, MouseListener {
 
             Singletons.cbpass.btnActualizar.setActionCommand("_BTN_ACTUALIZAR");
             Singletons.cbpass.btnActualizar.addActionListener(this);
-            //}
         }
     }
 

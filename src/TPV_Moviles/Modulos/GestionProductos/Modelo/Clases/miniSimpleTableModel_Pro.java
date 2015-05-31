@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class miniSimpleTableModel_Pro extends AbstractTableModel {
 
-    public static ArrayList<Productos> datos = new ArrayList<Productos>();
+     public static ArrayList<Productos> datos = new ArrayList<Productos>();
     public static ArrayList<Productos> datosaux = new ArrayList<Productos>();
     String[] columnas = {"Referencia", "Modelo", "Marca", "FMercado"};
 
@@ -149,16 +149,16 @@ public class miniSimpleTableModel_Pro extends AbstractTableModel {
         datos.clear();
 
         int cont = 0;
-        String ref = (String) ((JComboBox) SingletonsPro.combo).getSelectedItem();
-        if (ref != null) {
+        String marca = (String) ((JComboBox) SingletonsPro.combo).getSelectedItem();
+        if (marca != null) {
             for (int i = 0; i < datosaux.size(); i++) {
-                if (datosaux.get(i).getReferencia().contains(ref)) {
+                if (datosaux.get(i).getMarca().contains(marca)) {
                     addRow(datosaux.get(i));
                     cont++;
                 }
             }
             Ventana_Prod.contFiltrar.setText(String.valueOf(cont));
-            System.out.println("word selected: " + ref);
+            System.out.println("word selected: " + marca);
             pagina.initLinkBox();
         }
     }

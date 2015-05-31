@@ -395,8 +395,10 @@ public class Controlador_Pro implements ActionListener, KeyListener, MouseListen
             SingletonsPro.PagerPro.txtcese.setName("_CERRAR");
             SingletonsPro.PagerPro.txtcese.addMouseListener(this);
 
-            SingletonsPro.PagerPro.TablaProductos.setName("_PAGER");
-            SingletonsPro.PagerPro.TablaProductos.addMouseListener(this);
+            if (Singletons.conectado.equals("no")) {
+                SingletonsPro.PagerPro.TablaProductos.setName("_PAGER");
+                SingletonsPro.PagerPro.TablaProductos.addMouseListener(this);
+            }
 
         }
     }
@@ -713,8 +715,10 @@ public class Controlador_Pro implements ActionListener, KeyListener, MouseListen
                 break;
 
             case _PAGER:
+            if (Singletons.conectado.equals("no")) {
                 BLLGraficoPro.PintarProd();
-                break;
+            }
+                
         }
     }
 
