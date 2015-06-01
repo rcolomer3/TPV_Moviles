@@ -384,7 +384,9 @@ public class Controlador_Pro implements ActionListener, KeyListener, MouseListen
             SingletonsPro.PagerPro.btnInfo.addMouseListener(this);
 
             SingletonsPro.PagerPro.btnVolver.setActionCommand("_BTN_VOLVER");
+            SingletonsPro.PagerPro.btnVolver.setName("_BTN_VOLVER");
             SingletonsPro.PagerPro.btnVolver.addActionListener(this);
+            SingletonsPro.PagerPro.btnVolver.addMouseListener(this);
 
             SingletonsPro.PagerPro.btnPrecioBarato_Caro.setActionCommand("_BTN_PRECIOBACA");
             SingletonsPro.PagerPro.btnPrecioBarato_Caro.addActionListener(this);
