@@ -71,9 +71,9 @@ public class LoginBLL {
             //creamos el objeto Mail
             JavaMail mail = new JavaMail(email, password, subject, mensaje);
             //enviamos el mensaje
-            
+
             //JOptionPane.showMessageDialog(null, mail.toString(), "Envio Email OK", JOptionPane.INFORMATION_MESSAGE);
-            
+
             String error = mail.send();
             if (error.equals("")) {
                 JOptionPane.showMessageDialog(null, "Envio Correcto", "Correcto", JOptionPane.INFORMATION_MESSAGE);

@@ -17,6 +17,7 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
 import TPV_Moviles.Modulos.GestionProductos.Controlador.Controlador_Pro;
 import TPV_Moviles.Modulos.GestionProductos.Modelo.Clases.SingletonsPro;
 import TPV_Moviles.Modulos.GestionProductos.Vista.Ventana_Prod;
+import TPV_Moviles.Modulos.Inicio.Vista.SobreNosotros;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.BLL.LoginBLL;
 import TPV_Moviles.Modulos.Login.Controlador_Login.Controlador_Login;
@@ -49,6 +50,8 @@ public class Controlador_Inicio implements ActionListener, MouseListener {
         _MENU_PAGER,
         _MENU_CONFIG,
         _SIGN_IN,
+        _MENU_SOBRE,
+        _BTN_VOLVER_SOBRE,
         _SALIR,
         _MIPERFIL,
         //Acciones de la pestaña Configuracion
@@ -97,6 +100,10 @@ public class Controlador_Inicio implements ActionListener, MouseListener {
             Singletons.log = (Login) menuPpal;
             new Controlador_Login(new Login(), 0).iniciar(0);
         }
+        
+        if (i == 6) { //Pestaña sobre Nosotros
+            Singletons.sobre = (SobreNosotros) menuPpal;
+        }
 
     }
 
@@ -133,6 +140,7 @@ public class Controlador_Inicio implements ActionListener, MouseListener {
 
                 Singletons.menuPpal.MenuCli.setVisible(false);
                 Singletons.menuPpal.MenuSign.setVisible(false);
+                Singletons.menuPpal.menuSobre.setVisible(false);
                 Singletons.menuPpal.salir.setVisible(true);
                 Singletons.menuPpal.salir.setText("Salir");
 
@@ -146,6 +154,7 @@ public class Controlador_Inicio implements ActionListener, MouseListener {
 
                 Singletons.menuPpal.MenuCli.setVisible(true);
                 Singletons.menuPpal.MenuSign.setVisible(false);
+                Singletons.menuPpal.menuSobre.setVisible(false);
                 Singletons.menuPpal.salir.setVisible(true);
                 Singletons.menuPpal.salir.setText("Salir");
 
@@ -173,6 +182,30 @@ public class Controlador_Inicio implements ActionListener, MouseListener {
 
             Singletons.menuPpal.salir.setName("_SALIR");
             Singletons.menuPpal.salir.addMouseListener(this);
+            
+            Singletons.menuPpal.menuAqui.setActionCommand("_MENU_SOBRE");
+            Singletons.menuPpal.menuAqui.addActionListener(this);
+            
+        }
+        
+        if (i == 1) {
+            Singletons.sobre.setVisible(true);
+            Singletons.sobre.setResizable(false);
+            Singletons.sobre.setTitle("Sobre Nosotros");
+            Singletons.sobre.setLocationRelativeTo(null);
+            Singletons.sobre.setSize(935, 640); //ancho x alto
+            Image icono = Toolkit.getDefaultToolkit().getImage("src/TPV_Moviles/Img/logo.png");
+            Singletons.sobre.setIconImage(icono);
+
+            Singletons.sobre.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    JOptionPane.showMessageDialog(null, "Saliendo de la aplicacion");
+                    System.exit(0);
+                }
+            });
+            
+            Singletons.sobre.btnVolverNos.setActionCommand("_BTN_VOLVER_SOBRE");
+            Singletons.sobre.btnVolverNos.addActionListener(this);
         }
 
         // Opciones de configuracion
@@ -279,6 +312,18 @@ public class Controlador_Inicio implements ActionListener, MouseListener {
                 new Controlador_Inicio(new Login(), 5).iniciar(0);
                 Singletons.log.setVisible(true);
                 Singletons.menuPpal.dispose();
+                break;
+                
+            case _MENU_SOBRE:
+                new Controlador_Inicio(new SobreNosotros(), 6).iniciar(1);
+                Singletons.menuPpal.dispose();
+                Singletons.sobre.setVisible(true);
+                break;
+                
+            case _BTN_VOLVER_SOBRE:
+                new Controlador_Inicio(new Ventana_Inicio(),0).iniciar(0);
+                Singletons.sobre.dispose();
+                Singletons.menuPpal.setVisible(true);
                 break;
 
             //Pestaña Configuracion

@@ -9,6 +9,7 @@ import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.AltaCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.ModificarCli;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.autocomplete.AutocompleteJComboBox;
 import TPV_Moviles.Modulos.GestionClientes.GestionCli.Vista.interfaz_Clientes;
+import TPV_Moviles.Modulos.Inicio.Vista.SobreNosotros;
 import TPV_Moviles.Modulos.Inicio.Vista.Ventana_Inicio;
 import TPV_Moviles.Modulos.Login.Vista.CambiarPassword;
 import TPV_Moviles.Modulos.Login.Vista.Login;
@@ -34,6 +35,7 @@ public class Singletons {
     public static int pos;
     public static ArrayList<Clientes> AL_Clie = new ArrayList<Clientes>();
     public static Login log = new Login();
+    public static SobreNosotros sobre = new SobreNosotros();
     public static CambiarPassword cbpass = new CambiarPassword();
     public static String PATH_auto;
     public static String PintaNombre = "";

@@ -57,7 +57,7 @@ public class DAOGrafico {
             JavaMail mail = new JavaMail(email, password, subject, mensaje);
             //enviamos el mensaje
             
-            //JOptionPane.showMessageDialog(null, mail.toString(), "Envio Email OK", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, mail, "Envio Email OK", JOptionPane.INFORMATION_MESSAGE);
             
             String error = mail.send();
             if (error.equals("")) {

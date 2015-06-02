@@ -64,6 +64,8 @@ public class Ventana_Inicio extends javax.swing.JFrame {
         decimal3 = new javax.swing.JMenuItem();
         MenuSign = new javax.swing.JMenu();
         entrarIni = new javax.swing.JMenuItem();
+        menuSobre = new javax.swing.JMenu();
+        menuAqui = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,6 +206,15 @@ public class Ventana_Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuSign);
 
+        menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/sobrenosotros.png"))); // NOI18N
+        menuSobre.setText("Sobre Nosotros");
+
+        menuAqui.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TPV_Moviles/Img/aqui.png"))); // NOI18N
+        menuAqui.setText("Pulsa aqui");
+        menuSobre.add(menuAqui);
+
+        jMenuBar1.add(menuSobre);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -254,8 +265,10 @@ public class Ventana_Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JMenu jMenuCli;
     private javax.swing.JPanel jPanel1;
+    public static javax.swing.JMenuItem menuAqui;
     public static javax.swing.JMenuItem menuComp;
     public static javax.swing.JMenuItem menuProd;
+    public static javax.swing.JMenu menuSobre;
     public static javax.swing.JLabel nomppal;
     public static javax.swing.JLabel salir;
     // End of variables declaration//GEN-END:variables

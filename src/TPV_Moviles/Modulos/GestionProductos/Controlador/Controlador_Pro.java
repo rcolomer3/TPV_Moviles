@@ -397,7 +397,7 @@ public class Controlador_Pro implements ActionListener, KeyListener, MouseListen
             SingletonsPro.PagerPro.txtcese.setName("_CERRAR");
             SingletonsPro.PagerPro.txtcese.addMouseListener(this);
 
-            if (Singletons.conectado.equals("no")) {
+            if ((Singletons.conectado.equals("no")) || (Singletons.tipoUsuario.equals("Cliente"))) {
                 SingletonsPro.PagerPro.TablaProductos.setName("_PAGER");
                 SingletonsPro.PagerPro.TablaProductos.addMouseListener(this);
             }
@@ -500,13 +500,8 @@ public class Controlador_Pro implements ActionListener, KeyListener, MouseListen
                         } else {
                             JOptionPane.showMessageDialog(null, "No hay un producto seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE);
                         }
-                    } else if (Singletons.tipoUsuario.equals("Cliente")) {
-                        if (SingletonsPro.p != null) {
-                            SingletonsPro.PagerPro.btnInfo.setVisible(true);
-                            BLLGraficoPro.InformacionEFPager();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "No hay un producto seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE);
-                        }
+                    } else {
+                        SingletonsPro.PagerPro.btnInfo.setVisible(false);
                     }
                 }
                 break;
@@ -717,7 +712,7 @@ public class Controlador_Pro implements ActionListener, KeyListener, MouseListen
                 break;
 
             case _PAGER:
-            if (Singletons.conectado.equals("no")) {
+            if ((Singletons.conectado.equals("no"))||(Singletons.tipoUsuario.equals("Cliente"))) {
                 BLLGraficoPro.PintarProd();
             }
                 

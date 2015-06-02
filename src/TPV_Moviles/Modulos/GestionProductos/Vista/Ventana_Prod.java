@@ -355,7 +355,7 @@ public class Ventana_Prod extends javax.swing.JFrame {
 
         labNombre.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labNombre.setForeground(java.awt.Color.orange);
-        panelProd.add(labNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 50, 50, 20));
+        panelProd.add(labNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 50, 100, 20));
 
         txtcese.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtcese.setForeground(java.awt.Color.orange);
